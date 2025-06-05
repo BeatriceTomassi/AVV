@@ -1,0 +1,1205 @@
+✅ MAE totale su 22 esempi validi: 5.595
+📁 Predizioni salvate in predictions.json
+
+[
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint i,temp=0,t1=0,t2=0;\nfor(i=0;i<4;i++){\nscanf(\"%d\",&temp);\nt1+=temp;\n}\nfor(i=0;i<4;i++){\nscanf(\"%d\",&temp);\nt2+=temp;\n}\nif(t1>t2){\nprintf(\"%d\\n\",t1);\n}\nelse{\nprintf(\"%d\\n\",t2);\n}\nreturn 0;\n} <SEP> input: 100 80 70 60\n80 70 80 90 <SEP> lines: 19",
+    "target": "execution: [0, 1, 1, 5, 4, 4, 0, 5, 4, 4, 0, 1, 0, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <string.h>\nint main(void){\nchar str[21];\nsize_t len,\ni;\nscanf(\"%20[a-zA-Z0-9]\",str);\nfor(i = strlen(str);\ni != -1;i--){\nputc(str[i],stdout);\n}\nreturn 0;\n} <SEP> input: w32nimda <SEP> lines: 13",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 1, 10, 9, 9, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main() {\nint a, b, n, sum, tmp;\nwhile (scanf(\" %d %d %d \", &a, &b, &n) != EOF) {\nsum = 0;\nfor (tmp = 1; n > 0; n--) {\ntmp *= 10;\nsum += ((a * tmp) / b) % 10;\n}\nprintf(\"%d\\n\", sum);\n}\nreturn 0;\n} <SEP> input: 1 2 3\n2 3 4\n5 4 3\n4 3 2 <SEP> lines: 13",
+    "target": "execution: [0, 1, 0, 5, 4, 16, 12, 12, 0, 4, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint n, i;\nfloat x1, y1,\nx2, y2,\nx3, y3,\nx4, y4;\nfloat gra, gra2;\nscanf(\"%d\", &n);\nwhile (n > 0){\nscanf(\"%f %f %f %f %f %f %f %f\", &x1, &y1, &x2, &y2, &x3, &y3, &x4, &y4);\ngra = (y2 - y1) / (x2 - x1);\ngra2 = (y4 - y3) / (x4 - x3);\nprintf(\"%f %f\\n\", gra, gra2);\nif (gra == gra2){\nprintf(\"YES\");\n}\nelse {\nprintf(\"NO\");\n}\nprintf(\"\\n\");\nn--;\n}\nreturn (0);\n} <SEP> input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0 <SEP> lines: 26",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 3, 2, 2, 2, 2, 2, 1, 0, 0, 1, 0, 2, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\n#include<stdlib.h>\nint main(){\nchar input[9];\nint i;\nwhile(scanf(\"%s\",input)!=EOF){\n//6???????????\u00a7??????????????????????\u00b1??????????\nif((input[0]=='o' && input[1]=='o' && input[2]=='o') ||\n(input[3]=='o' && input[4]=='o' && input[5]=='o')){\nprintf(\"o\\n\");\n}\nelse if((input[0]=='x' && input[1]=='x' && input[2]=='x') ||\n(input[3]=='x' && input[4]=='x' && input[5]=='x')){\nprintf(\"x\\n\");\n}\n//7???????????\u00a7??????????????????????\u00b1??????????\n//o?????????????????\u00a8??????????????\u00b4???????????????\nelse if((input[0]=='o' && input[3]=='o' && input[6]=='o') ||\n(input[3]=='o' && input[5]=='o' && input[7]=='o')){\nprintf(\"o\\n\");\n}\n//x?????????????????\u00a8??????????????\u00b4???????????????\nelse if((input[0]=='x' && input[3]=='x' && input[6]=='x') ||\n(input[3]=='x' && input[5]=='x' && input[7]=='x')){\nprintf(\"x\\n\");\n}\n//8???????????\u00a7??????????????????????\u00b1??????????\n//o???????????????????????\u00b4???????????????\nelse if(input[0]=='o' && input[3]=='o' && input[6]=='o'){\nprintf(\"o\\n\");\n}\n//x???????????????????????\u00b4???????????????\nelse if(input[0]=='x' && input[3]=='x' && input[6]=='x'){\nprintf(\"x\\n\");\n}\n//9???????????\u00a7??????????????????????\u00b1??????????\nelse if((input[0]=='o' && input[4]=='o' && input[8]=='o') ||\n(input[6]=='o' && input[7]=='o' && input[8]=='o') ||\n(input[2]=='o' && input[5]=='o' && input[8]=='o')){\nprintf(\"o\\n\");\n}\nelse if((input[0]=='x' && input[4]=='x' && input[8]=='x') ||\n(input[6]=='x' && input[7]=='x' && input[8]=='x') ||\n(input[2]=='x' && input[5]=='x' && input[8]=='x')){\nprintf(\"x\\n\");\n}\nelse\nprintf(\"d\\n\");\n}\nreturn 0;\n} <SEP> input: ooosxssxs <SEP> lines: 51",
+    "target": "execution: [0, 0, 1, 0, 0, 2, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: h[];main(j,v){for(;~scanf(\"%d.\",&v);)h[v<165?1:v>184?6:v/5-31]+=j^=1;for(;h[j]--||6/++j&&printf(\"%d:\",j);)putchar(h[j]?42:10);} <SEP> input: 4\n180.3\n168.2\n165.5\n175.3 <SEP> lines: 1",
+    "target": "execution: [1]",
+    "prediction": "execution: [1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include<stdio.h>\n#include<math.h>\nint main(){\nint k;\ndouble x1,x2,x3,x4,y1,y2,y3,y4,m,n;\nscanf(\"%d\",&k);\nwhile(k--){\nscanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\",&x1,&x2,&x3,&x4,&y1,&y2,&y3,&y4);\nm=abs((y2-y1)/(x2-x1));\nn=abs((y4-y3)/(x4-x3));\nif(m==n) printf(\"YES\\n\");\nelse printf(\"NO\\n\");\n}\nreturn 0;\n} <SEP> input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0 <SEP> lines: 15",
+    "target": "execution: [0, 0, 1, 0, 0, 1, 3, 2, 2, 2, 2, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint a,b,c;\nscanf(\"%d %d\",&a,&b);\nc=(a+b)/2;\nprintf(\"%d\\n\",c);\nreturn 0;\n} <SEP> input: 5000 5000 <SEP> lines: 9",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main()\n{\nint i,j;\nint G[10][10];\nchar m[11];\nscanf(\"%s\",m);\nfor(i=0;i<10;i++){\nG[0][i]=(m[i]-'0');\n}\nfor(i=0;i<9;i++){\nfor(j=i;j<9;j++){\nG[i+1][j+1]=(G[i][j]+G[i][j+1])%10;\n}\n}\nprintf(\"%d\\n\",G[9][9]);\nreturn 0;\n} <SEP> input: 4823108376\n1234567890\n0123456789 <SEP> lines: 18",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 1, 11, 10, 0, 10, 54, 45, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main() {\nint a[4];\nint b[4];\nint A =0;\nint B = 0;\nint i,j,k,l;\nfor(i=0;i<4;i++){\nscanf(\"%d\",&a[i]);\nA = A + a[i];\n}\nfor(i=0;i<4;i++){\nscanf(\"%d\",&b[i]);\nB = B + b[i];\n}\nif(A > B) {\nprintf(\"%d\\n\",A);\n} else if(A < B) {\nprintf(\"%d\\n\", B);\n} else if(A == B) {\nprintf(\"%d\\n\",A);\n}\nreturn 0;\n} <SEP> input: 100 80 70 60\n80 70 80 90 <SEP> lines: 24",
+    "target": "execution: [0, 1, 0, 0, 1, 1, 0, 5, 4, 4, 0, 5, 4, 4, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\nint st[16]={0,1,2,3,4,5,6,7,8,9,5,4,3,2,1,0};\nint n,s,g,i;\nscanf(\"%d\",&n);\nwhile(n--){\nscanf(\"%d %d\",&s,&g);\nfor(i=(s>g&&g<5&&s<6)?15-s:s;st[i]!=g;i++)\nprintf(\"%d \",st[i]);\nprintf(\"%d\\n\",st[i]);\n}\nreturn 0;\n} <SEP> input: 2\n2 4\n4 2 <SEP> lines: 13",
+    "target": "execution: [0, 1, 1, 0, 1, 3, 2, 6, 4, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void)\n{\nint W,a;\nscanf(\"%d\",&W);\na=32*W;\nprintf(\"%d\",a);\nreturn(0);\n} <SEP> input: 3 <SEP> lines: 9",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 1, 1]",
+    "mae": 0.2222222222222222
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void) {\nint a1=1071, a2=1029, x, y, i;\nint amari, c;\nscanf(\"%d %d\", &a1, &a2); //1. 2number\nif(a1>=a2){\nx = a1;\ny = a2;\n}else{\nx = a2;\ny = a1;\n}\n//printf( \"x =%d, y =%d\\n\", x,y);\nfor(i = 0; y > 0; i++){\namari = x % y;\n//printf(\"%d / %d\u306eamari=%d\\n\",x,y,amari);\nx = y;\ny = amari;\n}\nprintf(\"%d %d\\n\", x, i);\nreturn 0;\n} <SEP> input: 1071 1029\n5 5\n0 0 <SEP> lines: 22",
+    "target": "execution: [0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 4, 3, 0, 3, 3, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\ndouble x1,x2,x3,x4,xab,xcd,y1,y2,y3,y4,yab,ycd,ab1,cd1,ab2,cd2,deta1,deta2=0;\nscanf(\"%lf\",&deta1);\nwhile(deta1!=deta2)\n{\nscanf(\"%lf%lf%lf%lf%lf%lf%lf%lf\",&x1,&y1,&x2,&y2,&x3,&y3,&x4,&y4);\nxab=x2-x1;\nxcd=x4-x3;\nyab=y2-y1;\nycd=y4-y3;\nif(xab==0&&xcd==0)\n{\nif(x1!=x3)\nprintf(\"YES\\n\");\nelse\nprintf(\"NO\\n\");\n}\nif(yab==0&&ycd==0)\n{\nif(y1!=y3)\nprintf(\"YES\\n\");\nelse\nprintf(\"NO\\n\");\n}\nelse\n{\nab1=yab/xab;\ncd1=ycd/xcd;\nif(x1<0&&x3>0)\n{\nab2=y1+ab1*x1;\ncd2=y3+cd1*x3;\n}\nelse if(x1>0&&x3<0)\n{\nab2=y1+ab1*x1;\ncd2=y3+cd1*x3;\n}\nelse\n{\nab2=y1-ab1*x1;\ncd2=y3-cd1*x3;\n}\nif(ab1==cd1)\n{\nif(ab2!=cd2)\nprintf(\"YES\\n\");\nelse\nprintf(\"NO\\n\");\n}\nelse\nprintf(\"NO\\n\");\n}\ndeta2++;\n}\nreturn 0;\n} <SEP> input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0 <SEP> lines: 59",
+    "target": "execution: [0, 0, 1, 1, 1, 3, 0, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 1, 1, 0, 0, 0, 0, 1, 0, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(){\nchar fig[101];\nwhile(scanf(\"%s\", fig) != EOF){\nint sum = 0, num, stk, i;\nint nums[1000] = {0};\nfor(i = 0; fig[i]; i++)\nswitch(fig[i]){\ncase 'I' :\nnums[i] = 1;\nbreak;\ncase 'V' :\nnums[i] = 5;\nbreak;\ncase 'X' :\nnums[i] = 10;\nbreak;\ncase 'L' :\nnums[i] = 50;\nbreak;\ncase 'C' :\nnums[i] = 100;\nbreak;\ncase 'D' :\nnums[i] = 500;\nbreak;\ndefault :\nnums[i] = 1000;\n}\nfor(i = 0; nums[i]; i++)\nif(nums[i] < nums[i + 1])\nsum -= nums[i];\nelse\nsum += nums[i];\nprintf(\"%d\\n\", sum);\n}\nreturn 0;\n} <SEP> input: IV\nCCCCLXXXXVIIII\nCDXCIX <SEP> lines: 38",
+    "target": "execution: [0, 1, 0, 4, 3, 3, 25, 22, 0, 6, 6, 0, 2, 2, 0, 6, 6, 0, 1, 1, 0, 6, 6, 0, 1, 1, 0, 0, 0, 25, 22, 4, 0, 18, 3, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main()\n{\nint n,x,w;\nscanf(\"%d\",&n);\nint k[1][n],p[1][n];\nfor(x=0;x<n;x++){\nscanf(\"%d %d\",&k[0][x],&p[0][x]);\n}\nfor(x=0;x<n;x++){\nw=k[0][x]%p[0][x];\nif(w==0){\nprintf(\"%d\\n\",p[0][n-1]);\n}\nelse{\nprintf(\"%d\\n\",w);\n}\n}\nreturn 0;\n} <SEP> input: 3\n10 3\n2 10\n4 2 <SEP> lines: 20",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 4, 3, 0, 4, 3, 3, 1, 0, 0, 2, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(int argc, const char * argv[])\n{\nint n, i;\nint money, sum = 0,ave = 0;\nscanf(\"%d\", &n);\nfor (i = 0; i < n; i++) {\nscanf(\"%d\", &money);\nsum += money;\n}\nave = sum / n;\nprintf(\"%d\\n\", ave);\nreturn 0;\n} <SEP> input: 6\n12300\n5600\n33800\n0\n26495\n52000 <SEP> lines: 14",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 7, 6, 6, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n/** Application main entry point. */\nint main (\nint argc,\nchar * argv[ ]\n)\n{\nint Aa = 0, Ba = 0, Ca = 0, Da = 0\n, Ab = 0, Bb = 0, Cb = 0, Db = 0;\ndouble a, b;\nwhile ( scanf ( \"%lf%lf\", &a, &b ) == 2 )\n{\nAa += !!( a >= 1.1 );\nAb += !!( b >= 1.1 );\nBa += !!( a >= 0.6 && a < 1.1 );\nBb += !!( b >= 0.6 && b < 1.1 );\nCa += !!( a >= 0.2 && a < 0.6 );\nCb += !!( b >= 0.2 && b < 0.6 );\nDa += !!( a < 0.2 );\nDb += !!( b < 0.2 );\n}\nprintf ( \"%d %d\\n%d %d\\n%d %d\\n%d %d\\n\"\n, Aa, Ab, Ba, Bb, Ca, Cb, Da, Db );\nreturn ( 0 );\n} <SEP> input: 2.0 2.0 <SEP> lines: 25",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\nchar name[20][30];\nint i,j,n,win,draw,point[20],order[20];\nvoid swap (int* x,int* y){\nint z;\nz=*x;\n*x=*y;\n*y=z;\n}\nint main(){\nwhile(scanf(\"%d\",&n)*n){\nfor(i=0;i<n;i++){\nscanf(\"%s %d %*d %d\",name[i],&win,&draw);\npoint[i]=win*3+draw;\norder[i]=i;\nfor(j=i;j>0;j--){\nif(point[i]>point[order[j-1]]){\nswap(&order[j],&order[j-1]);\n}\nelse break;\n}\n}\nfor(i=0;i<n;i++)printf(\"%s,%d\\n\",name[order[i]],point[order[i]]);\n}\nreturn 0;\n} <SEP> input: 4\nJapan 1 0 2\nEgypt 1 2 0\nCanada 0 2 1\nSpain 2 0 1\n3\nIndia 0 2 0\nPoland 1 0 1\nItaly 1 0 1\n0 <SEP> lines: 28",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 0, 3, 9, 7, 7, 7, 12, 8, 5, 0, 3, 0, 0, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void) {\nint cost, coin, cv[] = { 500,100,50,10,5,1 };\nwhile (scanf(\"%d\", &cost))\n{\nif (cost == 0)break;\ncoin = 0;\ncost = 1000 - cost;\nfor (int i = 0; i < 6; i++)\n{\ncoin += cost / cv[i];\ncost = cost % cv[i];\n}\nprintf(\"%d\\n\", coin);\n}\nreturn 0;\n} <SEP> input: 380\n1\n0 <SEP> lines: 17",
+    "target": "execution: [0, 1, 1, 3, 0, 3, 2, 2, 14, 0, 12, 12, 0, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void){\nint d,h,i;\nwhile(EOF!=scanf(\"%d\",&d)){\nfor(i=0;i<600/d;i++){\nh += d*i*d*i;\n}\nprintf(\"%d\\n\", h*d);\n}\nreturn 0;\n} <SEP> input: 20\n10 <SEP> lines: 11",
+    "target": "execution: [0, 1, 0, 3, 92, 90, 0, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <string.h>\nint main(int argc, const char * argv[])\n{\nchar str[21], tmp;\nint i, len;\nfor (i = 0; i < 21; i++) {\nscanf(\"%c\", &str[i]);\nif (str[i] == '\\n') {\nbreak;\n}\n}\nlen = strlen(str);\nfor (i = 0; i < len / 2; i++) {\ntmp = str[i];\nstr[i] = str [len - 2 - i];\nstr [len - 2 - i] = tmp;\n}\nfor (i = 0; i < len; i++) {\nprintf(\"%c\", str[i]);\n}\nreturn 0;\n} <SEP> input: w32nimda <SEP> lines: 23",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 22, 21, 21, 0, 0, 0, 1, 8, 7, 7, 7, 0, 15, 14, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 21, 20, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\n#define N 1000\nint main(void){\nint i,num;\ndouble xa1[N],ya1[N],xa2[N],ya2[N],\nxb1[N],yb1[N],xb2[N],yb2[N];\ndouble ax1,ay1,ax2,ay2,\nbx1,by1,bx2,by2;\nfor(i=0;\nscanf(\"%lf%lf%lf%lf%lf%lf%lf%lf\",\n&xa1[i],&ya1[i],&xa2[i],&ya2[i],\n&xb1[i],&yb1[i],&xb2[i],&yb2[i])==8;\ni++){}\nnum=i;\nfor(i=0;i<num;i++){\nif(xa1[i]<=xa2[i]){\nax1=xa1[i];\nax2=xa2[i];\n}else{\nax1=xa2[i];\nax2=xa1[i];\n}\nif(ya1[i]<=ya2[i]){\nay1=ya1[i];\nay2=ya2[i];\n}else{\nay1=ya2[i];\nay2=ya1[i];\n}\nif(xb1[i]<=xb2[i]){\nbx1=xb1[i];\nbx2=xb2[i];\n}else{\nbx1=xb2[i];\nbx2=xb1[i];\n}\nif(yb1[i]<=yb2[i]){\nby1=yb1[i];\nby2=yb2[i];\n}else{\nby1=yb2[i];\nby2=yb1[i];\n}\nif(\n(\n((ax1<=bx1 && bx1<=ax2) ||\n(ax1<=bx2 && bx2<=ax2))\n&&\n((ay1<=by1 && by1<=ay2) ||\n(ay1<=by2 && by2<=ay2))\n)\n||\n(\n((bx1<=ax1 && ax1<=bx2) ||\n(bx1<=ax2 && ax2<=bx2))\n&&\n((by1<=ay1 && ay1<=by2) ||\n(by1<=ay2 && ay2<=by2))\n)\n){\nprintf(\"YES\\n\");\n}else{\nprintf(\"NO\\n\");\n}\n}\nreturn 0;\n} <SEP> input: 0.0 0.0 4.0 4.0 -3.0 -5.0 2.0 -1.0 <SEP> lines: 67",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 0, 0, 3, 2, 0, 0, 1, 1, 2, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main()\n{\nint a,b;\nscanf(\"%d %d\",&a , &b);\nprintf(\"%d\\n\",(a+b)/2);\n} <SEP> input: 1000 2000 <SEP> lines: 7",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(){\nchar tei[15]={0,1,2,3,4,5,6,7,8,9,5,4,3,2,1},ans[1000][20];\nint n,i,to,from,j;\nscanf(\"%d\",&n);\nfor(i=0;i<n;i++){\nscanf(\"%d %d\",&from,&to);\nif(from<to){\nfor(j=from;j<to;j++){\nprintf(\"%d \",j);\n}\nprintf(\"%d\\n\",to);\n}else if(to==5){\nfor(j=from;j<=9;j++){\nprintf(\"%d \",j);\n}\nputs(\"5\");\n}else if(from>to){\nif(from>=6&&from<=9){\nfor(j=from;j<=9;j++){\nprintf(\"%d \",j);\n}\nfor(j=5;j>to;j--){\nprintf(\"%d \",j);\n}\nprintf(\"%d\\n\",to);\n}else{\nfor(j=from;j>to;j--){\nprintf(\"%d \",j);\n}\nprintf(\"%d\\n\",to);\n}\n}\n}\nreturn 0;\n} <SEP> input: 2\n2 4\n4 2 <SEP> lines: 36",
+    "target": "execution: [0, 1, 1, 0, 1, 3, 2, 2, 3, 2, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 0, 1, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <string.h>\nint max(int x, int y)\n{\nif (x > y){\nreturn (x);\n}\nreturn (y);\n}\nvoid swap(int *i, int *j)\n{\n*i += *j;\n*j = *i - *j;\n*i -= *j;\n}\nint main(void)\n{\nint card[13];\nchar str[7][16] = {\n\"null\", \"one pair\", \"two pair\", \"three card\",\n\"straight\", \"full house\", \"four card\",\n};\nint ans;\nint tmp;\nint i, j;\nchar c[5];\nint count;\nwhile (scanf(\"%d,%d,%d,%d,%d\", &c[0], &c[1], &c[2], &c[3], &c[4]) != EOF){\nans = 0;\ntmp = 0;\nmemset(card, 0, sizeof(card));\nfor (i = 0; i < 5; i++){\ncard[c[i] - 1]++;\n}\nfor (i = 0; i < 13; i++){\nif (card[i]){\nfor (j = i, count = 0; count < 5; count++, j++){\nif (!card[j]){\ncount = 0;\nbreak;\n}\nif (j == 12 && count == 3){\nj = -1;\n}\nelse if (j == 12){\ncount = 0;\nbreak;\n}\n}\n}\nif (count){\ntmp = 4;\nbreak;\n}\n}\nfor (i = 0; i < 12; i++){\nfor (j = 0; j < 12 - i; j++){\nif (card[j] < card[j + 1]){\nswap(&card[j], &card[j + 1]);\n}\n}\n}\nif (card[0] == 4){\nans = 6;\n}\nelse if (card[0] == 3 && card[1] == 2){\nans = 5;\n}\nelse if (card[0] == 3){\nans = 3;\n}\nelse if (card[0] == 2 && card[1] == 2){\nans = 2;\n}\nelse if (card[0] == 2){\nans = 1;\n}\nprintf(\"%s\\n\", str[max(ans, tmp)]);\n}\nreturn (0);\n} <SEP> input: 1,2,3,4,1 <SEP> lines: 81",
+    "target": "execution: [0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 6, 5, 0, 14, 13, 14, 14, 4, 4, 0, 10, 0, 0, 10, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 13, 90, 78, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: float x;L[9];main(i){for(;~scanf(\"%f\",&x);i^=1)L[(x<.2?1:x<.6?3:x<1.1?5:7)+i]++;for(i=9;--i;)printf(\"%d%c\",L[i],i%2?10:32);exit(0);} <SEP> input: 1.0 1.2\n0.8 1.5\n1.2 0.7\n2.0 2.0 <SEP> lines: 1",
+    "target": "execution: [1]",
+    "prediction": "execution: [1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void){\nint card[3],sum,i,sign;\nfor(;sign=0,scanf(\"%d %d %d\",&card[0],&card[1],&card[2])!=EOF;){\nsum=20-card[0]-card[1];\nfor(i=sum;i>0;i--)\nif(!(i==card[0]||i==card[1]||i==card[2]))\nsign++;\nif(sign>3)\nputs(\"YES\");\nelse\nputs(\"NO\");\n}\nreturn 0;\n} <SEP> input: 8 9 10 <SEP> lines: 15",
+    "target": "execution: [0, 1, 0, 2, 1, 4, 3, 3, 1, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\n#define M 1000\n#define D 500\n#define C 100\n#define L 50\n#define X 10\n#define V 5\n#define I 1\nint main(void)\n{\nchar ara[101];\nint sum = 0;\nint i = 0;\nint num[101];\nfor(i = 0; i < 101; i++)\n{\nara[i]='0';\nnum[i] = 0;\n}\nwhile( scanf(\"%s\",ara) != EOF)\n{\nfor(i = 0; i < 100; i++)\n{\nif(ara[i] == 'I' )\n{\nnum[i] = I;\n}\nelse if(ara[i] == 'V' )\n{\nnum[i] = V;\n}\nelse if(ara[i] == 'X' )\n{\nnum[i] = X;\n}\nelse if(ara[i] == 'L' )\n{\nnum[i] = L;\n}\nelse if(ara[i] == 'C' )\n{\nnum[i] = C;\n}\nelse if(ara[i] == 'D' )\n{\nnum[i] = D;\n}\nelse if(ara[i] == 'M' )\n{\nnum[i] = M;\n}\nelse\n{\nnum[i] = 0;\n}\n}\nfor(i = 0;i < 100; i += 2)\n{\nif(num[i] < num[i+1])\n{\nsum = sum + num[i+1] - num[i];\n}\nelse if( num[i] >= num[i+1])\n{\nsum = sum + num[i+1] + num[i];\n}\n}\nprintf(\"%d\\n\",sum);\nsum = 0;\nfor(i = 0; i < 101; i++)\n{\nara[i]='0';\nnum[i] = 0;\n}\n}\nreturn 0;\n} <SEP> input: CCCCLXXXXVIIII <SEP> lines: 77",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 102, 0, 101, 101, 0, 2, 0, 101, 0, 100, 0, 4, 0, 96, 0, 1, 0, 95, 0, 4, 0, 91, 0, 1, 0, 90, 0, 4, 0, 86, 0, 0, 0, 86, 0, 0, 0, 0, 0, 86, 0, 0, 51, 0, 50, 0, 0, 0, 50, 0, 50, 0, 0, 1, 1, 102, 0, 101, 101, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <stdlib.h>\n#include <memory.h>\nint compar(int *val1,int *val2){\nreturn *val1-*val2;\n}\nint compar1(int *val1,int *val2){\nreturn *val2-*val1;\n}\nint main(void){\nint map[5],i,line[5],t,sign;\nfor(;t=0,sign=0,memset(map,0,sizeof(map)),memset(line,0,sizeof(line)),scanf(\"%d,%d,%d,%d,%d\",&map[0],&map[1],&map[2],&map[3],&map[4]) != EOF;){\nqsort(map,5,sizeof(int),(int (*)(const void *,const void *))compar);\nfor(i=0;i<4;i++){\nif(map[i] == map[i+1])\nline[t]++;\nelse\nt++;\n}\nqsort(line,5,sizeof(int),(int (*)(const void *,const void *))compar1);\nif(line[0] == 3)\nprintf(\"four card\\n\");\nif(line[0] == 2 && line[1] == 1)\nprintf(\"full house\\n\");\nif(line[0] == 2 && line[1] != 1)\nprintf(\"three card\\n\");\nif(line[0] == 1 && line[1] == 1)\nprintf(\"two pair\\n\");\nif(line[0] == 1 && line[1] != 1)\nprintf(\"one pair\\n\");\nfor(i=0;i<4;i++){\nif(map[i]+1 != map[i+1])\nsign=1;\n}\nif(map[0] == 1 && map[1] == 10 && map[2] == 11 && map[3] == 12 && map[4] == 13)\nprintf(\"straight\\n\");\nfor(i=0;i<4;i++){\nif(map[i]+1 != map[i+1])\nsign=1;\n}\nif(sign != 1 && line[0] == 0)\nprintf(\"straight\\n\");\nelse if(sign == 1 && line[0] == 0)\nprintf(\"null\\n\");\n}\nreturn 0;\n} <SEP> input: 2,3,2,3,12 <SEP> lines: 47",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 1, 5, 4, 2, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 5, 4, 3, 0, 1, 0, 5, 4, 3, 0, 1, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\nint d,a,b=0,c=0,i,j;\nwhile(scanf(\"%d\",&d) != EOF){\na=600/d;\nfor(i=0;i<a;i++){\nc+=d*(b*b);\nb+=d;\n}\nprintf(\"%d\\n\",c);\nb=0;\nc=0;\n}\nreturn 0;\n} <SEP> input: 10 <SEP> lines: 15",
+    "target": "execution: [0, 1, 1, 2, 1, 61, 60, 60, 0, 1, 1, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint r,n,i;\ndouble S[80];\nchar s[82];\nwhile(fgets(s,81,stdin)!=NULL){\nn=-1;\nfor(i=r=0;s[i]!=10;i++){\nif('0'<=s[i]&&s[i]<='9'){\nif(n==-1)n++;\nn*=10;\nn+=s[i]-'0';\n}\nelse if(s[i]==' '){\nif(n!=-1){\nS[r++]=(double)n;\nn=-1;\n}\n}\nelse{\nif(s[i]=='+')S[r-2]+=S[r-1];\nif(s[i]=='-')S[r-2]-=S[r-1];\nif(s[i]=='*')S[r-2]*=S[r-1];\nif(s[i]=='/')S[r-2]/=S[r-1];\nr--;\n}\n}\nprintf(\"%f\\n\",S[0]);\n}\nreturn 0;\n} <SEP> input: -1 -2 3 + + <SEP> lines: 31",
+    "target": "execution: [0, 1, 0, 0, 0, 1, 1, 3, 3, 1, 1, 1, 0, 2, 1, 2, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\ndouble x[9],y[9];\nint main(){\nwhile(scanf(\"%lf%lf%lf%lf%lf%lf%lf%lf\",&x[1],&y[1],&x[2],&y[2],&x[3],&y[3],&x[4],&y[4])!=EOF){\nif(x[1]>=x[3] && x[1]<=x[4] && y[2]>=y[3] && y[2]<=y[4])printf(\"YES\\n\");\nelse if(x[2]>=x[3] && x[2]<=x[4] && y[2]>=y[3] && y[2]<=y[4])printf(\"YES\\n\");\nelse if(x[1]>=x[3] && x[1]<=x[4] && y[1]>=y[3] && y[1]<=y[4])printf(\"YES\\n\");\nelse if(x[2]>=x[3] && x[2]<=x[4] && y[1]>=y[3] && y[1]<=y[4])printf(\"YES\\n\");\nelse if(x[3]>=x[1] && x[3]<=x[2] && y[4]>=y[1] && y[4]<=y[2])printf(\"YES\\n\");\nelse if(x[4]>=x[1] && x[4]<=x[2] && y[4]>=y[1] && y[4]<=y[2])printf(\"YES\\n\");\nelse if(x[3]>=x[1] && x[3]<=x[2] && y[3]>=y[1] && y[3]<=y[2])printf(\"YES\\n\");\nelse if(x[4]>=x[1] && x[4]<=x[2] && y[3]>=y[1] && y[3]<=y[2])printf(\"YES\\n\");\nelse printf(\"NO\\n\");\n}\nreturn 0;\n} <SEP> input: 0.0 0.0 4.0 5.0 1.0 1.0 5.0 5.0 <SEP> lines: 16",
+    "target": "execution: [0, 0, 0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void){\nint n;\nscanf(\"%d\",&n);\nfor(int i=0;i<n;i++){\ndouble x1,y1,x2,y2,x3,y3,x4,y4;\nfloat ax,ay,bx,by;\nscanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\",&x1,&y1,&x2,&y2,&x3,&y3,&x4,&y4);\nax=x2-x1;\nay=y2-y1;\nbx=x4-x3;\nby=y4-y3;\nif((ax*by)-(ay*bx)==0) printf(\"YES\\n\");\nelse printf(\"NO\\n\");\n}\nreturn 0;\n} <SEP> input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0 <SEP> lines: 17",
+    "target": "execution: [0, 1, 0, 1, 3, 0, 0, 2, 2, 2, 2, 2, 2, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\n#include<string.h>\nint main(){\nint i,ch,j,t,n,b_n;\nchar sen[128];\nwhile(scanf(\"%s\",sen)!=-1){\nb_n=0;\nt=0;\nfor(i=0;i<strlen(sen);i++){\nswitch(sen[i]){\ncase 'I':n=1;\nbreak;\ncase 'V':n=5;\nbreak;\ncase 'X':n=10;\nbreak;\ncase 'L':n=50;\nbreak;\ncase 'C':n=100;\nbreak;\ncase 'D':n=500;\nbreak;\ncase 'M':n=1000;\nbreak;\ndefault:n=0;\n}\nif(b_n){\nif(b_n>=n)t+=n;\nelse t+=n-2*b_n;\n}else{\nt=n;\n}\nb_n=n;\n}\nprintf(\"%d\\n\",t);\n}\nreturn 0;\n} <SEP> input: CCCCLXXXXVIIII <SEP> lines: 38",
+    "target": "execution: [0, 0, 1, 0, 0, 2, 1, 1, 15, 14, 4, 4, 1, 1, 4, 4, 1, 1, 4, 4, 0, 0, 0, 0, 0, 0, 14, 13, 0, 0, 1, 0, 14, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nvoid exception(int s, int g){\nint a[17]={7,8,9,5,4,3,2,1,0,1,2,3,4,5,6,7,8};\nint j;\nj=0;\nwhile(a[j]!=s)\nj++;\nwhile(a[j]!=g){\nprintf(\"%d \",a[j]);\nj++;\n}\nprintf(\"%d \\n\",a[j]);\n}\nint main(){\nint a[16]={0,1,2,3,4,5,6,7,8,9,5,4,3,2,1,0};\nint n,i,j,k;\nint s,g;\nint p1,p2;\nint i_p1,i_p2;\nscanf(\"%d\",&n);\nfor(i=0;i<n;i++){\nscanf(\"%d%d\",&s,&g);\nif(s>=7&&s>g&&g>=6){\nexception(s,g);\n}\nelse{\n//Normal\nj=0;\nwhile(a[j]!=s)\nj++;\ni_p1=j;\np1=0;\nwhile(a[j]!=g){\nj++;\np1++;\n}\nj=14;\nwhile(a[j]!=s)\nj--;\ni_p2=j;\np2=0;\nwhile(a[j]!=g){\nj++;\np2++;\nif(j==16){\np2=20; //OF\nbreak;\n}\n}\nif(p1<p2){\nfor(k=i_p1;k<=i_p1+p1;k++)\nprintf(\"%d \",a[k]);\nputs(\"\");\n}\nelse{\nfor(k=i_p2;k<=i_p2+p2;k++)\nprintf(\"%d \",a[k]);\nputs(\"\");\n}\n}//Normal End\n}\nreturn 0;\n} <SEP> input: 2\n2 4\n4 2 <SEP> lines: 63",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 3, 2, 2, 0, 0, 0, 0, 2, 8, 6, 2, 2, 13, 11, 11, 0, 2, 6, 4, 2, 2, 6, 5, 5, 5, 1, 1, 0, 0, 2, 4, 3, 1, 0, 0, 4, 3, 1, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\nint W;\nscanf(\"%d\",&W);\nprintf(\"%d\\n\",W*32);\nreturn 0;\n} <SEP> input: 4 <SEP> lines: 7",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void) {\nint a, b;\nif (scanf(\"%d%d\", &a, &b) != 2) return 1;\nprintf(\"%d\\n\", (a + b) / 2);\nreturn 0;\n} <SEP> input: 1000 3000 <SEP> lines: 7",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <math.h>\nint main(){\ndouble k1,k2,k3,x1,y1,x2,y2,x3,y3,x4,y4,p[10];\nint n,i,k,judge;\n//input\nscanf(\"%d\",&i);\nfor (k=1;k<=i;k++)\n{\njudge=0;\nfor (n=1;n<9;n++)\nscanf(\"%lf\",&p[n]);\nx1=p[1];y1=p[2];x2=p[3];y2=p[4];x3=p[5];y3=p[6];x4=p[7];y4=p[8];\nif (x1==x2)\n{\nif (x3==x4)\njudge=1;\n// if (x1==x3)\n// judge=0;\n}\nelse\n{\nif (x3!=x4)\n{\nk1=(y2-y1)/(x2-x1);\nk2=(y4-y3)/(x4-x3);\nif (k1==k2)\njudge=1;\n}\n}\n/*if (judge==1)\n{\nk3=(y3-y1)/(x3-x1);\nif (k1==k3)\njudge=0;\n}*/\nif (judge==1)\nprintf(\"YES\\n\");\nelse\nprintf(\"NO\\n\");\n}\nreturn 0;\n} <SEP> input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0 <SEP> lines: 43",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 1, 3, 0, 2, 18, 16, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint y, m, d;\nwhile(scanf(\"%d %d %d\", &y, &m, &d) != EOF){\nif((y < 1868)||(y == 1868 && m < 9)||(y == 1868 && m == 9 && d < 8)){\nprintf(\"pre-meiji\");\n}else if((y < 1912)||(y == 1912 && m < 7)||(y == 1912 && m == 7 && d < 30)){\nprintf(\"meiji %d %d %d\\n\", y+1-1868, m, d);\n}else if((y < 1926)||(y == 1926 && m < 12)||(y == 1926 && m == 12 && d < 15)){\nprintf(\"taisho %d %d %d\\n\", y+1-1912, m, d);\n}else if((y < 1989)||(y == 1989 && m < 1)||(y == 1989 && m == 1 && d < 8)){\nprintf(\"showa %d %d %d\\n\", y+1-1926, m, d);\n}else{\nprintf(\"heisei %d %d %d\\n\", y+1-1989, m, d);\n}\n}\nreturn 0;\n} <SEP> input: 2005 9 3 <SEP> lines: 19",
+    "target": "execution: [0, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void){\nlong i,d,b,s,t,y,sum=0;\nwhile(scanf(\"%d\", &d)!= EOF) {\nb=600/d;\nfor(i=1;i<b;i++){\ny=i*d;\nt=y*y;\ns=d*t;\nsum+=s;\n}\nprintf(\"%d\",sum);\nif(d == 0) {\nbreak;\n}\n}\nreturn 0;\n} <SEP> input: 20\n10 <SEP> lines: 18",
+    "target": "execution: [0, 1, 1, 3, 2, 90, 88, 88, 88, 88, 0, 2, 2, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\n#define N 1000\nint main(void){\nint i,num,j,spindle;\nint weight[N];\nint sp[10];\nint preweight;\nfor(i=0;scanf(\"%d\",&weight[i])==1;i++){}\nnum=i;\nfor(i=0;i<num;i++){\nfor(j=0;j<10;j++){\nsp[j]=0;\n}\nfor(j=9,spindle=512;j>=0;j--,spindle/=2){\nif(weight[i]>=spindle){\nweight[i]-=spindle;\nsp[j]=1;\n}\n}\nfor(j=0,preweight=1;j<10;j++,preweight*=2){\nif(sp[j]==1){\nprintf(\"%d\",preweight);\nif(j<9) printf(\" \");\n}\n}\nprintf(\"\\n\");\n}\nreturn 0;\n} <SEP> input: 7 <SEP> lines: 29",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 0, 1, 1, 2, 11, 10, 0, 11, 10, 3, 3, 0, 0, 11, 10, 3, 3, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <math.h>\nint main()\n{\ndouble x1,x2,x3,x4,y1,y2,y3,y4,s1,s2;\nint n,i;\nscanf(\"%d\",&n);\nfor(i=1;i<=n;i++){\nscanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\",&x1,&y1,&x2,&y2,&x3,&y3,&x4,&y4);\ns1=fabs((y1-y2)/(x1-x2));\ns2=fabs((y3-y4)/(x3-x4));\nif(s1==s2) printf(\"YES\\n\");\nelse printf(\"NO\\n\");\n}\nreturn 0;\n} <SEP> input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0 <SEP> lines: 16",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 1, 3, 2, 2, 2, 2, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <string.h>\nint main(void)\n{\nchar str[21] = {0};\nint i;\nscanf(\"%s\", str);\nfor (i = strlen(str) - 1; i >= 0; i--) {\nprintf(\"%c\", str[i]);\n}\nprintf(\"\\n\");\nreturn 0;\n} <SEP> input: w32nimda <SEP> lines: 13",
+    "target": "execution: [0, 0, 0, 1, 1, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\n#include<stdlib.h>\n#include<string.h>\nint main()\n{\nchar c,d[11];\ndouble s[80];\nint p=-1,q=0,t;\nwhile(scanf(\"%c\",&c)!=EOF)\n{\nswitch(c)\n{\ncase '+':\nt=s[p-1]+s[p];\ngoto j;\ncase '-':\nscanf(\"%c\",&c);\nif('1'>c||'0'<c)\n{\nt=s[p-1]-s[p];\ngoto j;\n}\nif(c=='\\n')\ngoto k;\nd[q++]='-';\nd[q++]=c;\nbreak;\ncase '*':\nt=s[p-1]*s[p];\ngoto j;\ncase '/':\nt=s[p-1]/s[p];\nj: s[--p]=t;\nbreak;\ncase '\\n':\nif(d[0]!=0)\ns[0]=atof(d);\nprintf(\"%lf\\n\",s[0]);\np=-1;\nq=0;\nbreak;\ncase ' ':\nk: if(q!=0)\n{\ns[++p]=atof(d);\nmemset(d,NULL,11);\nq=0;\n}\nbreak;\ndefault:\nd[q++]=c;\n}\n}\nreturn 0;\n} <SEP> input: 10 2 12 - /\n3 4 - 7 2 3 * + *\n-1 -2 3 + + <SEP> lines: 55",
+    "target": "execution: [0, 0, 0, 0, 1, 0, 0, 1, 31, 0, 31, 0, 0, 1, 1, 0, 4, 4, 0, 5, 3, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 1, 7, 7, 0, 2, 0, 2, 2, 2, 2, 0, 11, 0, 8, 8, 8, 0, 8, 0, 10, 0, 0, 0, 0]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint f(int a, int b, int n);\nint main(int argc, const char *argv[])\n{\nint a, b, n;\nwhile(scanf(\"%d%d%d\", &a, &b, &n)!=EOF)\nprintf(\"%d\\n\", f(a, b, n));\nreturn 0;\n}\nint f(int a, int b, int n)\n{\nint i, s = 0, tmp = a%b*10;\nfor(i=0; i<n; i++){\ns += tmp/b;\ntmp = tmp%b*10;\n}\nreturn s;\n} <SEP> input: 2 3 4 <SEP> lines: 18",
+    "target": "execution: [0, 0, 0, 1, 0, 2, 1, 1, 1, 0, 0, 1, 5, 4, 4, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\n#include<string.h>\nint n,i,j,k,a=0,f;\nchar s[30],t[15];\nint main(){\nscanf(\"%s%d\",t,&n);\nfor(i=0;i<n;i++){\nscanf(\"%s\",s);\nstrcat(s,s);\nfor(j=0;j<strlen(s)/2;j++){\nf=0;\nfor(k=0;k<strlen(t);k++){\nif(s[j+k]==t[k])f++;\nelse break;\n}\nif(f==strlen(t))a++;\n}\n}\nprintf(\"%d\\n\",a);\nreturn 0;\n} <SEP> input: ABCD\n3\nABCDXXXXXX\nYYYYABCDXX\nDCBAZZZZZZ <SEP> lines: 21",
+    "target": "execution: [0, 0, 0, 0, 0, 1, 4, 3, 3, 33, 30, 39, 37, 28, 0, 30, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: /*\nAizuOnline A0183\nBlack-and-White\n*/\n#include <stdio.h>\nchar hantei(char * ban)\n{\nint lines[][3]={{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};\nchar color[2]=\"bw\";\nint i,j,k;\nint result;\nfor(i=0;i<2;i++)\nfor(j=0;j<8;j++)\n{ result = 1;\nfor(k=0;k<3;k++)\n{ /* printf(\"%d %d %d %c\\n\",i,j,k,ban[lines[j][k]]); */\nresult &= (color[i]==ban[lines[j][k]])?1:0;\n}\nif(result)\nreturn(color[i]);\n}\nreturn('+');\n}\nmain()\n{\nchar banmen[3][3] = {\"+++\",\"+++\",\"+++\"};\nchar ret;\nwhile(EOF != scanf(\"%s\",&banmen[0]) && banmen[0][0] != '0')\n{ scanf(\"%3s\",&banmen[1]);\nscanf(\"%3s\",&banmen[2]);\n/* printf(\"BAN=%s\\n\",banmen); */\nret = hantei((char *)banmen);\nif(ret == '+')\nprintf(\"NA\\n\");\nelse\nprintf(\"%c\\n\",ret);\n}\nreturn(0);\n} <SEP> input: bbw\nwbw\n+b+\nbwb\nwbw\nwbw\n0 <SEP> lines: 39",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 4, 23, 21, 84, 0, 63, 0, 21, 1, 0, 1, 2, 0, 1, 1, 0, 3, 2, 2, 0, 2, 2, 1, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void) {\nint D = 0, L = 0,f,g;\nscanf(\"%d\", &D);\nscanf(\"%d\", &L);\ng = D / L;\nf = D%L;\nprintf(\"%d\\n\", g + f);\nreturn 0;\n} <SEP> input: 7 4 <SEP> lines: 10",
+    "target": "execution: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\n#include<string.h>\n#include<stdlib.h>\nint main()\n{\nchar *str;\nint length;\nint i;\nscanf(\"%s\",str);\nlength = strlen(str);\nfor(i=length;i>20;i--)\n{\nprintf(\"%c\",str[i]);\n}\nprintf(\"\\n\");\nreturn 0;\n} <SEP> input: w32nimda <SEP> lines: 17",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint h,r;\nscanf(\"%d %d\",&h,&r);\nif((h+r)==0)\nprintf(\"0\\n\");\nif((h+r)>=1)\nprintf(\"1\\n\");\nif((h+r)<=-1)\nprintf(\"-1\\n\");\nreturn 0;\n} <SEP> input: 3 3 <SEP> lines: 12",
+    "target": "execution: [0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 1.5833333333333333
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint H, R;\nscanf(\"%d %d\", &H, &R);\nif ( H*(-1) == R ) printf(\"0\\n\");\nelse if ( H*(-1) > R ) printf(\"-1\\n\");\nelse if ( H*(-1) < R ) printf(\"1\\n\");\nreturn 0;\n} <SEP> input: 3 3 <SEP> lines: 9",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 1, 1]",
+    "mae": 0.1111111111111111
+  },
+  {
+    "input": "code: char s[22]=\"\\0\\n\";main(i){for(i=strlen(fgets(s+2,20,0));putchar(s[i--]););} <SEP> input: w32nimda <SEP> lines: 1",
+    "target": "execution: [1]",
+    "prediction": "execution: [1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nchar input[9];\nwhile(scanf(\"%s\",input)!=EOF){\n//6???????????\u00a7??????????????????????\u00b1??????????\nif((input[0]=='o' && input[1]=='o' && input[2]=='o') ||\n(input[3]=='o' && input[4]=='o' && input[5]=='o')){\nprintf(\"o\\n\");\n}\nelse if((input[0]=='x' && input[1]=='x' && input[2]=='x') ||\n(input[3]=='x' && input[4]=='x' && input[5]=='x')){\nprintf(\"x\\n\");\n}\n//7???????????\u00a7??????????????????????\u00b1??????????\n//o?????????????????\u00a8??????????????\u00b4???????????????\nelse if((input[0]=='o' && input[3]=='o' && input[6]=='o') ||\n(input[2]=='o' && input[4]=='o' && input[6]=='o')){\nprintf(\"o\\n\");\n}\n//x?????????????????\u00a8??????????????\u00b4???????????????\nelse if((input[0]=='x' && input[3]=='x' && input[6]=='x') ||\n(input[2]=='x' && input[4]=='x' && input[6]=='x')){\nprintf(\"x\\n\");\n}\n//8???????????\u00a7??????????????????????\u00b1??????????\n//o???????????????????????\u00b4???????????????\nelse if(input[1]=='o' && input[4]=='o' && input[7]=='o'){\nprintf(\"o\\n\");\n}\n//x???????????????????????\u00b4???????????????\nelse if(input[1]=='x' && input[4]=='x' && input[7]=='x'){\nprintf(\"x\\n\");\n}\n//9???????????\u00a7??????????????????????\u00b1??????????\nelse if((input[0]=='o' && input[4]=='o' && input[8]=='o') ||\n(input[6]=='o' && input[7]=='o' && input[8]=='o') ||\n(input[2]=='o' && input[5]=='o' && input[8]=='o')){\nprintf(\"o\\n\");\n}\nelse if((input[0]=='x' && input[4]=='x' && input[8]=='x') ||\n(input[6]=='x' && input[7]=='x' && input[8]=='x') ||\n(input[2]=='x' && input[5]=='x' && input[8]=='x')){\nprintf(\"x\\n\");\n}\nelse\nprintf(\"d\\n\");\n}\nreturn 0;\n} <SEP> input: ooosxssxs\nxoosxsosx\nooxxxooxo <SEP> lines: 49",
+    "target": "execution: [0, 1, 0, 4, 0, 5, 2, 1, 0, 4, 3, 0, 0, 0, 0, 4, 3, 0, 0, 0, 4, 3, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 4, 6, 3, 0, 0, 3, 2, 2, 1, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint n;\ndouble x[4], y[4];\ndouble ab, cd;\nint i;\nscanf(\"%d\", &n);\nfor (i = 0; i < n; i++){\nscanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\", &x[0], &y[0], &x[1], &y[1], &x[2], &y[2], &x[3], &y[3]);\nab = (y[0] - y[1]) / (x[0] - x[1]);\ncd = (y[2] - y[3]) / (x[2] - x[3]);\nif (ab == cd){\nprintf(\"YES\\n\");\n}\nelse {\nprintf(\"NO\\n\");\n}\n}\nreturn (0);\n} <SEP> input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0 <SEP> lines: 21",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 0, 1, 3, 2, 2, 2, 2, 1, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nchar *out[] = {\n\"light fly\",\n\"fly\",\n\"bantam\",\n\"feather\",\n\"light\",\n\"light welter\",\n\"welter\",\n\"light middle\",\n\"middle\",\n\"light heavy\",\n\"heavy\"\n};\ndouble weight;\nint class_b;\nwhile (~scanf(\"%lf\", &weight)){\nclass_b = 0;\nif (weight > 48.0) class_b++;\nif (weight > 51.0) class_b++;\nif (weight > 54.0) class_b++;\nif (weight > 57.0) class_b++;\nif (weight > 60.0) class_b++;\nif (weight > 64.0) class_b++;\nif (weight > 69.0) class_b++;\nif (weight > 75.0) class_b++;\nif (weight > 81.0) class_b++;\nif (weight > 91.0) class_b++;\nputs(out[class_b]);\n}\nreturn (0);\n} <SEP> input: 70.2 <SEP> lines: 34",
+    "target": "execution: [0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main()\n{\nint n;\nint i;\nint weight[]={1,2,4,8,16,32,64,128,256,512};\nwhile(scanf(\"%d\", &n)!=EOF){\nfor(i=0; i<10; i++){\nif(n%2==1) printf(\"%d \", weight[i]);\nn = n>>1;\n}\nprintf(\"\\n\");\n}\nreturn 0;\n} <SEP> input: 5\n7\n127 <SEP> lines: 15",
+    "target": "execution: [0, 0, 1, 0, 0, 1, 4, 33, 30, 30, 0, 3, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\ndouble w;\nwhile (scanf(\"%lf\", &w) != EOF) {\nif (w <= 48.00)\nprintf(\"light fly\\n\");\nelse if (w > 48.00 && w <= 51.00)\nprintf(\"fly\\n\");\nelse if (w > 51.00 && w <= 54.00)\nprintf(\"bantam\\n\");\nelse if (w > 54.00 && w <= 57.00)\nprintf(\"feather\\n\");\nelse if (w > 57.00 && w <= 60.00)\nprintf(\"light\\n\");\nelse if (w > 60.00 && w <= 64.00)\nprintf(\"light welter\\n\");\nelse if (w > 64.00 && w <= 69.00)\nprintf(\"welter\\n\");\nelse if (w > 69.00 && w <= 75.00)\nprintf(\"light middle\\n\");\nelse if (w > 75.00 && w <= 81.00)\nprintf(\"middle\\n\");\nelse if (w > 81.00 && w <= 91.00)\nprintf(\"light heavy\\n\");\nelse if (w > 91.00)\nprintf(\"heavy\\n\");\n}\nreturn 0;\n} <SEP> input: 80.2 <SEP> lines: 30",
+    "target": "execution: [0, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void)\n{\nint d,i,a,s;\nwhile(scanf(\"%d\", &d)!= EOF){\nfor(i=1;i<(600/d);i++)\n{\ns=0;\na=d*(i*d*i*d);\ns+=a;\n}\nprintf(\"%d\\n\",s);\nif(d==0){\nbreak;}\n}\nreturn 0;\n} <SEP> input: 20\n10 <SEP> lines: 17",
+    "target": "execution: [0, 0, 1, 0, 3, 90, 0, 88, 88, 88, 0, 2, 2, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void)\n{\nint a, b, c, d, e;\nscanf(\"%d %d\", &a, &b);\nc = a + b;\nif (c == 0) {\nprintf(\"0\");\n}\nelse if (c > 0) {\nprintf(\"1\");\n}\nelse if(c < 0) {\nprintf(\"-1\");\n}\nreturn 0;\n} <SEP> input: 3 3 <SEP> lines: 17",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void)\n{\nint E, Y;\nscanf(\"%d %d\", &E, &Y);\nif (E == 0)\n{\nif (Y <= 1911)\n{\nprintf(\"M%d\\n\", Y - 1867);\n}\nelse if (Y <= 1925)\n{\nprintf(\"T%d\\n\", Y - 1911);\n}\nelse if (Y <= 1988)\n{\nprintf(\"S%d\\n\", Y - 1925);\n}\nelse\n{\nprintf(\"H%d\\n\", Y - 1988);\n}\n}\nelse if (E == 1)\nprintf(\"%d\\n\", Y + 1867);\nelse if (E == 2)\nprintf(\"%d\\n\", Y + 1911);\nelse if (E == 3)\nprintf(\"%d\\n\", Y + 1925);\nelse if(E==4)\nprintf(\"%d\\n\", Y + 1988);\nreturn 0;\n} <SEP> input: 4 28 <SEP> lines: 34",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main()\n{\nlong long int i,j,p,n;\nchar prime[10000001]={0};\nwhile(scanf(\"%lld\",&n),n){\nfor(i = 2;i < 10000000;i++) prime[i]=1;\nfor(i = 2;i <= n;i++) if(prime[i]) for(j=i+i;j<=n;j+=i) prime[j]=0;\nn=(n%2?n:n-1);\nfor(i=n;i>8;i-=2) if(prime[i]+prime[i-2]+prime[i-6]+prime[i-8]==4) break;\nprintf(\"%lld\\n\",i);\n}\nreturn 0;\n} <SEP> input: 13\n14\n15\n16\n17\n18\n19\n20\n10000\n0 <SEP> lines: 14",
+    "target": "execution: [0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: // include\n// ----------------------------------------------------------------------------\n#include<stdio.h>\n#include<stdlib.h>\n#include<math.h>\n#include<string.h>\n#include<stdbool.h>\n// repetition\n// ----------------------------------------------------------------------------\n#define FOR(i, a, b) for (i = (a); i < (b); ++i)\n#define REP(i, n) FOR(i, 0, n)\n// memory clear\n// ----------------------------------------------------------------------------\n#define CLRNUM(a) memset((a), 0, sizeof(a))\n#define CLRBOOL(a, flag) memset((a), flag, sizeof(a))\n#define CLRCHAR(a) memset((a), '\\0', sizeof(a))\n// debug\n// ----------------------------------------------------------------------------\n#define DEBUGNUM(x) printf(\"%d\\n\", x);\n#define DEBUGCHAR(x) printf(\"%c\\n\", x);\n#define DEBUGSTR(x) printf(\"%s\\n\", x);\n#define DEBUGFORNUM(i, a, b, x) FOR(i, a, b){ printf(\"%d \", x[i]); }\n#define DEBUGFORCHAR(i, a, b, x) FOR(i, a, b){ printf(\"%c \", x[i]); }\n#define DEBUGREPNUM(i, n, x) REP(i, n){ printf(\"%d \", x[i]); }\n#define DEBUGREPCHAR(i, n, x) REP(i, n){ printf(\"%c \", x[i]); }\n// other\n// ----------------------------------------------------------------------------\n#define PUTNL printf(\"\\n\")\n// constant\n// ----------------------------------------------------------------------------\n#define INF 1000000000\nint main(void)\n{\nchar class[20];\nint am, pm;\nint i;\nfor (i = 0; i < 9; ++i){\nscanf(\"%s %d %d\", class, &am, &pm);\nprintf(\"%s %d %d\\n\", class, am + pm, (am * 200) + (pm * 300));\n}\nreturn 0;\n} <SEP> input: 1a 132 243 <SEP> lines: 42",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 10, 9, 9, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nfloat w;\nwhile (scanf(\"%f\", &w) != EOF){\nif (w <= 48.00){\nprintf(\"light fly\\n\");\n}\nelse if (w <= 51.00){\nprintf(\"fly\\n\");\n}\nelse if (w <= 54.00){\nprintf(\"bantam\\n\");\n}\nelse if (w <= 57.00){\nprintf(\"feather\\n\");\n}\nelse if (w <= 60.00){\nprintf(\"light\\n\");\n}\nelse if (w <= 64.00){\nprintf(\"light welter\\n\");\n}\nelse if (w <= 69.00){\nprintf(\"welter\\n\");\n}\nelse if (w <= 75.00){\nprintf(\"light middle\\n\");\n}\nelse if (w <= 81.00){\nprintf(\"middle\\n\");\n}\nelse if (w <= 91.00){\nprintf(\"light heavy\\n\");\n}\nelse if (w > 91.00){\nprintf(\"heavy\\n\");\n}\n}\nreturn (0);\n} <SEP> input: 70.2 <SEP> lines: 41",
+    "target": "execution: [0, 0, 1, 0, 2, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <string.h>\n#include <ctype.h>\nint main(){\nint cnt,cnt2;\nint i = 0;\nchar snake[201];\nscanf(\"%d\",&cnt);\nwhile(i != cnt){\nscanf(\"%s\",snake);\nif(strlen(snake)<2 || snake[0]!='>') {\nprintf(\"NA\\n\");\n}\nelse if(snake[1]=='\\'') {\ncnt2=0;\ni=2;\nwhile(snake[i]=='=') {\ni++;\ncnt2++;\n}\nif(snake[i]!='#' || cnt2<=0){\nprintf(\"NA\\n\");\n}\nelse {\ni++;\nwhile(snake[i]=='=') {\ni++;\ncnt2--;\n}\nif(cnt2!=0){\nprintf(\"NA\\n\");\n}\nelse if(snake[i]!='~' || snake[i+1]!=0){\nprintf(\"NA\\n\");\n}\nelse{\nprintf(\"A\\n\");\n}\n}\n}\nelse if(snake[1]=='^') {\ni=2;\nwhile(snake[i]=='Q' && snake[i+1]=='='){\ni+=2;\n}\nif(i==2){\nprintf(\"NA\\n\");\n}\nelse if(snake[i]!='~' || snake[i+1]!='~' || snake[i+2]!=0){\nprintf(\"NA\\n\");\n}\nelse{\nprintf(\"B\\n\");\n}\n}\nelse{\nprintf(\"NA\\n\");\n}\ncnt++;\n}\nreturn 0;\n} <SEP> input: 3\n>'======#======~\n>^Q=Q=Q=Q=Q=Q=Q=Q=Q=~~\n>'===#====~ <SEP> lines: 62",
+    "target": "execution: [0, 0, 0, 1, 0, 1, 0, 1, 8, 7, 7, 0, 0, 7, 6, 6, 27, 21, 21, 0, 6, 0, 0, 0, 6, 32, 26, 26, 0, 6, 5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 10, 9, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 7, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <string.h>\nint main(void){\nint i, len, tmp1=0, tmp2, ans;\nchar roman[101];\nwhile(scanf(\"%s\", roman) != EOF){\nlen = strlen(roman);\nans = 0;\ntmp2 = 1;\nfor(i = len-1; i >= 0; i--){\nswitch(roman[i]){\ncase 'I':\ntmp1 = 1;\nbreak;\ncase 'V':\ntmp1 = 5;\nbreak;\ncase 'X':\ntmp1 = 10;\nbreak;\ncase 'L':\ntmp1 = 50;\nbreak;\ncase 'C':\ntmp1 = 100;\nbreak;\ncase 'D':\ntmp1 = 500;\nbreak;\ncase 'M':\ntmp1 = 1000;\nbreak;\n}\nif(tmp1 >= tmp2){\nans += tmp1;\n}else{\nans -= tmp1;\n}\ntmp2 = tmp1;\n}\nprintf(\"%d\\n\", ans);\n}\nreturn 0;\n} <SEP> input: CCCCLXXXXVIIII <SEP> lines: 44",
+    "target": "execution: [0, 0, 1, 1, 0, 2, 1, 1, 1, 15, 14, 0, 4, 4, 0, 1, 1, 0, 4, 4, 0, 1, 1, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 14, 14, 0, 0, 0, 14, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint N, K, P, i;\nscanf(\"%d\",&N);\nfor(i = 0; i < N; i++ ){\nscanf(\"%d %d\",&K,&P);\nif(K%P == 0){\nprintf(\"%d\\n\",P);\n} else{\nprintf(\"%d\\n\",K%P);\n}\n}\nreturn 0;\n} <SEP> input: 3\n10 3\n2 10\n4 2 <SEP> lines: 14",
+    "target": "execution: [0, 1, 0, 1, 4, 3, 3, 1, 0, 2, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <string.h>\n#include <ctype.h>\nint main(){\nint cnt,cnt2;\nint i;\nchar snake[201];\nscanf(\"%d\",&cnt);\nfor(i = 0;i < cnt;i++){\nscanf(\"%s\",snake);\nif(strlen(snake)<2 || snake[0]!='>') {\nprintf(\"NA\\n\");\n}\nelse if(snake[1]=='\\'') {\ncnt2=0;\ni=2;\nwhile(snake[i]=='=') {\ni++;\ncnt2++;\n}\nif(snake[i]!='#' || cnt2<=0){\nprintf(\"NA\\n\");\n}\nelse {\ni++;\nwhile(snake[i]=='=') {\ni++;\ncnt2--;\n}\nif(cnt2!=0){\nprintf(\"NA\\n\");\n}\nelse if(snake[i]!='~' || snake[i+1]!=0){\nprintf(\"NA\\n\");\n}\nelse{\nprintf(\"A\\n\");\n}\n}\n} else if(snake[1]=='^') {\ni=2;\nwhile(snake[i]=='Q' && snake[i+1]=='='){\ni+=2;\n}\nif(i==2){\nprintf(\"NA\\n\");\n}\nelse if(snake[i]!='~' || snake[i+1]!='~' || snake[i+2]!=0){\nprintf(\"NA\\n\");\n}\nelse{\nprintf(\"B\\n\");\n}\n}\nelse{\nprintf(\"NA\\n\");\n}\n}\nreturn 0;\n} <SEP> input: 3\n>'======#======~\n>^Q=Q=Q=Q=Q=Q=Q=Q=Q=~~\n>'===#====~ <SEP> lines: 60",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 1, 0, 0, 1, 1, 1, 7, 6, 6, 0, 1, 0, 0, 0, 1, 7, 6, 6, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(){\nint w, i;\nint m[10] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512}, u[10] = {};\nwhile(scanf(\"%d\", &w) != EOF){\nfor(i = 9; i >= 0; i--)\nif(w >= m[i]){\nw -= m[i];\nu[i] = 1;\n}\nfor(i = 0, w = 0; i < 9; i++)\nif(u[i])\nif(!w) printf(\"%d\", (w++, m[i]));\nelse printf(\" %d\", m[i]);\nprintf(\"\\n\");\n}\nreturn 0;\n} <SEP> input: 7 <SEP> lines: 18",
+    "target": "execution: [0, 1, 0, 1, 2, 11, 10, 3, 3, 0, 10, 9, 3, 2, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\nint n,m,p,i,d,eki[10000],prdx=0,j,kyo,kuma=0,neko=0;\nscanf(\"%d%d%d\",&n,&m,&p);\nprdx=m;\nfor(i=0;i<m;i++){\nscanf(\"%d\",&eki[i]);\n}\nwhile(0<prdx){\nfor(i=0;i<prdx;i++){\nif(eki[0]<p){\neki[i]=n-(p-eki[i]);\n}\nelse{\neki[i]=eki[i]-p;\n}\n}\nfor(i=0;i<prdx;i++){\nfor(j=i+1;j<prdx;j++){\nif(eki[i]>eki[j]){\nkyo=eki[i];\neki[i]=eki[j];\neki[j]=kyo;\n}\n}\n}\nfor(i=0;i<m-1;i++){\nif(eki[i]==eki[i+1]-1){\nneko=neko+1;\n}\n}\nif(neko==m-1){\nkuma=eki[m-1];\nprdx=-99;\n}\nelse{\nfor(i=0;i<prdx;){\nfor(j=prdx-1;j>=0;){\nif(eki[i]>n-eki[j]){\nkuma=kuma+n-eki[j];\np=eki[j];\ni=n+1;\nj=-99;\nprdx--;\n}\nelse if(eki[i]<n-eki[j]){\nkuma=kuma+eki[i];\np=eki[i];\ni=n+1;\nj=-99;\nprdx--;\n}\nif(eki[i]==n-eki[j]){\ni++;\nj--;\n}\n}\n}\nfor(i=0;i<m;i++){\nif(eki[i]==p){\neki[i]=eki[prdx];\ni=n+1;\n}\n}\n}\n}\nprintf(\"%d\\n\",kuma*100);\nreturn 0;\n} <SEP> input: 5 4 0\n1\n2\n3\n4 <SEP> lines: 69",
+    "target": "execution: [0, 1, 1, 1, 1, 5, 4, 0, 2, 5, 4, 0, 0, 0, 4, 0, 0, 5, 10, 6, 0, 0, 0, 0, 0, 0, 4, 3, 3, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main (int argc, const char * argv[]) {\nint d;\nint i;\nint sum;\nwhile (scanf(\"%d\", &d) != EOF) {\ni = 0;\nsum = 0;\nwhile (i != 600) {\nsum = sum + d*i*i;\ni = i + d;\n}\nprintf(\"%d\\n\", sum);\n}\nreturn 0;\n} <SEP> input: 10 <SEP> lines: 16",
+    "target": "execution: [0, 1, 0, 0, 0, 2, 1, 1, 61, 60, 60, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <math.h>\nvoid sekibun(int d){\nint i, s;\ns = 0;\nfor(i=d; i<=600-d; i+=d){\ns += i * i * d;\n}\nprintf(\"%d\\n\", s);\n}\nint main(void){\nint d;\nwhile(scanf(\"%d\", &d) != EOF){\nsekibun(d);\n}\nreturn 0;\n} <SEP> input: 10 <SEP> lines: 17",
+    "target": "execution: [0, 0, 0, 0, 1, 60, 59, 0, 1, 1, 1, 0, 2, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 1, 0, 0, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint w[30];\nint n, n2;\nint a[30], b[30];\nint i, j;\nscanf(\"%d\", &n);\nscanf(\"%d\", &n2);\nfor (i = 0; i < n2; i++){\nscanf(\"%d,%d\", &a[i], &b[i]);\na[i]--;\nb[i]--;\n}\nfor (i = 0; i < n; i++){\nw[i] = i;\n}\nfor (i = 0; i < n; i++){\nfor (j = 0; j < n2; j++){\nif (w[i] == a[j]){\nw[i] = b[j];\n}\nelse if (w[i] == b[j]){\nw[i] = a[j];\n}\n}\n}\nfor (i = 0; i < n; i++){\nfor (j = 0; j < n; j++){\nif (w[j] == i){\nprintf(\"%d\\n\", j + 1);\n}\n}\n}\nreturn (0);\n} <SEP> input: 5\n4\n2,4\n3,5\n1,2\n3,4 <SEP> lines: 36",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 0, 1, 1, 5, 4, 4, 4, 0, 6, 5, 0, 6, 25, 20, 4, 0, 16, 4, 0, 0, 0, 6, 30, 25, 5, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void){\nint times,dist,len;\nscanf(\"%d %d\\n\",&dist,&len);\ntimes=(dist/len)+(dist%len);\nprintf(\"%d\\n\",times);\nreturn 0;\n} <SEP> input: 7 4 <SEP> lines: 8",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\nint mpe[11],npe[11],allpe[11],all,i,j,k;\nchar cla[11][11];\nfor(i=0;i<9;i++){\nscanf(\"%s %d %d\",&cla[i],&mpe[i],&npe[i]);\nallpe[i]=mpe[i]+npe[i];\n}\nfor(j=0;j<9;j++){\nall=mpe[j]*200+npe[j]*300;\nprintf(\"%s %d %d\\n\",cla[j],allpe[j],all);\n}\nreturn 0;\n} <SEP> input: 1c 324 183 <SEP> lines: 14",
+    "target": "execution: [0, 1, 0, 0, 10, 9, 9, 0, 10, 9, 9, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main()\n{\nint h, x, y[610], n, i, y1;\nwhile(scanf(\"%d\", &h) != EOF){\nn = 600 / h;\nx = 0;\ny[0] = 0;\ny1 = 0;\nfor(i = 1; i < n; i++){\nx = x + h;\ny[i] = x*x;\ny1 = y1 + y[i];\n}\nprintf(\"%d\\n\", y1*h);\n}\nreturn 0;\n} <SEP> input: 20\n10 <SEP> lines: 18",
+    "target": "execution: [0, 0, 1, 0, 3, 2, 2, 2, 2, 90, 88, 88, 88, 0, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint i;\ndouble y,v;\nwhile(scanf(\"%lf\",&v)!=-1){\ny=v*v/19.6;\nfor(i=1;i*5-5<y;i++);\nprintf(\"%d\\n\",i);\n}\nreturn 0;\n} <SEP> input: 25.4 <SEP> lines: 11",
+    "target": "execution: [0, 1, 0, 0, 2, 1, 1, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint n, m, t, x;\nchar s[10];\nwhile ( scanf ( \"%s %d %d\" ,s ,&n ,&m ) != EOF ){\nt = n + m;\nx = (n*200) + (m*300);\nprintf(\"%s %d %d\\n\" ,s ,t ,x);\n}\nreturn 0;\n} <SEP> input: 3b 263 293 <SEP> lines: 11",
+    "target": "execution: [0, 1, 0, 0, 2, 1, 1, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\nunsigned int submit=0,i,input;\nfor(i=0;i<30;i++){\nscanf(\"%d\",&input);\nif(input==0) break;\nsubmit+=(1<<(input-1));\n}\nfor(i=0;i<30;i++){\nif((submit&1)==0) printf(\"%u\\n\",i+1);\nsubmit>>=1;\n}\nreturn 0;\n} <SEP> input: 3\n1\n4\n5\n7\n9\n6\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30 <SEP> lines: 14",
+    "target": "execution: [0, 1, 1, 31, 30, 30, 30, 0, 31, 30, 30, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #define _CRT_SECURE_NO_WARNINGS\n#define _USE_MATH_DEFINES\n#include<stdio.h>\n#include<math.h>\n#include<string.h>\n#include<stdlib.h>\n#include<stdarg.h>\n#include<malloc.h>\nint main()\n{\nint a, b, i, n, s;\nwhile(scanf(\"%d%d%d\", &a, &b, &n) != EOF){\ns = 0;\nfor(i=0; i<n; i++){\na = a % b;\na = a * 10;\ns += a / b;\n}\nprintf(\"%d\\n\", s);\n}\nreturn 0;\n} <SEP> input: 2 3 4 <SEP> lines: 22",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 1, 5, 4, 4, 4, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main()\n{\nfloat a, x, y[10];\nint b, i;\nwhile(scanf(\"%f\", &a) != EOF){\nx = 0;\nb = 0;\ny[0] = a;\nfor (i = 1; i < 10; i++){\nif(b == 0) {y[i] = y[i-1]*2; b = 1;}\nelse {y[i] = y[i-1]/3; b = 0;}\n}\nfor (i = 0; i < 10; i++){\nx += y[i];\n}\nprintf(\"%f\\n\", x);\n}\nreturn 0;\n} <SEP> input: 1.0 <SEP> lines: 20",
+    "target": "execution: [0, 0, 1, 0, 0, 2, 1, 1, 1, 10, 9, 4, 0, 11, 10, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint y,m,d,era[][3]={{1868,9,8},{1912,7,30},{1926,12,25},{1989,1,8}};\nint checkera(int i){\nif(y>era[i][0])return 1;\nif(y==era[i][0]){\nif(m>era[i][1])return 1;\nif(m==era[i][1] && d>=era[i][2])return 1;\n}\nreturn 0;\n}\nvoid answer(int i,char t[]){\nprintf(\"%s %d %d %d\\n\",t,y+1-era[i][0],m,d);\n}\nint main(void){\nwhile(scanf(\"%d %d %d\",&y,&m,&d)!=EOF){\nif(checkera(3))answer(3,\"heisei\");\nelse if(checkera(2))answer(2,\"showa\");\nelse if(checkera(1))answer(1,\"taisho\");\nelse if(checkera(0))answer(0,\"meiji\");\nelse printf(\"pre-meiji\\n\");\n}\nreturn 0;\n} <SEP> input: 2005 9 3\n1868 12 2\n1868 9 7 <SEP> lines: 23",
+    "target": "execution: [0, 0, 0, 9, 8, 2, 1, 0, 7, 9, 0, 2, 2, 0, 4, 3, 2, 2, 2, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint i,j,n,s,e;\nint bs[16]={0,1,2,3,4,5,6,7,8,9,5,4,3,2,1,0};\nscanf(\"%d\",&n);\nfor(i=0;i<n;i++){\ns=0;\ne=0;\nscanf(\"%d %d\",&s,&e);\nif(s<e){\nj=0;\nfor(j=s;bs[j]!=e;j++)\nprintf(\"%d \",bs[j]);\nprintf(\"%d\\n\",bs[j]);\n}\nelse if(1<=s&&s<=5){\nfor(j=15-s;bs[j]!=e;j++)\nprintf(\"%d \",bs[j]);\nprintf(\"%d\\n\",bs[j]);\n}\nelse{\nfor(j=s;bs[j]!=e;j++)\nprintf(\"%d \",bs[j]);\nprintf(\"%d\\n\",bs[j]);\n}\n}\nreturn 0;\n} <SEP> input: 2\n2 4\n4 2 <SEP> lines: 28",
+    "target": "execution: [0, 1, 0, 1, 1, 3, 2, 2, 2, 2, 1, 3, 2, 1, 0, 1, 3, 2, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 9, 8, 0, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <math.h>\ntypedef enum {\nFALSE,\nTRUE\n} bool_t;\n// --a b-> x --b c->\ndouble crossvec ( double* a, double* b, double* c )\n{\ndouble a_b[2] = { b[0] - a[0], b[1] - a[1] };\ndouble b_c[2] = { c[0] - b[0], c[1] - b[1] };\nreturn ( ( a_b[0] * b_c[1] ) - ( a_b[1] * b_c[0] ) );\n}\n// point \u304c start \u3068 end \u3092\u542b\u3080\u76f4\u7dda\u4e0a\u306b\u3042\u308c\u3070 TRUE \u306b\u306a\u308a\u307e\u3059\nbool_t isOnside ( double* start, double* end, double* point )\n{\ndouble abstructDragon[2] = { end[0] - start[0], end[1] - start[1] };\ndouble subDragon[2] = { point[0] - start[0], point[1] - start[1] };\nif ( ( abstructDragon[0] / subDragon[0] ) == ( abstructDragon[1] / subDragon[1] ) )\nreturn TRUE;\nelse\nreturn FALSE;\n}\nbool_t isPositive ( double input )\n{\nif ( input >= 0.0 )\nreturn TRUE;\nelse\nreturn FALSE;\n}\nint main ( void )\n{\ndouble a[2], b[2], c[2], p[2], cross[3];\nwhile ( scanf( \"%lf %lf %lf %lf %lf %lf %lf %lf\",\n&a[0], &a[1], &b[0], &b[1], &c[0], &c[1], &p[0], &p[1] ) != EOF )\n{\ncross[0] = crossvec( c, a, p );\ncross[1] = crossvec( b, c, p );\ncross[2] = crossvec( a, b, p );\nif ( ( isPositive(cross[0]) != isPositive(cross[1]) )\n|| ( isPositive(cross[0]) != isPositive(cross[2]) ) )\nputs(\"NO\"); // outside\nelse if ( isOnside( a, b, p )\n|| isOnside( a, c, p )\n|| isOnside( b, c, p ) )\nputs(\"NO\"); // onside\nelse\nputs(\"YES\"); // inside\n}\nreturn 0;\n} <SEP> input: 0.0 0.0 2.0 0.0 2.0 2.0 1.5 0.5\n0.0 0.0 1.0 4.0 5.0 3.0 -1.0 3.0 <SEP> lines: 51",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 6, 6, 6, 0, 0, 3, 3, 3, 3, 0, 0, 3, 3, 0, 0, 8, 5, 0, 3, 8, 0, 1, 0, 3, 0, 0, 2, 2, 2, 2, 2, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void) {\nint A, B;\nif (scanf(\"%d%d\", &A, &B) != 2) return 1;\nprintf(\"%d\\n\", (B + A - 1) / A);\nreturn 0;\n} <SEP> input: 25 10 <SEP> lines: 7",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint sum=0,ave,x,y,k=0,i=0;\ndouble a,b,c;\nwhile(scanf(\"%d,%d\\n\",&x,&y)!=EOF){\nsum=sum+x*y;\nk=k+y;\ni++;\n}\nb=k,c=i;\na=b/c;\na=a+0.5;\nave=a;\nprintf(\"%d\\n%d\\n\",sum,ave);\nreturn 0;\n} <SEP> input: 100,20\n50,10\n70,35 <SEP> lines: 16",
+    "target": "execution: [0, 1, 1, 0, 4, 3, 3, 3, 0, 1, 1, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint y,m,d,s;\nwhile(scanf(\"%d %d %d\",&y,&m,&d)!=EOF){\ns=y*10000;\ns+=m*100;\ns+=d;\nif (s<18680908)printf(\"pre-meiji\\n\");\nelse if(s<19120730)printf(\"meiji %d %d %d\\n\",y-1867,m,d);\nelse if(s<19261225)printf(\"taisho %d %d %d\\n\",y-1911,m,d);\nelse if(s<19890108)printf(\"showa %d %d %d\\n\",y-1925,m,d);\nelse printf(\"heisei %d %d %d\\n\",y-1988,m,d);\n}\nreturn 0;\n} <SEP> input: 1868 9 7 <SEP> lines: 15",
+    "target": "execution: [0, 1, 0, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(){\nint n,s,i;\ndouble a,b,q;\nwhile(scanf(\"%lf%lf%d\",&a,&b,&n)!=EOF){\ns=0;\nq=a/b;\nfor(i=0;i<n;i++){\nq*=10;\ns+=(int)q%10;\n}\nprintf(\"%d\\n\",s);\n}\nreturn 0;\n} <SEP> input: 1 2 3\n2 3 4\n5 4 3\n4 3 2 <SEP> lines: 15",
+    "target": "execution: [0, 1, 0, 0, 5, 4, 4, 16, 12, 12, 0, 4, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: // AOJ Volume 0 Problem 0032\n#include <stdio.h>\nint main(void)\n{\nint l1, l2, diag;\nint rect, lozen;\nrect = lozen = 0;\nwhile (scanf(\"%d,%d,%d\", &l1, &l2, &diag) != EOF){\nif (l1 * l1 + l2 * l2 == diag * diag){\nrect++;\n}\nelse {\nlozen++;\n}\n}\nprintf(\"%d\\n%d\\n\", rect, lozen);\nreturn (0);\n} <SEP> input: 3,4,5\n5,5,8\n4,4,4\n5,4,3 <SEP> lines: 18",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 1, 5, 4, 1, 0, 0, 3, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nchar num[11];\nint i, j;\nwhile (scanf(\"%s\", num) != EOF){\nfor (i = 0; i < 10; i++){\nnum[i] -= '0';\n}\nfor (i = 9; i; i--){\nfor (j = 0; j < i; j++){\nnum[j] = (num[j] + num[j + 1]) % 10;\n}\n}\nprintf(\"%d\\n\", num[0]);\n}\nreturn (0);\n} <SEP> input: 4823108376\n1234567890\n0123456789 <SEP> lines: 18",
+    "target": "execution: [0, 0, 1, 0, 0, 4, 33, 30, 0, 30, 162, 135, 0, 0, 3, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(){\nint i,tmp;\nint cup[3] = {1,0,0};\nchar p,q;\nwhile(scanf(\"%c,%c\",&p,&q) != EOF){\ntmp = cup[p-'A'];\ncup[p-'A'] = cup[q-'A'];\ncup[q-'A'] = tmp;\nscanf(\"%c\",&p);\n}\nfor(i = 0;i < 3;i++){\nif(cup[i]){\nprintf(\"%c\\n\",i+'A');\nbreak;\n}\n}\nreturn 0;\n} <SEP> input: B,C\nA,C\nC,B\nA,B\nC,B <SEP> lines: 19",
+    "target": "execution: [0, 1, 0, 1, 0, 6, 5, 5, 5, 5, 0, 1, 1, 1, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\nint point[10][10]={0};\nint person=0,endFlag=0,result=0,count,repeat,versusCount,myGTP,theyGTP;\nprintf(\"\u5165\u529b\\n\");\nfor(count=0; endFlag==0; count++){\nfor(person=0; person<5 && endFlag==0; person++){\nscanf(\"%d\",&point[count][person]);\nif(point[count][person]<0||point[count][person]>3){\nprintf(\"\u30a8\u30e9\u30fc\u3001\u7d42\u4e86\u3057\u307e\u3059\u3002\");\nexit(1);\n}\nif(point[count][person]==0){\nendFlag=1;\n}\n}\n}\nrepeat=count;\nprintf(\"\\n\u51fa\u529b\\n\");\nfor(count=0; count<repeat; count++){\nfor(person=0; point[count][person]!=0; person++){\nfor(versusCount=0; point[count][versusCount]!=0; versusCount++){\nmyGTP=point[count][person];\ntheyGTP=point[count][versusCount];\nif(person!=versusCount){\nif(((myGTP+1==theyGTP)||(myGTP-2==theyGTP))&&(result!=1)&&(result!=3)){\nresult+=1;\n}\nif(((myGTP+2==theyGTP)||(myGTP-1==theyGTP))&&(result!=2)&&(result!=3)){\nresult+=2;\n}\n}\n}\nif(result==0){\nresult=3;\n}\nprintf(\"\\n%d\",result);\nresult=0;\n}\n}\nreturn 0;\n} <SEP> input: 1\n2\n3\n2\n1\n1\n2\n2\n2\n1\n0 <SEP> lines: 42",
+    "target": "execution: [0, 1, 1, 1, 1, 4, 14, 11, 11, 0, 0, 0, 11, 1, 0, 0, 0, 1, 1, 4, 13, 60, 50, 50, 50, 40, 7, 0, 40, 8, 0, 0, 0, 10, 0, 0, 10, 10, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\ndouble n;\nint main(){\nwhile(scanf(\"%lf\",&n)!=EOF){\nif(n<=48.0)printf(\"light fly\\n\");\nelse if(n<=51.0)printf(\"fly\\n\");\nelse if(n<=54.0)printf(\"bantam\\n\");\nelse if(n<=57.0)printf(\"feather\\n\");\nelse if(n<=60.0)printf(\"light\\n\");\nelse if(n<=64.0)printf(\"light welter\\n\");\nelse if(n<=69.0)printf(\"welter\\n\");\nelse if(n<=75.0)printf(\"light middle\\n\");\nelse if(n<=81.0)printf(\"middle\\n\");\nelse if(n<=91.0)printf(\"light heavy\\n\");\nelse printf(\"heavy\\n\");\n}\nreturn 0;\n} <SEP> input: 60.2\n70.2\n48.0\n80.2 <SEP> lines: 18",
+    "target": "execution: [0, 0, 0, 5, 4, 3, 3, 3, 3, 3, 2, 2, 1, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: // Aizu Vol-5 0523: Card GameI\n// 2017.8.30 bal4u@uu\n#include <stdio.h>\n#define TARO 0\n#define HANA 1\n#define NONE 2\nchar c[202], ba;\nint main()\n{\nint n, a;\nint t, i, m[2];\nwhile (scanf(\"%d\", &n) && n) {\nfor (i = 1; i <= n+n; i++) c[i] = HANA;\nfor (i = 1; i <= n; i++) scanf(\"%d\", &a), c[a] = TARO;\nm[0] = m[1] = n, t = TARO, ba = 0;\nwhile (m[0] > 0 && m[1] > 0) {\nfor (i = ba + 1; i <= n+n; i++) {\nif (t == c[i]) { ba = i, c[i] = NONE, m[t]--; break; }\n}\nif (i > n+n) ba = 0;\nt = !t;\n}\nprintf(\"%d\\n%d\\n\", m[HANA], m[TARO]);\n}\nreturn 0;\n} <SEP> input: 5\n1\n7\n9\n6\n10\n10\n8\n7\n14\n18\n4\n11\n3\n17\n5\n19\n0 <SEP> lines: 26",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 3, 2, 2, 2, 32, 103, 98, 0, 30, 30, 0, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\nchar name[100];\nint a, b, n = 0, sum_men, sum_income;\nwhile (n < 9) {\nscanf(\"%s %d %d\", name, &a, &b);\nsum_men = a + b;\nsum_income = a * 200 + b * 300;\nprintf(\"%s %d %d\\n\", name, sum_men, sum_income);\nn++;\n}\nreturn 0;\n} <SEP> input: 3d 281 102 <SEP> lines: 13",
+    "target": "execution: [0, 1, 0, 1, 10, 9, 9, 9, 9, 9, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <stdlib.h>\nint main(void)\n{\nunsigned int weight;\nchar max, i, weigh[10] = {};\nwhile(scanf(\"%d\", &weight) != EOF) {\nfor (i = 1; i < 10; i++) {\nif ((weight & 1) == 1) {\nweigh[i] = 1;\nmax = i;\n}\nweight >>= 1;\n}\nweight = 1;\nfor (i = 1; i < 10; i++) {\nif (weigh[i]) {\nprintf(\"%d\", weight);\nif (i == max)\nputs(\"\");\nelse\nputchar(' ');\n}\nweight <<= 1;\n}\n}\nexit(0);\n} <SEP> input: 7 <SEP> lines: 28",
+    "target": "execution: [0, 0, 0, 1, 0, 1, 2, 10, 9, 3, 3, 0, 9, 0, 1, 10, 9, 3, 3, 1, 0, 2, 0, 9, 0, 0, 1, 0]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint n, i;\nwhile (scanf(\"%d\", &n) != EOF){\nfor (i = 1; i <= 512; i *= 2){\nif (n % (i * 2) != 0){\nprintf(\"%d\", i);\nn -= i;\n}\nif (n != 0){\nprintf(\" \");\n}\n}\nprintf(\"\\n\");\n}\nreturn (0);\n} <SEP> input: 5\n7\n127 <SEP> lines: 18",
+    "target": "execution: [0, 0, 1, 0, 4, 33, 30, 12, 12, 0, 30, 10, 0, 0, 3, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main()\n{\nint m,f,b,GO,tei;\nscanf(\"%d%d%d\",&m,&f,&b);\nGO=m+f;\nif(GO<b){\nprintf(\"NA\\n\");\n}\nelse if(b>m){\ntei=b-m;\nprintf(\"%d\\n\",tei);\n}\nelse if(b<m){\ntei=0;\nprintf(\"%d\\n\",tei);\n}\nreturn 0;\n} <SEP> input: 5000 3000 4500 <SEP> lines: 19",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(i){float s[2];int d[2][4]={};while(scanf(\"%f%f\",&s[0],&s[1])!=EOF){for(i=0;i<2;i++){if(s[i]<0.2)d[i][3]++;else if(s[i]<0.6)d[i][2]++;else if(s[i]<1.1)d[i][1]++;else d[i][0]++;}}for(i=0;i<4;i++)printf(\"%d %d\\n\",d[0][i],d[1][i]);return 0;} <SEP> input: 0.8 1.5 <SEP> lines: 2",
+    "target": "execution: [0, 1]",
+    "prediction": "execution: [0, 1, 0, 1, 1, 1, 9, 8, 0, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\n#define rep2(i,n) rep3(i,0,n)\n#define rep3(i,j,n) for((i)=(j) ; (i)<(n) ; (i)++)\n#define pl(format,var) p(format \"\\n\",var)\n#define p(format,var) printf(format,var)\n#define asizeof(array) (sizeof(array)/sizeof(array[0]))\n#define B_IN_A 2\n#define A_IN_B -2\n#define CROSSED 1\n#define UNTOUCH 0\n/*\n\u5c65\u6b74\n\u30fb\u5186\u5468\u304c\u5186\u5468\u4e0a\u306b\u3042\u308b\u306e\u3092\u3001\u5165\u3063\u3066\u3044\u308b\u3068\u306f\u307f\u306a\u3055\u306a\u3044\u3088\u3046\u306b\u3057\u305f\n\u30fb\u6295\u4e0b \u2192 WA\n[\u30e1\u30e21]\nA \u306e\u5186\u5468\u3068 B \u306e\u5186\u5468\u304c\u4ea4\u308f\u3063\u3066\u3044\u308b\u5834\u5408\n\u2192\u3053\u308c\u3063\u3066A\u3068B\u304c\u305f\u3060\u4e00\u70b9\u3067\u4ea4\u308f\u3063\u3066\u3044\u308b\u30b1\u30fc\u30b9\u3082\u542b\u3080\uff1f\n\u3067\u3082\u3001\u542b\u307e\u306a\u3044\u3068\u51fa\u529b\u5024\u304c\u672a\u5b9a\u7fa9\u306b\u306a\u308b\u304b\u3089\u3001\u6b63\u3057\u3044\u306f\u305a\u2026\nd + rb <= ra\n\u2192\u3053\u308c\u306f B in A \u3068\u307f\u306a\u3057\u3066\u3044\u3044\u306e\uff1f\n\u4ea4\u308f\u3063\u3066\u3044\u308b\u3051\u3069\u3001\u4e2d\u306b\u5165\u3063\u3066\u308b\u3088\u3002\n\u21d2\u5186\u5468\u304c\u4e2d\u306b\u5165\u3063\u3066\u306a\u3044\u3001\u3068\u8003\u3048\u308c\u3070\u3001\u6b63\u3057\u304f\u306a\u3044\u3053\u3068\u306b\u306a\u308b\u3002\n\u3053\u306e\u5834\u5408\u306f\u4ea4\u308f\u3063\u3066\u3044\u308b\u3068\u307f\u306a\u305d\u3046\u304b\u3002\n*/\nint main(){\nchar line[128]; //\u5165\u529b\u884c\ndouble xa,xb,ya,yb,ra,rb; //\u5165\u529b\u3055\u308c\u305f\u5186\u60c5\u5831\ndouble d; //\u4e2d\u5fc3\u70b9\u9593\u306e\u8ddd\u96e2\nint n; //\u5165\u529b\u30c7\u30fc\u30bf\u6570\nint i; //\u30ab\u30a6\u30f3\u30bf\u5909\u6570\n//\u5165\u529b\u30c7\u30fc\u30bf\u6570\u3092\u53d6\u5f97\nfgets(line, sizeof(line), stdin);\nsscanf(line, \"%d\", &n);\n//\u5404\u30c7\u30fc\u30bf\u3092\u51e6\u7406\nrep2(i,n){\nfgets(line, sizeof(line), stdin);\nsscanf(line, \"%lf %lf %lf %lf %lf %lf\", &xa, &ya, &ra, &xb, &yb, &rb);\n//\u4e2d\u5fc3\u70b9\u9593\u306e\u8ddd\u96e2\u3068\u534a\u5f84\u304b\u3089\u5224\u65ad\nd = (xa-xb)*(xa-xb) + (xb-yb)*(xb-yb);\nif(ra + rb < d){\npl(\"%d\",UNTOUCH);\n}else if(ra + rb == d){\npl(\"%d\",CROSSED);\n}else if(d + rb < ra){\npl(\"%d\",B_IN_A);\n}else if(d + ra < rb){\npl(\"%d\",A_IN_B);\n}else{\npl(\"%d\",CROSSED);\n}\n}\nreturn 0;\n} <SEP> input: 2\n0.0 0.0 5.0 0.0 0.0 4.0\n0.0 0.0 2.0 4.1 0.0 2.0 <SEP> lines: 53",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 3, 2, 2, 0, 2, 2, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\ndouble xa1, xa2, xb1, xb2, ya1, ya2, yb1, yb2;\nwhile ( scanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\", &xa1, &ya1, &xa2, &ya2, &xb1, &yb1, &xb2, &yb2) != EOF ){\nif ( xa1 <= xb1 && xb1 <= xa2 ) {\nif ( ya1 <= yb1 && yb1<= ya2) printf(\"YES\\n\");\nelse if (ya1 <= yb2 && yb2 <= ya2 ) printf(\"YES\\n\");\nelse printf(\"NO\\n\");\n}\nelse if (xa1 <= xb2 && xb2 <= xa2 ) {\nif ( ya1 <= yb1 && yb1 <= ya2 ) printf(\"YES\\n\");\nelse if ( ya1 <= yb2 && yb2 <= ya2 ) printf(\"NO\\n\");\nelse printf(\"NO\\n\");\n}\nelse printf(\"NO\\n\");\n}\nreturn 0;\n} <SEP> input: 0.0 0.0 5.0 5.0 1.0 1.0 4.0 4.0\n0.0 0.0 4.0 5.0 1.0 1.0 5.0 5.0\n0.0 0.0 4.0 4.0 -3.0 -5.0 2.0 -1.0 <SEP> lines: 18",
+    "target": "execution: [0, 1, 0, 4, 3, 2, 0, 0, 0, 1, 2, 1, 1, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint i,j;\nint n[10];\nchar s[11];\nwhile(scanf(\"%s\",s)!=-1){\nfor(i=0;i<10;i++)\nn[i]=s[i]-'0';\nfor(i=9;i>0;i--)\nfor(j=0;j<i;j++)\nn[j]=(n[j]+n[j+1])%10;\nprintf(\"%d\\n\",n[0]);\n}\nreturn 0;\n} <SEP> input: 4823108376 <SEP> lines: 15",
+    "target": "execution: [0, 1, 0, 0, 0, 2, 11, 10, 10, 54, 45, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint d;\nint i;\nint area;\nwhile (scanf(\"%d\", &d) != EOF){\narea = 0;\nfor (i = 1; i < 600 / d; i++){\narea += (i * d) * (i * d) * d;\n}\nprintf(\"%d\\n\", area);\n}\nreturn (0);\n} <SEP> input: 20\n10 <SEP> lines: 15",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 3, 2, 90, 88, 0, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void)\n{\nint i=0;\ndouble d;\nint count[8]={0};\nwhile(scanf(\"%lf\",&d)!=EOF){\nif(i%2){\nif(1.1<=d) count[1]++;\nif(0.6<=d&&d<1.1) count[3]++;\nif(0.2<=d&&d<0.6) count[5]++;\nif(d<0.2) count[7]++;\n} else {\nif(1.1<=d) count[0]++;\nif(0.6<=d&&d<1.1) count[2]++;\nif(0.2<=d&&d<0.6) count[4]++;\nif(d<0.2) count[6]++;\n}\ni++;\n}\nfor(i=0;i<8;i++){\nprintf(\"%d\",count[i]);\nif(i%2) puts(\"\");\nelse printf(\" \");\n}\nreturn 0;\n} <SEP> input: 0.8 1.5 <SEP> lines: 27",
+    "target": "execution: [0, 0, 1, 1, 0, 1, 3, 2, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 2, 0, 9, 8, 8, 4, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void) {\nint w_num_vertical, n_num_horizontal;\nscanf(\"%d\", &w_num_vertical);\nscanf(\"%d\", &n_num_horizontal);\nint i, a, b, buf;\nint results[] = {1, 2, 3, 4, 5};\nfor(i = 0; i < n_num_horizontal; i++) {\nscanf(\"%d,%d\", &a, &b);\nbuf = results[a - 1];\nresults[a - 1] = results[b - 1];\nresults[b - 1] = buf;\n}\nint j;\nfor(j = 0; j < w_num_vertical; j++) {\nprintf(\"%d\\n\", results[j]);\n}\nreturn 0;\n} <SEP> input: 5\n4\n2,4\n3,5\n1,2\n3,4 <SEP> lines: 19",
+    "target": "execution: [0, 1, 0, 1, 1, 0, 1, 5, 4, 4, 4, 4, 0, 0, 6, 5, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\ntypedef struct {\nchar name[15];\nint num;\nint uriage;\n}Class;\nint main() {\nint i, before, after;\nClass cls[9];\nfor(i=0;i<9;i++){\nscanf(\"%s %d %d\", cls[i].name, &before, &after);\ncls[i].num = before + after;\ncls[i].uriage = before*200 + after*300;\n}\nfor(i=0;i<9;i++){\nprintf(\"%s %d %d\\n\",cls[i].name, cls[i].num, cls[i].uriage);\n}\nreturn 0;\n} <SEP> input: 2c 229 293 <SEP> lines: 19",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 1, 0, 0, 10, 9, 9, 9, 0, 10, 9, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\nint card[5],ans,n,i,l,t,f;\nwhile(scanf(\" %d,%d,%d,%d,%d\",&card[0],&card[1],&card[2],&card[3],&card[4])!=EOF){\n//\u6607\u9806\u306b\u30bd\u30fc\u30c8\nfor(i=0;i<4;i++){\nfor(l=4;l>i;l--){\nif(card[l-1]>card[l]){\nt=card[l-1];\ncard[l-1]=card[l];\ncard[l]=t;\n}\n}\n}\n//\u30b9\u30c8\u30ec\u30fc\u30c8\u5224\u5b9a\nfor(f=0,i=4;i>0;i--){\nif(i==1 && card[1]==10 && card[0]==1)f=1;\nif(card[i]!=card[i-1]+1)break;\nif(i==1)f=1;\n}\n//\u30b9\u30ea\u30fc\u30da\u30a2\nif(f==0){\nfor(i=0;i<3;i++){\nif(card[i]==card[i+2])f=3;\n}\n}\n//\u30ef\u30f3\u30da\u30a2\u5224\u5b9a\nif(f==0){\nfor(i=0;i<4;i++){\nif(card[i]==card[i+1])f=2;\n}\n}\nif(card[0]==card[3] || card[1]==card[4]){\nprintf(\"four card\\n\");\n}\nelse if((card[0]==card[1] && card[2]==card[4]) || card[0]==card[2] && card[3]==card[4]){\nprintf(\"full house\\n\");\n}\nelse if(f==1){\nprintf(\"straight\\n\");\n}\nelse if(f==3){\nprintf(\"three card\\n\");\n}\nelse if((card[0]==card[1] && (card[2]==card[3] || card[3]==card[4])) || (card[1]==card[2] && card[3]==card[4])){\nprintf(\"two pair\\n\");\n}\nelse if(f==2){\nprintf(\"one pair\\n\");\n}\nelse{\nprintf(\"null\\n\");\n}\n}\nreturn 0;\n} <SEP> input: 6,7,8,9,10 <SEP> lines: 56",
+    "target": "execution: [0, 1, 0, 2, 0, 5, 14, 10, 0, 0, 0, 0, 0, 0, 0, 5, 4, 4, 4, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void){\nchar a[9+1]; int i;\nwhile(~scanf(\"%s\",a)){\nfor(i=0; i<3; i++){\nif(a[i*3]!='s' && a[i*3]==a[i*3+1] && a[i*3+1]==a[i*3+2]){\nprintf(\"%c\\n\",a[i*3]);\ngoto end;\n}else if(a[i]!='s' && a[i]==a[i+3] && a[i+3]==a[i+6]){\nprintf(\"%c\\n\",a[i]);\ngoto end;\n}\n}\nif(a[0]!='s' && a[0]==a[4] && a[4]==a[8]){\nprintf(\"%c\\n\",a[0]);\ngoto end;\n}else if(a[2]!='s' && a[2]==a[4] && a[4]==a[6]){\nprintf(\"%c\\n\",a[2]);\ngoto end;\n}\nprintf(\"d\\n\");\nend:;\n}\nreturn 0;\n} <SEP> input: ooosxssxs\nxoosxsosx\nooxxxooxo <SEP> lines: 25",
+    "target": "execution: [0, 1, 0, 4, 9, 7, 1, 1, 6, 0, 0, 0, 0, 2, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint time,disit,len;\nscanf(\"%d %d\",&disit,&len);\ntime = len/disit + len%disit;\nprintf(\"%d\\n\",time);\nreturn 0;\n} <SEP> input: 7 4 <SEP> lines: 9",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 1, 1]",
+    "mae": 0.2222222222222222
+  },
+  {
+    "input": "code: a;main(){for(;~scanf(\"%d\",&a);a=!printf(\"%d00\\n\",(600-a)*(1200-a)));} <SEP> input: 10 <SEP> lines: 1",
+    "target": "execution: [1]",
+    "prediction": "execution: [1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void) {\nint F;\nif (scanf(\"%d\", &F) != 1) return 1;\nprintf(\"%d\\n\", (F - 30) / 2);\nreturn 0;\n} <SEP> input: 50 <SEP> lines: 7",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main() {\nint i;\ndouble a, s;\nwhile (scanf(\" %lf \", &a) != EOF) {\ns = a;\nfor (i = 0; i < 9; i++) {\nif (i % 2 == 0)\na *= 2.0;\nelse\na /= 3.0;\ns += a;\n}\nprintf(\"%.8lf\\n\", s);\n}\nreturn 0;\n} <SEP> input: 3.0 <SEP> lines: 17",
+    "target": "execution: [0, 1, 0, 0, 2, 1, 10, 9, 5, 0, 4, 9, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\ndouble D[80]; int d;\ndouble pop_n(){\nreturn (D[--d]);}\nvoid push_n(double a) {\nD[d]=a; d++;\n}\nint main() {\nchar inbuf[99];\nwhile (gets(inbuf)) {\nchar *tp = strtok(inbuf, \" \\n\");\nwhile (tp != NULL) {\ndouble a,b;\nif ((tp[0] == '+') && (tp[1]==0)) {\nD[d-2]+=D[--d];\n}\nelse if (tp[0] == '*') {\nD[d-2]*=D[--d];\n}\nelse if ((tp[0] == '-') && (tp[1]==0)) {\nD[d-2]-=D[--d];\n}\nelse if (tp[0] == '/') {\nD[d-2]/=D[--d];\n}\nelse {\nD[d++]=atof(tp);\n}\ntp = strtok(NULL, \" \\n\");\n}\nprintf(\"%.6lf\\n\",pop_n());\n}\nreturn 0;\n} <SEP> input: 10 2 12 - /\n3 4 - 7 2 3 * + *\n-1 -2 3 + + <SEP> lines: 36",
+    "target": "execution: [0, 0, 0, 0, 0, 3, 0, 0, 0, 1, 0, 4, 3, 22, 0, 19, 3, 0, 16, 2, 0, 14, 2, 0, 12, 1, 0, 0, 11, 0, 19, 0, 3, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint n;\nfloat x[4], y[4];\nint i;\nscanf(\"%d\", &n);\nwhile (n--){\nfor (i = 0; i < 4; i++){\nscanf(\"%f %f\", &x[i], &y[i]);\n}\nif ((x[1] - x[0]) * (y[1] - y[0]) + (x[3] - x[2]) * (y[3] - y[2])){\nprintf(\"YES\\n\");\n}\nelse {\nprintf(\"NO\\n\");\n}\n}\nreturn (0);\n} <SEP> input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0 <SEP> lines: 20",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 1, 3, 10, 8, 0, 2, 1, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: main(i){char a[20];for(gets(a),i=strlen(a);i;i--)putchar(a[i]);} <SEP> input: w32nimda <SEP> lines: 1",
+    "target": "execution: [1]",
+    "prediction": "execution: [1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\nint time[4];\nint i;\nfor(i=0;i<=3;i++){\nscanf(\"%d\\n\",time[i]);\n}\nint x;\nx = time[0]+time[1]+time[2]+time[3];\nprintf(\"%d\\n\",x/60);\nprintf(\"%d\\n\",x%60);\nreturn 0;\n} <SEP> input: 31\n34\n7\n151 <SEP> lines: 13",
+    "target": "execution: [0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <string.h>\nint main(void) {\nchar string1[11], string2[11];\nint i, j, l, k, length;\nwhile(scanf(\"%s\",string1) != EOF) {\nfor(i = 0; i < 10; i++ ) {\nstring1[i] -= 48;\n}\nfor(l = 10; l > 0; l-- ) {\nfor(i = 0; i < l - 1; i++ ) {\nstring2[i] = (string1[i] + string1[i + 1]) % 10;\n}\nfor(i = 0; i < l - 1; i++ ) {\nstring1[i] = string2[i];\n}\n}\nprintf(\"%d\\n\",(int)string1[0]);\n}\nreturn 0;\n} <SEP> input: 4823108376\n1234567890\n0123456789 <SEP> lines: 21",
+    "target": "execution: [0, 0, 1, 0, 0, 4, 33, 30, 0, 33, 165, 135, 0, 165, 135, 0, 0, 3, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <math.h>\nfloat stack[100];\nint sp;\nvoid push(float n)\n{\nstack[sp++] = n;\n}\nfloat pop(void)\n{\nreturn (stack[--sp]);\n}\nint main(void)\n{\nchar str[100];\nchar *p;\nfloat a, b;\nwhile (fgets(str, 100, stdin) != NULL){\np = str;\nsp = 0;\nwhile (*p != '\\0' && *p != '\\n'){\nswitch (*p){\ncase '+':\na = pop();\nb = pop();\npush(b + a);\np++;\nbreak;\ncase '*':\na = pop();\nb = pop();\npush(b * a);\np++;\nbreak;\ncase '/':\na = pop();\nb = pop();\npush(b / a);\np++;\nbreak;\ncase ' ':\ncase '\\n':\np++;\nbreak;\ncase '-':\nif ('0' <= *(p + 1) && *(p + 1) <= '9'){\na = atof(p);\npush(a);\nwhile (*p++ != ' ');\np--; }\nelse {\na = pop();\nb = pop();\npush(b - a);\np++;\n}\nbreak;\ndefault:\na = atof(p);\npush(a);\nwhile (*p++ != ' ');\np--;\nbreak;\n}\n}\nprintf(\"%f\\n\", stack[0]);\n}\nreturn (0);\n} <SEP> input: -1 -2 3 + + <SEP> lines: 69",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 4, 4, 0, 1, 0, 0, 0, 2, 1, 1, 10, 9, 0, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 4, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 2, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint m, f, b, a, c;\nscanf(\"%d\" \"%d\" \"%d\", &m, &f, &b);\na = b - m;\nif(a > 0){\nc = f - a;\nif(c < 0){\nprintf(\"NA\\n\");\n}\nelse{\nprintf(\"%d\\n\",a);\n}\n}\nelse{\nprintf(\"0\\n\");\n}\nreturn 0;\n} <SEP> input: 5000 3000 4500 <SEP> lines: 20",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main() {\nchar buf[1024];\nfloat a, b;\nint n, s;\nint i, j;\nfor (;~scanf(\"%f %f %d\\n\", &a, &b, &n);) {\nsnprintf(buf, 1023, \"%.10f\\n\", a/b);\nfor (i = 0; buf[i++] != '.';);\nfor (j = s = 0; j < n; j++) {\ns += buf[j + i] - '0';\n}\nprintf(\"%d\\n\", s);\n}\nreturn 0;\n} <SEP> input: 4 3 2 <SEP> lines: 16",
+    "target": "execution: [0, 1, 0, 0, 0, 0, 2, 1, 1, 3, 2, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <string.h>\nint main(void)\n{\nint color[8][3] = {\n{0, 0, 0},\n{0, 0, 255},\n{0, 255, 0},\n{0, 255, 255},\n{255, 0, 0},\n{255, 0, 255},\n{255, 255, 0},\n{255, 255, 255}\n};\nchar color_name[8][8] = {\n\"black\",\n\"blue\",\n\"lime\",\n\"aqua\",\n\"red\",\n\"fuchsia\",\n\"yellow\",\n\"white\"\n};\nint d[8], R, G, B, min, i;\nchar str[8];\nwhile (scanf(\"%s\", str), strcmp(str, \"0\") != 0){\nmin = 0;\nif (str[1] >= '0' && str[1] <= '9'){\nR = (str[1] - '0') * 16;\n}\nelse {\nR = (str[1] - 'a' + 10) * 16;\n}\nif (str[2] >= '0' && str[2] <= '9'){\nR += str[2] - '0';\n}\nelse {\nR += str[2] - 'a' + 10;\n}\nif (str[3] >= '0' && str[3] <= '9'){\nG = (str[3] - '0') * 16;\n}\nelse {\nG = (str[3] - 'a' + 10) * 16;\n}\nif (str[4] >= '0' && str[4] <= '9'){\nG += str[4] - '0';\n}\nelse {\nG += str[4] - 'a' + 10;\n}\nif (str[5] >= '0' && str[5] <= '9'){\nB = (str[5] - '0') * 16;\n}\nelse {\nB = (str[5] - 'a' + 10) * 16;\n}\nif (str[6] >= '0' && str[6] <= '9'){\nB += str[6] - '0';\n}\nelse {\nB += str[6] - 'a' + 10;\n}\nfor (i = 0; i < 8; i++){\nd[i] = (color[i][0] - R) * (color[i][0] - R)\n+ (color[i][1] - G) * (color[i][1] - G)\n+ (color[i][2] - B) * (color[i][2] - B);\nif (d[min] > d[i]){\nmin = i;\n}\n}\nprintf(\"%s\\n\", color_name[min]);\n}\nreturn (0);\n} <SEP> input: #ffe085\n#787878\n#decade\n#ff55ff\n0 <SEP> lines: 76",
+    "target": "execution: [0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 4, 1, 0, 0, 3, 0, 4, 1, 0, 0, 3, 0, 4, 2, 0, 0, 2, 0, 4, 3, 0, 0, 1, 0, 4, 2, 0, 0, 2, 0, 4, 2, 0, 0, 2, 0, 36, 64, 32, 32, 32, 13, 0, 0, 4, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\n#include<string.h>\n#include<stdlib.h>\nint main(void)\n{\nchar r_number[] = {'M','D','C','L','X','V','I'},number[101];\nint a_number[] = {1000,500,100,50,10,5,1},num[101];\nint i,j,sum;\nwhile(scanf(\"%s\", number) != EOF){\nsum = 0;\nfor (i = 0; number[i] != '\\0'; i++) {\nfor (j = 0; r_number[j] != '\\0'; j++) {\nif (number[i] == r_number[j]) {\nnum[i] = a_number[j];\n}\n}\n}\nfor (i = 0; i*2+1 < strlen(number); i++) {\nif (num[i * 2] == num[i * 2 + 1])\nsum += num[i * 2] + num[i * 2 + 1];\nelse if (num[i * 2] < num[i * 2 + 1])\nsum += num[i * 2 + 1] - num[i * 2];\nelse\nsum += num[i * 2] + num[i * 2 + 1];\n}\nif (strlen(number) % 2 != 0)\nsum += num[strlen(number) - 1];\nprintf(\"%d\\n\",sum);\n}\nreturn 0;\n} <SEP> input: CCCCLXXXXVIIII <SEP> lines: 31",
+    "target": "execution: [0, 0, 0, 0, 1, 1, 1, 0, 2, 1, 15, 308, 294, 64, 0, 0, 0, 8, 7, 6, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: // AOJ Volume 0 Problem 0013\n#include <stdio.h>\nint main(void)\n{\nint s;\nint d;\nint x;\nwhile (scanf(\"%d\", &d) != EOF){\ns = 0;\nfor (x = 0; x < 600; x += d){\ns += x * x * d;\n}\nprintf(\"%d\\n\", s);\n}\nreturn (0);\n} <SEP> input: 10 <SEP> lines: 16",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 0, 2, 1, 61, 60, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(){\nchar in[3], now = 'A';\nwhile(scanf(\"%s\", in) != EOF){\nif(in[0] == now) now = in[2];\nelse if(in[2] == now) now = in[0];\n}\nprintf(\"%c\\n\", now);\nreturn 0;\n} <SEP> input: B,C\nA,C\nC,B\nA,B\nC,B <SEP> lines: 10",
+    "target": "execution: [0, 1, 1, 6, 5, 3, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 1, 1, 1]",
+    "mae": 1.4
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void)\n{\nint f,N,i,x,y,b,p,g;\nscanf(\"%d\",&N);\nfor(i=0;i<N;i++){\nscanf(\"%d %d %d %d\",&x,&y,&b,&p);\ng=x*b+y*p;\nf=g*0.8;\nif(x>=5&&y>=2){\nprintf(\"%d\\n\",f);\n}\nelse{\nprintf(\"%d\\n\",g);\n}\n}\nreturn 0;\n} <SEP> input: 2\n100 100 1 1\n1000 500 5 2 <SEP> lines: 18",
+    "target": "execution: [0, 0, 1, 0, 1, 3, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint i;\nint weight;\nint bundou_weight;\nint bundou_list[10];\nint cnt;\nwhile (scanf(\"%d\", &weight) != EOF) {\ncnt = 0;\nfor (bundou_weight = 1; bundou_weight <= 512; bundou_weight *= 2) {\nif (weight % (bundou_weight * 2) != 0) {\nbundou_list[cnt++] = bundou_weight;\nweight -= bundou_weight;\n}\nif (weight == 0) {\nbreak;\n}\n}\nfor (i = 0; i < cnt; i++) {\nprintf(\"%d \", bundou_list[i]);\n}\nprintf(\"\\n\");\n}\nreturn 0;\n} <SEP> input: 5 <SEP> lines: 26",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 0, 0, 2, 1, 3, 3, 2, 2, 0, 3, 1, 0, 0, 3, 2, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(){\nint i, j, x;\nint a = 1;\nint counter = 0;\nint array[9] = {0};\nwhile (scanf(\"%d\",&x)!=EOF) {\nfor (i = 9; i >= 0; i--) {\na = 1;\nfor (j = 0; j < i; j++) {\na = a * 2;\n}\nif (x >= a) {\nx = x - a;\ncounter++;\narray[counter] = a;\n}\n}\nfor (i = counter; i >= 1; i--) {\nif (i != 1) {\nprintf(\"%d \",array[i]);\n}\nelse {\nprintf(\"%d\\n\",array[i]);\n}\n}\n}\nreturn 0;\n} <SEP> input: 7 <SEP> lines: 29",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 2, 11, 10, 55, 45, 0, 10, 3, 3, 3, 0, 0, 4, 3, 2, 0, 0, 1, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 9, 8, 0, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nsigned main(){\nint h,n,z;\nscanf(\"%d %d\",&h,&n);\nz=h+n;\nif(z>0){\nz=1;\n}\nif(z<0){\nz=-1;\n}\nprintf(\"%d\\n\",z);\nreturn(0);\n} <SEP> input: -3 3 <SEP> lines: 14",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint a, i, b;\nunsigned long long int ans = 0;\nscanf(\"%d\", &a);\nfor(i = 0; i < a; i++){\nscanf(\"%d\", &b);\nans += b;\n}\nprintf(\"%lld\\n\", ans / a);\nreturn 0;\n} <SEP> input: 6\n12300\n5600\n33800\n0\n26495\n52000 <SEP> lines: 12",
+    "target": "execution: [0, 1, 0, 1, 1, 7, 6, 6, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint i, j;\nint st;\nint sta;\nint pair[13];\nint two, three, four;\nint card[5];\nint t;\nwhile (scanf(\"%d,%d,%d,%d,%d\", &card[0], &card[1], &card[2], &card[3], &card[4]) != EOF){\nfor (i = 0; i < 5; i++){\nfor (j = 0; j < 4 - i; j++){\nif (card[j] > card[j + 1]){\nt = card[j + 1];\ncard[j + 1] = card[j];\ncard[j] = t;\n}\n}\n}\nfor (i = 0; i < 13; i++){\npair[i] = 0;\n}\nst = 0; sta = 0;\ntwo = 0; three = 0; four = 0;\nfor (i = 0; i < 4; i++){\n// printf(\"%d\", card[i]);\npair[card[i] - 1]++;\nif (card[i + 1] - card[i] == 1){\nst++;\n}\nif (card[i] == i + 9 || card[i] == 1){\nsta++;\n}\n}\nif (card[i] == i + 9){\nsta++;\n}\n// printf(\"%d %d\\n\", card[i], sta);\npair[card[i] - 1]++;\nif (card[i] == i + 1){\nsta++;\n}\nfor (i = 0; i < 13; i++){\n// printf(\"%d\", pair[i]);\nif (pair[i] == 2){\ntwo++;\n}\nif (pair[i] == 3){\nthree++;\n}\nif (pair[i] == 4){\nfour++;\n}\n}\n// printf(\"\\n\");\n// printf(\"%d %d %d\\n\", two, three, four);\nif (four == 1){\nprintf(\"four card\\n\");\n}\nelse if (two == 1 && three == 1){\nprintf(\"full house\\n\");\n}\nelse if (st == 4 || sta == 5){\nprintf(\"straight\\n\");\n}\nelse if (three == 1){\nprintf(\"three card\\n\");\n}\nelse if (two == 2){\nprintf(\"two pair\\n\");\n}\nelse if (two == 1){\nprintf(\"one pair\\n\");\n}\nelse {\nprintf(\"null\\n\");\n}\n}\nreturn (0);\n} <SEP> input: 11,12,13,1,2 <SEP> lines: 81",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 6, 15, 10, 6, 6, 6, 0, 0, 0, 14, 13, 0, 1, 1, 5, 0, 4, 4, 3, 0, 4, 3, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 14, 0, 13, 0, 0, 13, 0, 0, 13, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint w,sum;\nscanf(\"%d\",&w);\nsum=32*w;\nprintf(\"%d\\n\",sum);\nreturn 0;\n} <SEP> input: 3 <SEP> lines: 9",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void)\n{\nint i=0,j;\nchar str,ch[21];\nwhile(scanf(\"%c\",&str)!=EOF)\n{\nch[i]=str;\n//printf(\"%c\",ch[i]);\ni++;\n}\nfor(j=i-3;j>=0;j--)\n{\nprintf(\"%c\",ch[j]);\n}\nprintf(\"\\n\");\nreturn 0;\n} <SEP> input: w32nimda <SEP> lines: 18",
+    "target": "execution: [0, 0, 1, 1, 0, 9, 0, 8, 0, 8, 0, 7, 0, 6, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nmain(){\nint n[100],i,key,l=0,r=100,mid;\nfor(i=0;i<100;i++){\nscanf(\"%d\",&n[i]);\nif(n[i]==0){\nkey=i-1;\nbreak;\n}\n}\nr=n[key-1];\nwhile(l<r){\nmid=(l+r)/2;\nif(n[mid]==key) break;\nelse if(n[mid]<key) l=mid+1;\nelse r=mid-1;\n}\nprintf(\"%d\\n\",n[mid]);\nreturn 0;\n} <SEP> input: 7\n11\n15\n23\n36\n51\n61\n86\n51\n4\n1\n2\n3\n5\n4\n0 <SEP> lines: 20",
+    "target": "execution: [0, 1, 1, 16, 16, 16, 1, 1, 0, 0, 1, 3, 2, 2, 2, 1, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: char b[99],*p;main(){gets(b);for(p=index(b,0);p-b;putchar(*--p));} <SEP> input: w32nimda <SEP> lines: 1",
+    "target": "execution: [2]",
+    "prediction": "execution: [1]",
+    "mae": 1.0
+  },
+  {
+    "input": "code: #include <stdio.h>\nint check(float n){\nif(n>=1.1) return 0;\nelse if(n>=0.6) return 1;\nelse if(n>=0.2) return 2;\nelse return 3;\n}\nint main(void){\nfloat l , r;\nint cnt[40][2] = {0} , i;\nwhile(scanf(\"%f %f\" , &l , &r)!=EOF){\ncnt[check(l)][0]++;\ncnt[check(r)][1]++;\n}\nfor(i=0;i<4;i++){\nprintf(\"%d %d\\n\" , cnt[i][0] , cnt[i][1]);\n}\nreturn 0;\n} <SEP> input: 1.0 1.2\n0.8 1.5\n1.2 0.7\n2.0 2.0 <SEP> lines: 19",
+    "target": "execution: [0, 0, 8, 3, 0, 0, 8, 1, 0, 1, 5, 4, 4, 0, 5, 4, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\ndouble x[3], y[3], px, py;\ndouble s, s1, s2, s3;\nwhile (scanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\", x, y, x+1, y+1, x+2, y+2, &px, &py) != EOF)\n{\ns = ((x[1] - x[0]) * (y[2] - y[0]) - (y[1] - y[0]) * (x[2] - x[0])) / 2;\ns1 = ((x[1] - x[0]) * (py - y[0]) - (y[1] - y[0]) * (px - x[0])) / 2;\ns2 = ((px - x[0]) * (y[2] - y[0]) - (x[2] - x[0]) * (py - y[0])) / 2;\ns3 = ((x[1] - px) * (y[2] - py) - (x[2] - px) * (y[1] - py)) / 2;\nif (s < 0){\ns *= -1;\n}\nif (s1 < 0){\ns1 *= -1;\n}\nif (s2 < 0){\ns2 *= -1;\n}\nif (s3 < 0){\ns3 *= -1;\n}\nif (s == s1 + s2 + s3){\nprintf(\"YES\\n\");\n}\nelse {\nprintf(\"NO\\n\");\n}\n}\nreturn (0);\n} <SEP> input: 0.0 0.0 1.0 4.0 5.0 3.0 -1.0 3.0 <SEP> lines: 32",
+    "target": "execution: [0, 0, 1, 0, 0, 2, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: /*\nAOJ0174\nTitle:Badminton\n@kankichi573\n*/\n#include <stdio.h>\n#include <string.h>\nchar solve(char buf[])\n{\nint i,acnt,bcnt;\nacnt=bcnt=0;\nfor(i=1;i<strlen(buf);i++)\n{\nif(buf[i]=='A')\nacnt++;\nif(buf[i]=='B')\nbcnt++;\n}\nif(acnt==10 && bcnt < 10)\nprintf(\"11 %d\\n\",bcnt);\nelse if(bcnt==10 && acnt < 10)\nprintf(\"%d 11\\n\",bcnt);\nelse if(acnt > 10 && acnt > bcnt)\nprintf(\"%d %d\\n\",acnt+1,bcnt);\nelse if(bcnt > 10 && bcnt > acnt)\nprintf(\"%d %d\\n\",acnt,bcnt+1);\n}\nmain()\n{\nint i,ret;\nchar buf[100];\nwhile(scanf(\"%s\",&buf[0]) && buf[0]!='0')\n{\nsolve(buf);\n}\nreturn(0);\n} <SEP> input: ABAABBBAABABAAABBAA\nAABBBABBABBAAABABABAAB\nBABAABAABABABBAAAB\nAABABAAABBAABBBABAA\nAAAAAAAAAAA\nABBBBBBBBBB\n0 <SEP> lines: 37",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 100, 0, 94, 50, 94, 44, 0, 6, 4, 2, 1, 1, 0, 1, 1, 6, 0, 1, 0, 0, 7, 0, 6, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main()\n{\nint d, s, i;\nwhile(scanf(\"%d\", &d)!=EOF){\nscanf(\"%d\", &d);\nfor(i=1; i<=600-d; i++){\ns = d*(i*d);\n}\n}\nreturn 0;\n} <SEP> input: 20 <SEP> lines: 12",
+    "target": "execution: [0, 0, 1, 0, 2, 1, 581, 580, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 95.66666666666667
+  },
+  {
+    "input": "code: #include<stdio.h>\n#include<string.h>\nint main(void)\n{\nint len,len2,n,i,j,k,cnt,l,flg;\nchar s[11],a[100][11];\nscanf(\"%s\",s);\nlen=strlen(s);\nscanf(\"%d\",&n);\nfor(i=0;i<n;i++) scanf(\"%s\",a[i]);\ncnt=0;\nfor(i=0;i<n;i++){\nlen2=strlen(a[i]);\nflg=1;\nfor(j=0;j<10;j++){\nl=j;\nfor(k=0;k<len;k++){\nif(l>=10) l=0;\n// printf(\"%c\\n\",a[i][l]);\nif(s[k]==a[i][l]){\nflg=0;\n// printf(\"%d\\n\",i);\nbreak;\n}\nl++;\n}\nif(flg==1){\nj=100000;\ncnt++;\n}\n}\n}\nprintf(\"%d\\n\",cnt);\nreturn 0;\n} <SEP> input: ABCD\n3\nABCDXXXXXX\nYYYYABCDXX\nDCBAZZZZZZ <SEP> lines: 35",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 4, 3, 3, 15, 12, 56, 45, 0, 45, 1, 0, 1, 0, 44, 0, 12, 2, 2, 0, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint q, c, n, a, s, f;\nscanf(\"%d\", &q);\nwhile (q--){\nscanf(\"%d %d %d\", &c, &a, &n);\ns = 0;\nf = -1;\nwhile (s != f){\nf = s;\nif (c >= 1 && a >= 1 && n >= 1){\nc--;\nn--;\na--;\ns++;\n}\nelse if (c >= 2 && a >= 1){\nc -= 2;\na--;\ns++;\n}\nelse if (c >= 3){\nc -= 3;\ns++;\n}\n}\nprintf(\"%d\\n\", s);\n}\nreturn 0;\n} <SEP> input: 4\n3 0 0\n1 1 1\n9 4 1\n0 1 2 <SEP> lines: 31",
+    "target": "execution: [0, 0, 1, 0, 1, 5, 4, 4, 4, 14, 10, 10, 2, 2, 2, 2, 0, 8, 3, 3, 3, 0, 5, 1, 1, 0, 0, 4, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint k;\ndouble x1,x2,x3,x4,y1,y2,y3,y4;\nscanf(\"%d\",&k);\nwhile(k--){\nscanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\",&x1,&y1,&x2,&y2,&x3,&y3,&x4,&y4);\nif((y2-y1)*(x4-x3)==(y4-y3)*(x2-x1)) printf(\"YES\\n\");\nelse printf(\"NO\\n\");\n}\nreturn 0;\n} <SEP> input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0 <SEP> lines: 12",
+    "target": "execution: [0, 1, 0, 0, 1, 3, 2, 2, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <string.h>\nint main(void){\nint p,n,sum=0,num=0,kind=0;\nwhile(scanf(\"%d,%d\",&p,&n)!=EOF){\nsum+=p*n;num+=n;kind++;\n}\nprintf(\"%d\\n%.0f\\n\",sum,(float)num/kind);\nreturn 0;\n} <SEP> input: 100,20\n50,10\n70,35 <SEP> lines: 10",
+    "target": "execution: [0, 0, 1, 1, 4, 3, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void){\nint Difference,i,Sum;\nwhile(scanf(\"%d\", &Difference) == 1){\nSum = 0;\nfor(i = Difference; i < 600; i+= Difference){\nSum += Difference*i*i;\n}\nprintf(\"%d\\n\", Sum);\n}\nreturn 0;\n} <SEP> input: 20\n10 <SEP> lines: 12",
+    "target": "execution: [0, 1, 0, 3, 2, 90, 88, 0, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 15.25
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\ndouble x1,y1,x2,y2,xq,yq,x,y;\ndouble a,b,A,B,cx,cy;\nwhile(~scanf(\"%lf,%lf,%lf,%lf,%lf,%lf\",&x1,&y1,&x2,&y2,&xq,&yq)){\nif(y1==0 && y2==0){\nprintf(\"%lf %lf\\n\",xq,-yq);\ncontinue;\n}\nif(x1==0 && x2==0){\nprintf(\"%lf %lf\\n\",-xq,yq);\ncontinue;\n}\na=(y2-y1)?(x2-x1)/(y2-y1):0;\nb=y2-a*x2;\nA=a?-1/a:0;\nB=yq-A*xq;\ncx=(a-A)?(B-b)/(a-A):0;\ncy=A*cx+B;\nx=2*cx-xq;\ny=2*cy-yq;\nprintf(\"%lf %lf\\n\",x,y);\n}\nreturn 0;\n} <SEP> input: 1.0,0.0,-1.0,0.0,1.0,1.0  <SEP> lines: 25",
+    "target": "execution: [0, 1, 0, 0, 2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint b[5],c[14]={0,1,2,3,4,5,6,7,8,9,10,11,12,13};\nint i,j,temp,count[14],k;\nscanf(\"%d%d%d%d%d\",&b[0],&b[1],&b[2],&b[3],&b[4]);\n/*sort*/\nfor (i = 0; i < 5; i++)\n{\nfor (j = 4; j > i; j--)\n{\nif (b[j - 1] > b[j])\n{\ntemp = b[j];\nb[j] = b[j - 1];\nb[j - 1]= temp;\n}\n}\n}\n/*count*/\nfor(i=1;i<14;i++)\n{\ncount[i] = 0;\nfor(j=0;j<5;j++)\n{\nif(i==b[j])\n{\ncount[i]+=1;\n}\n}\n}\n/*4,full*/\nfor(i=1;i<14;i++)\n{\nif(count[i]==4)\n{\nprintf(\"four card\\n\");\nreturn 0;\n}\nif(count[i]==3)\n{\nfor(k=1;k<14;k++)\n{\nif(count[k]==2)\n{\nprintf(\"full house\\n\");\nreturn 0;\n}\n}\n}\nif(count[i]==2)\n{\nfor(k=1;k<14;k++)\n{\nif(count[k]==3)\n{\nprintf(\"full house\\n\");\nreturn 0;\n}\n}\n}\n}\n/*straight*/\nif( (b[0]==1&&b[1]==10&&b[2]==11&&b[3]==12&&b[4]==13)\n||(b[1]==b[0]+1&&b[2]==b[0]+2&&b[3]==b[0]+3&&b[4]==b[0]+4) )\n{\nprintf(\"straigh\\n\");\nreturn 0;\n}\n/*2*/\nfor(i=1;i<14;i++)\n{\nif(count[i]==3)\n{\nprintf(\"three card\\n\");\nreturn 0;\n}\nif(count[i]==2)\n{\nfor(k=1;k<14;k++)\n{\nif(k!=i&&count[k]==2)\n{\nprintf(\"two pair\\n\");\nreturn 0;\n}\n}\nprintf(\"one pair\\n\");\nreturn 0;\n}\n}\nprintf(\"null\\n\");\nreturn 0;\n} <SEP> input: 3,3,2,3,3 <SEP> lines: 94",
+    "target": "execution: [0, 0, 1, 1, 0, 1, 0, 6, 0, 15, 0, 10, 0, 7, 7, 7, 0, 0, 0, 0, 14, 0, 13, 78, 0, 65, 0, 1, 0, 0, 0, 0, 14, 0, 13, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 14, 0, 13, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint three_min( int c ,int a ,int n )\n{\nif( c > a )\n{\nc = a ;\n}\nif( c > n )\n{\nreturn n ;\n}\nreturn c ;\n}\nint min_min( int c ,int a )\n{\nreturn c > a ? a : c ;\n}\nint main()\n{\nint q ;\nint c ,a ,n ;\nint ans ;\nscanf( \"%d\" ,&q ) ;\nint i ;\nfor( i = 0 ; i < q ; ++i )\n{\nans = 0 ;\nscanf( \"%d %d %d\" ,&c ,&a ,&n ) ;\nif( c == 0 ) ;\nelse if( a > 0 )\n{\nint min = three_min( c ,a ,n ) ;\nif( n > 0 )\n{\nc -= min ;\na -= min ;\nn -= min ;\nans += min ;\n}\nif( a > 0 )\n{\nmin = min_min( c / 2 ,a ) ;\nc -= ( min * 2 ) ;\na -= min ;\nans += min ;\n}\n}\nans += c / 3 ;\nprintf( \"%d\\n\" ,ans ) ;\n}\nreturn 0 ;\n} <SEP> input: 4\n3 0 0\n1 1 1\n9 4 1\n0 1 2 <SEP> lines: 52",
+    "target": "execution: [0, 0, 0, 2, 0, 1, 0, 2, 0, 1, 0, 1, 2, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 5, 0, 4, 4, 4, 3, 0, 2, 2, 0, 2, 2, 2, 2, 0, 2, 0, 1, 1, 1, 1, 0, 0, 4, 4, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void)\n{\nint p,m,c;\nscanf(\"%d\",&p);\nscanf(\"%d\",&m);\nscanf(\"%d\",&c);\nprintf(\"%d\\n\",p+m+c);\nreturn 0;\n} <SEP> input: 10 10 20 <SEP> lines: 10",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: main(i){i-10&&main(getchar());i-10&&putchar(i>1?i:10);free(0);} <SEP> input: w32nimda <SEP> lines: 1",
+    "target": "execution: [1]",
+    "prediction": "execution: [1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint hen1, hen2, tai;\nint c_t, c_h;\nc_t = 0;\nc_h = 0;\nwhile (scanf(\"%d,%d,%d\", &hen1, &hen2, &tai) != EOF){\nif (hen1 * hen1 + hen2 * hen2 == tai * tai){\nc_t++;\n}\nelse if (hen1 == hen2){\nc_h++;\n}\n}\nprintf(\"%d\\n\", c_t);\nprintf(\"%d\\n\", c_h);\nreturn (0);\n} <SEP> input: 3,4,5\n5,5,8\n4,4,4\n5,4,3 <SEP> lines: 19",
+    "target": "execution: [0, 0, 1, 0, 0, 1, 1, 5, 4, 1, 0, 3, 2, 0, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main()\n{\nlong double a,b,m;\nint n,s;\nwhile(scanf(\"%lf%lf%d\",&a,&b,&n)==3)\n{\ns=0;\nm=a/b;\nfor(n;n>0;n--)\n{\ns+=((int)(m*10))%10;\nm*=10;\n}\nprintf(\"%d\\n\",s);\n}\nreturn 0;\n} <SEP> input: 4 3 2 <SEP> lines: 18",
+    "target": "execution: [0, 0, 1, 0, 0, 2, 0, 1, 1, 3, 0, 2, 2, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint a[20],x,y,z,i,k;\nint main(){\nwhile(scanf(\"%d%d%d\",&x,&y,&z)!=EOF){\nfor(i=1;i<=10;i++)a[i]=0;k=0;\na[x]=a[y]=a[z]=1;\nfor(i=1;i<=10;i++)if(a[i]==0 && x+y+i<=20)k++;\nprintf(\"%s\\n\",(k>3)?(\"YES\"):(\"NO\"));\n}\nreturn 0;\n} <SEP> input: 8 9 10 <SEP> lines: 11",
+    "target": "execution: [0, 0, 0, 2, 1, 1, 1, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint am, pm, i;\nchar cl[20];\nfor(i=0;i<9;i++)\n{\nscanf(\"%s %d %d\", &cl, &am, &pm);\nprintf(\"%s %d %d\\n\", cl, am+pm, am*200+pm*300);\n}\nreturn 0;\n} <SEP> input: 1c 324 183 <SEP> lines: 12",
+    "target": "execution: [0, 0, 1, 0, 0, 10, 0, 9, 9, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 2.6666666666666665
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void)\n{\nint x,y;\nscanf(\"%d\",&x);\ny=x*32;\nprintf(\"%d\\n\",y);\nreturn 0;\n} <SEP> input: 4 <SEP> lines: 9",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint year, month, day;\nwhile (scanf(\"%d %d %d\", &year, &month, &day) != EOF) {\nif (year >= 1990 || (year >= 1989 && month >= 1 && day >= 8) || (year >= 1989 && month >= 2)) {\nprintf(\"heisei %d %d %d\\n\", year - 1989 + 1, month, day);\n} else if (year >= 1927 || (year >= 1926 && month >= 12 && day >= 25)) {\nprintf(\"showa %d %d %d\\n\", year - 1926 + 1, month, day);\n} else if (year >= 1913 || (year >= 1912 && month >= 7 && day >= 30) || (year >= 1912 && month >= 8)) {\nprintf(\"taisho %d %d %d\\n\", year - 1912 + 1, month, day);\n} else if (year >= 1869 || (year >= 1868 && month >= 9 && day >= 8) || (year >= 1868 && month >= 10)) {\nprintf(\"meiji %d %d %d\\n\", year - 1868 + 1, month, day);\n} else {\nprintf(\"pre-meiji\\n\");\n}\n}\nreturn 0;\n} <SEP> input: 1868 9 7 <SEP> lines: 19",
+    "target": "execution: [0, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\n#include<math.h>\nint main(void) {\ndouble x[4]={0};\ndouble y[4]={0};\ndouble t1, t2, t3, s1, s2;\nwhile(scanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\",&x[1],&y[1],&x[2],&y[2],&x[3],&y[3],&x[0],&y[0]) != EOF){\ns1=fabs(x[1]*(y[2]-y[3])+x[2]*(y[3]-y[1])+x[3]*(y[1]-y[2]))/2;\nt1=fabs(x[0]*(y[1]-y[2])+x[1]*(y[2]-y[0])+x[2]*(y[0]-y[1]))/2;\nt2=fabs(x[0]*(y[1]-y[3])+x[1]*(y[3]-y[0])+x[3]*(y[0]-y[1]))/2;\nt3=fabs(x[0]*(y[2]-y[3])+x[2]*(y[3]-y[0])+x[3]*(y[0]-y[2]))/2;\ns2=t1+t2+t3;\nif(s1==s2) printf(\"YES\\n\");\nelse printf(\"NO\\n\");\n}\nreturn 0;\n} <SEP> input: 0.0 0.0 2.0 0.0 2.0 2.0 1.5 0.5 <SEP> lines: 17",
+    "target": "execution: [0, 0, 1, 1, 1, 0, 2, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint a[4];\nint b[4];\nscanf(\"%d %d %d %d\",&a[0],&a[1],&a[2],&a[3]);\nscanf(\"%d %d %d %d\",&b[0],&b[1],&b[2],&b[3]);\nint S = a[0] + a[1] + a[2] + a[3];\nint T = b[0] + b[1] + b[2] + b[3];\nif(S > T || S == T){\nprintf(\"%d\\n\",S);\n}\nelse if(T > S){\nprintf(\"%d\\n\",T);\n}\nreturn 0;\n} <SEP> input: 100 80 70 60\n80 70 80 90 <SEP> lines: 16",
+    "target": "execution: [0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint i,j,k;\nwhile(scanf(\"%d\",&i)!=EOF){\nfor(j=0,k=i;j<10;j++){\nk>>=1;\nif((i>>j)&1){\nprintf(\"%d\",1<<j);\nif(k==0) printf(\"\\n\");\nelse printf(\" \");\n}\n}\n}\nreturn 0;\n} <SEP> input: 5 <SEP> lines: 15",
+    "target": "execution: [0, 1, 0, 2, 11, 10, 10, 2, 2, 1, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: // AOJ Vol3-0383 Heat Strokes\n// 2018.12.25\n//#define _CRT_SECURE_NO_WARNINGS\n#include <stdio.h>\nint main()\n{\nint A, B, ans;\nscanf(\"%d%d\", &A, &B);\nans = B / A;\nif (B % A) ans++;\nprintf(\"%d\\n\", ans);\nreturn 0;\n} <SEP> input: 3 5 <SEP> lines: 13",
+    "target": "execution: [0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 1.3846153846153846
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <string.h>\nint main(void)\n{\nint table[256];\nchar roma_num[128];\nint num;\nint len;\nint i;\ntable['I'] = 1;\ntable['V'] = 5;\ntable['X'] = 10;\ntable['L'] = 50;\ntable['C'] = 100;\ntable['D'] = 500;\ntable['M'] = 1000;\nwhile (~scanf(\"%s\", roma_num)){\nlen = strlen(roma_num);\nnum = table[roma_num[len - 1]];\nfor (i = len - 2; i >= 0; i--){\nnum += table[roma_num[i]] * (table[roma_num[i + 1]] > table[roma_num[i]] ? -1 : 1);\n}\nprintf(\"%d\\n\", num);\n}\nreturn (0);\n} <SEP> input: CCCCLXXXXVIIII <SEP> lines: 26",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 14, 13, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\ndouble n[15],s;\nint i;\nwhile(scanf(\"%lf\",&n[0])!=EOF){\nfor (i=1;i<10;i++){\nif((i+1)%2==0){n[i]=n[i-1]*(double)2.0;}\nelse{n[i]=n[i-1]/(double)3.0;}\n}\ns=0;\nfor(i=0;i<10;i++){\ns+=n[i];\n}\nprintf(\"%lf\\n\",s);\n}\nreturn 0;\n} <SEP> input: 2.0 <SEP> lines: 17",
+    "target": "execution: [0, 1, 0, 0, 2, 10, 9, 4, 0, 1, 11, 10, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: // AOJ Volume 0 Problem 0031\n#include <stdio.h>\nint main(void)\n{\nint weight;\nint i;\nint w;\nwhile (scanf(\"%d\", &weight) != EOF){\nw = 1;\nfor (i = 0; i <= 9; i++){\nif ((weight & (1 << i)) != 0){\nprintf(\"%d \", w);\n}\nw *= 2;\n}\nprintf(\"\\n\");\n}\nreturn (0);\n} <SEP> input: 7 <SEP> lines: 19",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 0, 2, 1, 11, 10, 3, 0, 10, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nchar eyetest(double sight);\nint main(void) {\nint rc[4]={0},lc[4]={0},i;\ndouble right,left;\nwhile (scanf(\"%lf %lf\",&right,&left)!=EOF) {\nrc[eyetest(right)-'A']++;\nlc[eyetest(left)-'A']++;\n}\nfor (i=0; i<4; i++) printf(\"%d %d\\n\",rc[i],lc[i]);\nreturn 0;\n}\nchar eyetest(double sight) {\nif (sight<0.2) {\nreturn 'D';\n} else if (sight<0.6) {\nreturn 'C';\n} else if (sight<1.1) {\nreturn 'B';\n} else {\nreturn 'A';\n}\n} <SEP> input: 2.0 2.0 <SEP> lines: 23",
+    "target": "execution: [0, 0, 1, 1, 0, 2, 1, 1, 0, 1, 1, 1, 0, 2, 0, 2, 0, 2, 0, 0, 2, 0, 2]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint y, m, d;\nwhile (scanf(\"%d %d %d\", &y, &m, &d) != EOF){\nif (y * 10000 + m * 100 + d >= 19890108){\nprintf(\"heisei %d %d %d\\n\", y - 1989 + 1, m, d);\n}\nelse if (y * 10000 + m * 100 + d >= 19261225){\nprintf(\"showa %d %d %d\\n\", y - 1926 + 1, m, d);\n}\nelse if (y * 10000 + m * 100 + d >= 19120730){\nprintf(\"taisho %d %d %d\\n\", y - 1912 + 1, m, d);\n}\nelse if (y * 10000 + m * 100 + d >= 18680908){\nprintf(\"meiji %d %d %d\\n\", y - 1868 + 1, m, d);\n}\nelse {\nprintf(\"pre-meiji\\n\");\n}\n}\nreturn 0;\n} <SEP> input: 1868 12 2 <SEP> lines: 23",
+    "target": "execution: [0, 0, 1, 0, 2, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <string.h>\nint main(void) {\nint i,m,n;\nchar str[200],s;\nfor(i=0;i<9;i++){\nfgets(str,sizeof(str),stdin);\nsscanf(str,\"%s %d %d\",&s,&n,&m);\nprintf(\"%s %d %d\\n\",&s,n+m,n*200+m*300);\n}\nreturn 0;\n} <SEP> input: 3d 281 102 <SEP> lines: 12",
+    "target": "execution: [0, 0, 1, 0, 0, 10, 9, 9, 9, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 1.6666666666666667
+  },
+  {
+    "input": "code: #include<stdio.h>\n#include<string.h>\n#include<math.h>\nint main(){\nint a,b=600,c,d,e=0;\nwhile(scanf(\"%d\",&a)!=EOF){\ne=0;\nc=600/a;\nfor(d=1;d<c;d++){\ne=e+d*a*d*a*a;\n}\nprintf(\"%d\\n\",e);\n}\nreturn 0;\n} <SEP> input: 20\n10 <SEP> lines: 15",
+    "target": "execution: [0, 0, 0, 1, 1, 3, 2, 2, 90, 88, 0, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\n#include<string.h>\nint N,H[105],I[105],C[105][2],i,j,p,r;\nint main()\n{\nfor(;scanf(\"%d\",&N),N;)\n{\nmemset(C,0,sizeof(C));\np=-1;\nfor(i=0;i<=N;i++)\n{\nscanf(\"%d\",&H[i]);\nif(i>0)\n{\nI[i-1]=H[i]-H[i-1];\nfor(j=0;C[j][1]>0;j++)\nif(C[j][0]==I[i-1])\n{\nC[j][1]++;\nbreak;\n}\nif(C[j][1]==0)\n{\nC[j][0]=I[i-1];\nC[j][1]=1;\n}\nif(p==-1||C[j][1]>C[p][1])p=j;\n}\n}\np=C[p][0];\nif(H[1]-H[0]!=p)r=H[0];\nelse if(H[N]-H[N-1]!=p)r=H[N];\nfor(i=1;i<N;i++)\nif(H[i]-H[i-1]!=p&&H[i+1]-H[i]!=p)\nr=H[i];\nprintf(\"%d\\n\",r);\n}\nreturn 0;\n} <SEP> input: 5\n1 2 3 6 4 5\n6\n1 3 6 9 12 15 18\n4\n5 7 9 11 12\n0 <SEP> lines: 39",
+    "target": "execution: [0, 0, 0, 0, 0, 4, 0, 3, 3, 21, 0, 18, 18, 0, 15, 24, 17, 0, 8, 8, 0, 15, 0, 7, 7, 0, 15, 0, 0, 3, 3, 2, 15, 12, 1, 3, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void){\nint i,d,b,s,t,y,sum=0;\nprintf(\"\u6a2a\u306e\u9577\u3055:\");scanf(\"%d\",&d);\nb=600/d;\nfor(i=1;i<b;i++)\n{\ny=i*d;\nt=y*y;\ns=d*t;\nsum+=s;\n}\nprintf(\"\u9762\u7a4d\u306f%d\\n\",sum);\n} <SEP> input: 10 <SEP> lines: 14",
+    "target": "execution: [0, 1, 1, 1, 1, 60, 0, 59, 59, 59, 59, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nvoid swap();\nint data[6]={0};\nint main(void)\n{\nint i,j,n;\nwhile(scanf(\"%d,%d,%d,%d,%d\",&data[1],&data[2],&data[3],&data[4],&data[5])!=EOF){\nswap();\nif((data[1]==data[2] && data[2]==data[3] && data[3]==data[4])||(data[2]==data[3] && data[3]==data[4] && data[4]==data[5])) puts(\"four card\");\nelse if((data[1]==data[2] && data[2]==data[3] && data[4]==data[5]) || (data[1]==data[2] && data[3]==data[4] && data[4]==data[5])) puts(\"full house\");\nelse if((data[1]==1 && data[2]==10 && data[3]==11 && data[4]==12 && data[5]==13 ) || (data[1]+1==data[2] && data[2]+1==data[3] && data[3]+1==data[4] && data[4]+1==data[5])) puts(\"straight\");\nelse if((data[1]==data[2] && data[2]==data[3]) || (data[2]==data[3] && data[3]==data[4]) || (data[3]==data[4] && data[4]==data[5])) puts(\"three card\");\nelse if((data[1]==data[2] && data[3]==data[4]) || (data[1]==data[2] && data[4]==data[5]) || (data[2]==data[3] && data[4]==data[5])) puts(\"two pair\");\nelse if((data[1]==data[2]) || (data[2]==data[3]) || (data[3]==data[4]) || (data[4]==data[5])) puts(\"one pair\");\nelse puts(\"null\");\n}\nreturn 0;\n}\nvoid swap(){\nint i,j,temp;\nfor(i=1;i<6;i++){\nfor(j=1;j<6;j++){\nif(data[i]<data[j]){\ntemp=data[i];\ndata[i]=data[j];\ndata[j]=temp;\n}\n}\n}\nreturn ;\n} <SEP> input: 1,2,3,4,1 <SEP> lines: 31",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 6, 30, 25, 9, 9, 9, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void) {\nint l[4]={0};\nint r[4]={0};\ndouble onel,oner;\nwhile(scanf(\"%lf %lf\",&onel,&oner)==2) {\nif(onel<0.2)l[3]++;\nelse if(onel<0.6)l[2]++;\nelse if(onel<1.1)l[1]++;\nelse l[0]++;\nif(oner<0.2)r[3]++;\nelse if(oner<0.6)r[2]++;\nelse if(oner<1.1)r[1]++;\nelse r[0]++;\n}\nprintf(\"%d %d\\n\",l[0],r[0]);\nprintf(\"%d %d\\n\",l[1],r[1]);\nprintf(\"%d %d\\n\",l[2],r[2]);\nprintf(\"%d %d\\n\",l[3],r[3]);\nreturn 0;\n} <SEP> input: 1.0 1.2 <SEP> lines: 21",
+    "target": "execution: [0, 1, 1, 1, 0, 2, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <math.h>\nint main(void)\n{\ndouble angle[12] = {0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330};\ndouble h, m, ang;\nint n;\nscanf(\"%d\", &n);\nwhile (n-- != 0){\nscanf(\"%lf:%lf\", &h, &m);\nh = angle[(int)h % 12] + m / 2;\nm = 6 * m;\nang = fabs(h - m);\nif (0 <= ang && ang < 30){\nprintf(\"alert\\n\");\n}\nelse if (90 <= ang && ang <= 180){\nprintf(\"safe\\n\");\n}\nelse {\nprintf(\"warning\\n\");\n}\n}\nreturn (0);\n} <SEP> input: 4\n02:15\n06:01\n11:55\n10:40 <SEP> lines: 25",
+    "target": "execution: [0, 0, 0, 1, 1, 0, 0, 1, 5, 4, 4, 4, 4, 4, 2, 0, 2, 1, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(){\nchar cl[20];\nint i,am,pm,yen;\nfor(i=0;i<9;i++){\nscanf(\"%s%d%d\",&cl,&am,&pm);\nprintf(\"%s %d %d\\n\",cl,am+pm,am*200+pm*300);\n}\nreturn 0;\n} <SEP> input: 1a 132 243 <SEP> lines: 10",
+    "target": "execution: [0, 1, 0, 0, 10, 9, 9, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint a,b,c,d;\nscanf(\"%d %d %d %d\",&a,&b,&c,&d);\nif(a==b && c==d || a==d && b==c){\nprintf(\"yes\\n\");\n}\nelse{\nprintf(\"no\\n\");\n}\nreturn 0;\n} <SEP> input: 1 1 3 4 <SEP> lines: 13",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 1.6923076923076923
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void)\n{\ndouble templ, tempr;\nint al=0,ar=0,bl=0,br=0,cl=0,cr=0,dl=0,dr=0;\nwhile(scanf(\"%lf %lf\",&templ,&tempr)!=EOF)\n{\nif(templ>=1.1)\nal++;\nelse if(templ>=0.6 && templ<1.1)\nbl++;\nelse if(templ>=0.2 && templ<0.6)\ncl++;\nelse\ndl++;\nif(tempr>=1.1)\nar++;\nelse if(tempr>=0.6 && tempr<1.1)\nbr++;\nelse if(tempr>=0.2 && tempr<0.6)\ncr++;\nelse\ndr++;\n}\nprintf(\"%d %d\\n%d %d\\n%d %d\\n%d %d\\n\",al,ar,bl,br,cl,cr,dl,dr);\nreturn 0;\n} <SEP> input: 0.8 1.5 <SEP> lines: 27",
+    "target": "execution: [0, 0, 1, 0, 1, 2, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main () {\nint way[9], destination, location, i, j, k, n;\nscanf (\"%d\", &n);\nk = 0;\ndo {\nscanf (\"%d %d\", &location, &destination);\nj = 0;\nif (location >= 6) {\nfor (i = location;i < 9;i++) {\nway[j] = i;\nj++;\n}\nfor (i = 5;i >= destination;i--) {\nway[j] = i;\n}\n} else { // location ? 5\nif (location < destination) {\nfor (i = location;i <= destination;i++) {\nway[j] = i;\nj++;\n}\n} else if (location == destination) {\nway[0] = location;\nj += 1;\n} else { // location > destination\nfor (i = location;i >= destination;i--) {\nway[j] = i;\nj++;\n}\n}\n}\nfor (i = 0;i < j;i++) {\nprintf (\"%d \", way[i]);\n}\nprintf (\"\\n\");\nk++;\n} while (k < n);\nreturn 0;\n} <SEP> input: 2\n2 4\n4 2 <SEP> lines: 40",
+    "target": "execution: [0, 1, 0, 1, 1, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 3, 3, 0, 1, 0, 0, 0, 4, 3, 3, 0, 0, 0, 8, 6, 0, 2, 2, 2, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\nint a,s,i;\ns=0;\nfor(i=0;i<4;i++){\nscanf(\"%d\",&a);\ns=s+a;\n}\nprintf(\"%d\\n%d\\n\",s / 60,s % 60);\nreturn 0;\n} <SEP> input: 31\n34\n7\n151 <SEP> lines: 11",
+    "target": "execution: [0, 1, 0, 1, 5, 4, 4, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint i,x,tm;\nfor(x=0,i=0;i<4;i++){\nscanf(\"%d\",&tm);\nx+=tm;\n}\nprintf(\"%d\\n%d\\n\", x/60,x%60);\nreturn 0;\n} <SEP> input: 31\n34\n7\n151 <SEP> lines: 10",
+    "target": "execution: [0, 1, 0, 5, 4, 4, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\n#include<math.h>\nint main(void)\n{\ndouble a,s,n;\nint i;\nwhile (scanf(\"%lf\", &a) != EOF) {\ns = a;\nn = a;\nfor (i = 2; i <= 10; i++) {\nif (i % 2 == 0) {\ns *= 2.0;\nn += s;\n}\nelse {\ns /= 3.0;\nn += s;\n}\n}\nprintf(\"%.8lf\\n\",n);\n}\nreturn 0;\n} <SEP> input: 3.0 <SEP> lines: 23",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 2, 1, 1, 10, 9, 5, 5, 0, 0, 4, 4, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint Rounding(double);\nint main(){\nint price, number, sum=0, intavg;\ndouble doubleavg=0, count=0;\nchar c;\nwhile(scanf(\"%d %c %d\", &price, &c, &number) != EOF){\nsum = sum + price * number;\ndoubleavg += (double)number;\ncount++;\n}\ndoubleavg /= count;\nintavg = Rounding(doubleavg);\nprintf(\"%d\\n%d\\n\", sum, intavg);\nreturn 0;\n}\nint Rounding(double x){\nx += 0.5;\nreturn (int)x;\n} <SEP> input: 100,20\n50,10\n70,35 <SEP> lines: 20",
+    "target": "execution: [0, 0, 1, 1, 1, 0, 4, 3, 3, 3, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void) {\ndouble x1, x2, x3, xp, y1, y2, y3, yp, key, key12, key23, key13;\nwhile (scanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\", &x1, &y1, &x2, &y2, &x3, &y3, &xp, &yp) != EOF ) {\nif ( x2 < x1 && x1 < x3 ) {\nkey = x1;\nx1 = x2;\nx2 = key;\nkey = y1;\ny1 = y2;\ny2 = key;\n} else if ( x2 < x3 && x3 < x1 ) {\nkey = x3;\nx3 = x1;\nx1 = x2;\nx2 = key;\nkey = y3;\ny3 = y1;\ny1 = y2;\ny2 = key;\n} else if ( x3 < x1 && x1 < x2 ) {\nkey = x1;\nx1 = x3;\nx3 = x2;\nx2 = key;\nkey = y1;\ny1 = y3;\ny3 = y2;\ny2 = key;\n} else if ( x3 < x2 && x2 < x1 ) {\nkey = x1;\nx1 = x3;\nx3 = key;\nkey = y1;\ny1 = y3;\ny3 = key;\n} else if ( x1 < x3 && x3 < x2 ) {\nkey = x3;\nx3 = x2;\nx2 = key;\nkey = y3;\ny3 = y2;\ny2 = key;\n}\nif ( xp <= x1 ) printf(\"NO\\n\");\nelse if ( x3 <= xp ) printf(\"NO\\n\");\nelse if ( x1 < xp && xp <= x2 ) {\nkey12 = (y2 - y1) * (xp - x1) / (x2 - x1) + y1;\nkey13 = (y3 - y1) * (xp - x1) / (x3 - x1) + y1;\n/*printf(\"%lf %lf\\n\", key12,key13);*/\nif ( key12 > key13 ) {\nif ( key13 < yp && yp < key12 ) printf(\"YES\\n\");\nelse printf(\"NO\\n\");\n} else if ( key13 > key12 ) {\nif ( key13 > yp && yp > key12 ) printf(\"YES\\n\");\nelse printf(\"NO\\n\");\n} else printf(\"NO\\n\");\n} else if ( x2 < xp && xp < x3 ) {\nkey23 = (y3 - y2) * (xp - x2) / (x3 - x2) + y2;\nkey13 = (y3 - y1) * (xp - x1) / (x3 - x1) + y1;\n/*printf(\"b%lf %lf\\n\", key23, key13);*/\nif ( key23 > key13 ) {\nif ( key13 < yp && yp < key23 ) printf(\"YES\\n\");\nelse printf(\"NO\\n\");\n} else if ( key23 < key13 ) {\nif ( key13 > yp && yp > key23 ) printf(\"YES\\n\");\nelse printf(\"NO\\n\");\n} else printf(\"NO\\n\");\n} else printf(\"NO\\n\");\n}\nreturn 0;\n} <SEP> input: 0.0 0.0 2.0 0.0 2.0 2.0 1.5 0.5 <SEP> lines: 72",
+    "target": "execution: [0, 1, 0, 2, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 2, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: v;main(n){v>1?main(n+1,v=v%2?v*3+1:v/2):~scanf(\"%d\",&v,v&&printf(\"%d\\n\",n))&&main(0);} <SEP> input: 3\n10\n0 <SEP> lines: 1",
+    "target": "execution: [1]",
+    "prediction": "execution: [1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint l, m, n;\nint i, ct;\nwhile (scanf(\"%d\", &l), l){\nct = 0;\nfor (i = 0; i < 12; i++){\nscanf(\"%d %d\", &m, &n);\nif (l > 0){\nl -= (m - n);\nct++;\n}\n}\nif (l > 0){\nprintf(\"NA\");\n}\nelse {\nprintf(\"%d\", ct);\n}\nprintf(\"\\n\");\n}\nreturn (0);\n} <SEP> input: 10000\n5000 3150\n5000 5000\n0 0\n5000 1050\n5000 3980\n5000 210\n5000 5000\n5000 5000\n0 0\n5000 2100\n5000 2100\n5000 2100\n29170\n100000 100000\n100000 100000\n100000 100000\n100000 100000\n100000 100000\n100000 100000\n100000 100000\n100000 100000\n100000 100000\n100000 100000\n100000 100000\n100000 70831\n0 <SEP> lines: 24",
+    "target": "execution: [0, 0, 1, 0, 0, 3, 2, 26, 24, 24, 18, 18, 0, 0, 2, 1, 0, 0, 1, 0, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void)\n{\ndouble x1,x2,x3,x4,y1,y2,y3,y4;\ndouble dx1,dy1,dx2,dy2;\nint n;\nint i;\nscanf(\"%d\",&n);\nfor(i=0;i<n;i++){\nscanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\",&x1,&y1,&x2,&y2,&x3,&y3,&x4,&y4);\ndx1=x2-x1;\ndy1=y2-y1;\ndx2=x4-x3;\ndy2=y4-y3;\nif(dx1==0 && dx2==0)\nputs(\"YES\");\nelse if(dx1==0 || dx2==0)\nputs(\"NO\");\nelse if(dy1/dx1 == dy2/dx2)\nputs(\"YES\");\nelse\nputs(\"NO\");\n}\nreturn 0;\n} <SEP> input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0 <SEP> lines: 25",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 0, 1, 3, 2, 2, 2, 2, 2, 2, 0, 2, 0, 2, 1, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint p,m,c,a;\nscanf(\"%d %d %d\",&p,&m,&c);\na=p+m+c;\nprintf(\"%d\\n\",a);\nreturn 0;\n} <SEP> input: 100 0 0 <SEP> lines: 9",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 1, 1]",
+    "mae": 0.2222222222222222
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(){\nint n;\nint i;\nint m;\nlong long int a=0;\nscanf(\"%d\", &n);\nfor(i=0;i<n;i++){\nscanf(\"%d\", &m);\na+=m;\n}\na/=n;\nprintf(\"%lld\\n\", a);\nreturn 0;\n} <SEP> input: 6\n12300\n5600\n33800\n0\n26495\n52000 <SEP> lines: 15",
+    "target": "execution: [0, 1, 0, 0, 0, 1, 1, 7, 6, 6, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nint x[10]={0}, i, j;\nfloat a, b;\nwhile ( scanf ( \"%f %f\" ,&a ,&b ) != EOF ){\nif ( a >= 1.1 ){\nx[1]++;\n}\nif ( b >= 1.1 ){\nx[2]++;\n}\nif ( 0.6 <= a && a <= 1.0 ){\nx[3]++;\n}\nif ( 0.6 <= b && b <= 1.0 ){\nx[4]++;\n}\nif ( 0.2 <= a && a <= 0.5 ){\nx[5]++;\n}\nif ( 0.2 <= b && b <= 0.5 ){\nx[6]++;\n}\nif ( a < 0.2 ){\nx[7]++;\n}\nif ( b < 0.2 ){\nx[8]++;\n}\nfor ( i=1 ; i<=7 ; i=i+2 ){\nprintf(\"%d %d\\n\",x[i],x[i+1]);\n}\n}\nreturn 0;\n} <SEP> input: 2.0 2.0 <SEP> lines: 35",
+    "target": "execution: [0, 1, 1, 0, 2, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 5, 4, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main()\n{\nint a,b,c,i,j,r;\nwhile(scanf(\"%d%d%d\",&a,&b,&c)==3)\n{\nr=0;\nfor(i=0;i<c;i++)\n{\nif(a<b)\na*=10;\nelse\na=a/b*10;\nj=a/b;\nr+=j;\nif((a-=b*j)==0)\nbreak;\n}\nprintf(\"%d\\n\",r);\n}\nreturn 0;\n} <SEP> input: 2 3 4 <SEP> lines: 22",
+    "target": "execution: [0, 0, 1, 0, 2, 0, 1, 5, 0, 4, 4, 0, 0, 4, 4, 4, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#include <string.h>\nint main(void){\nint len,i;\nchar str[100];\nscanf(\"%s\",str);\nlen=strlen(str);\nfor(i=len-1;i>=0;i--){\nprintf(\"%c\",str[i]);\n}\nprintf(\"\\n\");\n} <SEP> input: w32nimda <SEP> lines: 12",
+    "target": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\ndouble left,right;\nint A_left=0, A_right=0;\nint B_left=0, B_right=0;\nint C_left=0, C_right=0;\nint D_left=0, D_right=0;\nwhile(scanf(\"%lf %lf\",&left,&right)!=EOF){\nif(left>=1.1){ A_left++; }\nelse if(left>=0.6 && left<1.1){ B_left++; }\nelse if(left>=0.2 && left<0.6){ C_left++; }\nelse if(left<0.2){ D_left++; }\nif(right>=1.1){ A_right++; }\nelse if(right>=0.6 && right<1.1){ B_right++; }\nelse if(right>=0.2 && right<0.6){ C_right++; }\nelse if(right<0.2){ D_right++; }\n}\nprintf(\"%d %d\\n\",A_left,A_right);\nprintf(\"%d %d\\n\",B_left,B_right);\nprintf(\"%d %d\\n\",C_left,C_right);\nprintf(\"%d %d\\n\",D_left,D_right);\nreturn 0;\n} <SEP> input: 2.0 2.0 <SEP> lines: 23",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 1, 2, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\n#define INF 10000000\nint main(void){\ndouble low = INF, high = 0, mt;\nwhile(scanf(\"%lf\", &mt) != EOF){\nif(high < mt) high = mt;\nif(low > mt) low = mt;\n}\nprintf(\"%f\\n\", high-low);\nreturn 0;\n} <SEP> input: 3776.0\n1819.0\n645.2\n2004.1\n1208.6 <SEP> lines: 11",
+    "target": "execution: [0, 0, 1, 1, 6, 5, 5, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(){\ndouble eye_r,eye_l;\nint arf=0,alf=0,brf=0,blf=0,crf=0,clf=0,drf=0,dlf=0;\nwhile(scanf(\"%lf %lf\",&eye_r,&eye_l) != EOF){\nif(eye_r >= 1.1){\narf++;\n}\nelse if(eye_r >= 0.6){\nbrf++;\n}\nelse if(eye_r >= 0.2){\ncrf++;\n}\nelse if(eye_r < 0.2){\ndrf++;\n}\nif(eye_l >= 1.1){\nalf++;\n}\nelse if(eye_l >= 0.6){\nblf++;\n}\nelse if(eye_l >= 0.2){\nclf++;\n}\nelse if(eye_l < 0.2){\ndlf++;\n}\n}\nprintf(\"%d %d\\n%d %d\\n%d %d\\n%d %d\\n\",arf,alf,brf,blf,crf,clf,drf,dlf);\nreturn (0);\n} <SEP> input: 1.0 1.2\n0.8 1.5\n1.2 0.7\n2.0 2.0 <SEP> lines: 33",
+    "target": "execution: [0, 1, 0, 1, 5, 4, 2, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 4, 3, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nchar a[3];\nint i,x,y;\nint n,z;\nfor(i=0;i<9;i++){\nscanf(\"%s\",a);\nscanf(\"%d%d\",&x,&y);\nn=x+y;\nz=x*200+y*300;\nprintf(\"%s %d %d\\n\",a,n,z);\n}\nreturn 0;\n} <SEP> input: 2e 391 206 <SEP> lines: 14",
+    "target": "execution: [0, 1, 0, 0, 0, 10, 9, 9, 9, 9, 9, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\ndouble weight;\nwhile(scanf(\"%lf\", &weight)!=EOF) {\nif(weight>91.00) printf(\"heavy\\n\");\nelse if(weight>81.00) printf(\"light heavy\\n\");\nelse if(weight>75.00) printf(\"middle\\n\");\nelse if(weight>69.00) printf(\"light middle\\n\");\nelse if(weight>64.00) printf(\"welter\\n\");\nelse if(weight>60.00) printf(\"light welter\\n\");\nelse if(weight>57.00) printf(\"light\\n\");\nelse if(weight>54.00) printf(\"feather\\n\");\nelse if(weight>51.00) printf(\"bantam\\n\");\nelse if(weight>48.00) printf(\"fly\\n\");\nelse printf(\"light fly\\n\");\n}\nreturn 0;\n} <SEP> input: 48.0 <SEP> lines: 19",
+    "target": "execution: [0, 0, 1, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(void){\nint a,b,c,d;\nint h1,h2,k1,k2;\nint h3,k3;\nscanf(\"%d%d%d%d\",&h1,&h2,&k1,&k2);\nscanf(\"%d%d%d%d\",&a,&b,&c,&d);\nh3=a*h1+b*h2+c*(h1/10)+d*(h2/20);\nk3=a*k1+b*k2+c*(k1/10)+d*(h2/20);\nif(h3>k3) printf(\"hiroshi\\n\");\nelse if(h3==k3) printf(\"even\\n\");\nelse printf(\"kenjiro\\n\");\nreturn 0;\n} <SEP> input: 5 1\n3 1\n1 2 5 5 <SEP> lines: 14",
+    "target": "execution: [0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(){\ndouble d;\nwhile(scanf(\"%lf\",&d) != EOF){\nif(d <= 48){\nprintf(\"light fly\\n\");\n}\nelse if(d <= 51){\nprintf(\"fly\\n\");\n}\nelse if(d <= 54){\nprintf(\"bantam\\n\");\n}\nelse if(d <= 57){\nprintf(\"feater\\n\");\n}\nelse if(d <= 60){\nprintf(\"light\\n\");\n}\nelse if(d <= 64){\nprintf(\"light welter\\n\");\n}\nelse if(d <= 69){\nprintf(\"welter\\n\");\n}\nelse if(d <= 75){\nprintf(\"light middle\\n\");\n}\nelse if(d <= 81){\nprintf(\"middle\\n\");\n}\nelse if(d <= 91){\nprintf(\"light heavy\\n\");\n}\nelse if(d > 91){\nprintf(\"heavy\\n\");\n}\n}\nreturn (0);\n} <SEP> input: 60.2 <SEP> lines: 40",
+    "target": "execution: [0, 1, 0, 2, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nchar str[10], board[3][3], result;\nint i;\nwhile (scanf(\"%s\", str) != EOF){\nfor (i = 0; i < 9; i++){\nboard[i / 3][i % 3] = str[i];\n}\nif (board[0][0] == board[1][1] && board[1][1] == board[2][2] || board[0][2] == board[1][1] && board[0][2] == board[2][0]){\nresult = board[1][1];\n}\nelse {\nfor (i = 0; i < 3; i++){\nif ((board[i][0] == board[i][1] && board[i][1] == board[i][2]) || (board[0][i] == board[1][i] && board[1][i] == board[2][i])){\nresult = board[i][i];\nbreak;\n}\n}\n}\nif (i >= 3){\nresult = 'd';\n}\nprintf(\"%c\\n\", result);\n}\nreturn (0);\n} <SEP> input: ooosxssxs\nxoosxsosx\nooxxxooxo <SEP> lines: 27",
+    "target": "execution: [0, 0, 1, 0, 0, 4, 30, 27, 0, 3, 1, 0, 0, 5, 4, 1, 1, 0, 0, 0, 3, 2, 0, 3, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: main(i){double a[8];for(;~scanf(\"%lf\",a);printf((*a<=a[6]&&a[1]<=a[7]&&a[4]<=a[2]&&a[5]<=a[3])?\"YES\\n\":\"NO\\n\"))for(i=1;scanf(\"%lf\",a+i),i<8;++i);} <SEP> input: 0.0 0.0 5.0 5.0 1.0 1.0 4.0 4.0\n0.0 0.0 4.0 5.0 1.0 1.0 5.0 5.0\n0.0 0.0 4.0 4.0 -3.0 -5.0 2.0 -1.0 <SEP> lines: 1",
+    "target": "execution: [1]",
+    "prediction": "execution: [1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(){\nint n,c,k,a;\nscanf(\"%d%d\",&n,&c);\nint i;\nfor(i=0;i<c;i++){\nscanf(\"%d\",&a);\nk+=a;\n}\nif(k%(n+1)!=0) k+=(n+1);\nprintf(\"%d\",k/(n+1));\nreturn 0;\n} <SEP> input: 7 5\n8 8 8 8 8 <SEP> lines: 13",
+    "target": "execution: [0, 1, 0, 1, 0, 6, 5, 5, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h>\nint main(){\nchar cup[4]={'A','B','C'};\nchar cupB[4]={'A','B','C'};\nchar temp[1];\nchar n[4];\nint i;\nwhile(~scanf(\"%s,%s\",&n[0],&n[1])){\nfor(i=0;i<3;i++){\nif(cup[i]==n[0]) cup[i]=n[2];\nelse if(cup[i]==n[2]) cup[i]=n[0];\n}\n// printf(\"%s\\n\",cup);//\u78ba\u8a8d\u7528\n}\nfor(i=0;i<3;i++){\nif(cup[i]=='A')\nprintf(\"%c\\n\",cupB[i]);\n}\nreturn 0;\n} <SEP> input: B,C\nA,C\nC,B\nA,B\nC,B <SEP> lines: 20",
+    "target": "execution: [0, 1, 1, 1, 0, 0, 0, 6, 20, 15, 10, 0, 0, 0, 4, 3, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\ndouble n, sum;\nint i;\nwhile (scanf(\"%lf\", &n) != EOF){\nsum = n;\nfor (i = 0; i < 9; i++){\nif (i % 2 == 0){\nn *= 2;\nsum += n;\n}\nelse {\nn /= 3;\nsum += n;\n}\n}\nprintf(\"%.8lf\\n\", sum);\n}\nreturn (0);\n} <SEP> input: 3.0 <SEP> lines: 21",
+    "target": "execution: [0, 0, 1, 0, 0, 2, 1, 10, 9, 5, 5, 0, 0, 4, 4, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h>\nint main(void)\n{\nint y, m, d;\nwhile(scanf(\"%d %d %d\", &y, &m, &d) != EOF){\nif((y < 1868)||(y == 1868 && m < 9)||(y == 1868 && m == 9 && d < 8)){\nprintf(\"pre-meiji\");\n}else if((y < 1912)||(y == 1912 && m < 7)||(y == 1912 && m == 7 && d < 30)){\nprintf(\"meiji %d %d %d\\n\", y+1-1868, m, d);\n}else if((y < 1926)||(y == 1926 && m < 12)||(y == 1926 && m == 12 && d < 25)){\nprintf(\"taisho %d %d %d\\n\", y+1-1912, m, d);\n}else if((y < 1989)||(y == 1989 && m < 1)||(y == 1989 && m == 1 && d < 8)){\nprintf(\"showa %d %d %d\\n\", y+1-1926, m, d);\n}else{\nprintf(\"heisei %d %d %d\\n\", y+1-1989, m, d);\n}\n}\nreturn 0;\n} <SEP> input: 2005 9 3 <SEP> lines: 19",
+    "target": "execution: [0, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  }
+]

@@ -1,0 +1,1202 @@
+[
+  {
+    "input": "code: #include <stdio.h> int main(void) { int d; while (scanf(\"%d\", &d) != EOF) { int sum = 0; int i; for (i = 0; i < 600; i += d) { sum += d * i * i; } printf(\"%d\\n\", sum); } return 0; } input: 20\n10",
+    "target": "execution: [0, 0, 1, 0, 3, 2, 0, 92, 90, 0, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int fb(int n){ if(n == 0 || n == 1)return 1; return fb(n-1) + fb(n-2); } int sum; int main(){ int i,n; scanf(\"%d\",&n); printf(\"%d\\n\",fb(n)); return 0; } input: 3",
+    "target": "execution: [0, 0, 5, 2, 5, 0, 1, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #define MAX_N 100 int selectionSort(int A[], int N); int main() { int N; int A[MAX_N]; int cnt; int i; scanf(\"%d\", &N); for(i = 0; i < N; ++i) scanf(\"%d\", A+i); cnt = selectionSort(A, N); for(i = 0; i < N; ++i) printf(\"%d%c\", A[i], \" \\n\"[i==N-1]); printf(\"%d\\n\", cnt); return 0; } int selectionSort(int A[], int N) { int cnt = 0; int minj, tmp; int i, j; for(i = 0; i < N; ++i) { minj = i; for(j = i; j < N; ++j) { if(A[j] < A[minj]) minj = j; } tmp = A[i]; A[i] = A[minj]; A[minj] = tmp; cnt += minj != i; } return cnt; } input: 6\n5 2 4 6 1 3",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 7, 6, 27, 21, 0, 6, 6, 6, 6, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(){ int a, b, d, n; scanf(\"%d %d\", &a, &b); for(n=0;n<a;n++){ if((a%n==0)&&(b%n==0)){ d=n; } } printf(\"%d\\n\", d); return 0; } input: 147 105",
+    "target": "execution: [0, 1, 0, 1, 1, 2, 0, 0, 0, 0, 0, 0]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 1.8333333333333333
+  },
+  {
+    "input": "code: #include <stdio.h> #define NPOINT 4 #define NVEC 2 int calc_gcd(int a, int b); int main(){ int n, i, j, gcd; double x[NPOINT], y[NPOINT]; int vecx[NVEC], vecy[NVEC]; scanf(\"%d\",&n); for(i=0;i<n;i++){ scanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\",x,y,x+1,y+1,x+2,y+2,x+3,y+3); for(j=0;j<NVEC;j++){ vecx[j]=100000*(x[2*j]-x[2*j+1]); vecy[j]=100000*(y[2*j]-y[2*j+1]); if(vecx[j]<0){ vecx[j]=-vecx[j]; vecy[j]=-vecy[j]; } } if(vecx[0]==0||vecx[1]==0){ if(vecx[0]==0&&vecx[1]==0) printf(\"YES\\n\"); else printf(\"NO\\n\"); continue; } if(vecy[0]==0||vecy[1]==0){ if(vecy[0]==0&&vecy[1]==0) printf(\"YES\\n\"); else printf(\"NO\\n\"); continue; } if((vecy[0]<0&&vecy[1]>0)||(vecy[0]>0&&vecy[1]<0)){ printf(\"NO\\n\"); continue; } for(j=0;j<NVEC;j++){ if(vecy[j]<0) vecy[j]=-vecy[j]; gcd=calc_gcd(vecx[j],vecy[j]); vecx[j] /= gcd; vecy[j] /= gcd; } if(vecx[0]==vecx[1]&&vecy[0]==vecy[1]) printf(\"YES\\n\"); else printf(\"NO\\n\"); } return 0; } int calc_gcd(int a, int b){ int tmp; if(a<b){ tmp=a; a=b; b=tmp; } if(b==0) return a; a=a%b; return calc_gcd(b,a); } input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0",
+    "target": "execution: [0, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 6, 4, 4, 4, 3, 3, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 1, 1, 0, 3, 2, 2, 2, 2, 0, 1, 0, 0, 1, 1, 0, 0, 4, 4, 2, 2, 2]",
+    "prediction": "execution: [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void){ int a[3],b[2],c,i; for(i=0;i<3;i++){ scanf(\"%d\",&a[i]); } for(i=0;i<2;i++){ scanf(\"%d\",&b[i]); } if(a[0]>=a[1]){ c=a[0]; a[0]=a[1]; a[1]=c; } if(a[1]>=a[2]){ c=a[1]; a[1]=a[2]; a[2]=c; } if(a[0]>=a[1]){ c=a[0]; a[0]=a[1]; a[1]=c; } if(b[0]>=b[1]){ c=b[0]; b[0]=b[1]; b[1]=c; } printf(\"%d\\n\",a[0]+b[0]-50); } input: 800\n700\n900\n198\n330",
+    "target": "execution: [0, 1, 0, 4, 3, 0, 3, 2, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ int x,y,i,gcd; scanf(\"%d %d\",&x,&y); if(x < y){ i = x; x = y; y = i; } gcd = x % y; while(gcd != 0){ x = y; y = gcd; gcd = x % y; } printf(\"%d\\n\",y); return 0; } input: 147 105",
+    "target": "execution: [0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 3, 2, 2, 2, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: int main(){ int a,b,c,d; scanf(\"%d %d\\n\",&a,&b); for (d=1;d<=b;d++){if ((a%d==0)&&(b%d==0)){c=d;};}; printf(\"%d\\n\",c); return 0; } input: 147 105",
+    "target": "execution: [1, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [1, 1, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int n; int fibonacci(int n){ int F[44] = {0}; if(n == 0 || n == 1) return F[n] = 1; if(F[n] > 1) return F[n]; return F[n] = fibonacci(n - 2) + fibonacci(n - 1); } int main(){ scanf(\"%d\", &n); printf(\"%d\\n\", fibonacci(n)); return 0; } input: 3",
+    "target": "execution: [0, 0, 5, 5, 5, 2, 2, 5, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 1, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(int argc, const char * argv[]) { double xa1,ya1,xa2,ya2,xb1,yb1,xb2,yb2; while(scanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\",&xa1,&ya1,&xa2,&ya2,&xb1,&yb1,&xb2,&yb2)!=EOF){ //?????? if(xb1<=xa1&&xa1<=xb2&&yb1<=ya2&&ya2<=yb2){ printf(\"YES\\n\"); } //?????? else if(xb1<=xa2&&xa2<=xb2&&yb1<=ya2&&ya2<=yb2){ printf(\"YES\\n\"); } //?????? else if(xb1<=xa1&&xa1<=xb2&&yb1<=ya1&&ya1<=yb2){ printf(\"YES\\n\"); } //?????? else if(xb1<=xa2&&xa2<=xb2&&yb1<=ya1&&ya1<=yb2){ printf(\"YES\\n\"); } //??? else if(xa1==xb2&&ya1<=yb2&&yb2<=ya2){ printf(\"YES\\n\"); } //??? else if(xb1==xa2&&ya1<=yb2&&yb2<=ya2){ printf(\"YES\\n\"); } //??? else if(yb1==ya2&&xa1<=xb1&&xb1<=xa2){ printf(\"YES\\n\"); } //??? else if(ya1==yb2&&xa1<=xb1&&xb1<=xa2){ printf(\"YES\\n\"); } //??? else if(xa1<=xb1&&xb1<=xa2&&ya1<=yb1&&yb1<=ya2){ printf(\"YES\\n\"); } else{ printf(\"NO\\n\"); } } return 0; } input: 0.0 0.0 5.0 5.0 1.0 1.0 4.0 4.0\n0.0 0.0 4.0 5.0 1.0 1.0 5.0 5.0\n0.0 0.0 4.0 4.0 -3.0 -5.0 2.0 -1.0",
+    "target": "execution: [0, 1, 0, 4, 0, 3, 0, 0, 0, 3, 1, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 2, 1, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void){ int a,b,c; scanf(\"%d%d%d\",&a,&b,&c); printf(\"%d\\n\",a+b+c); return 0; } input: 10 10 20",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void) { int i,j,temp,m,n,c,a[1001],h=0; scanf(\"%d %d\",&n,&m); for(i=1;i<m+1;i++){ scanf(\"%d %d\",&a[i],&m); } for(i=0;i<m;i++){ for(j=m-1;j>i;j--){ if(a[i]>a[j]){ temp=a[i]; a[i]=a[j]; a[j]=temp; } } } j=0; for(i=0;i<m;i++){ if(m-1<=j){ break; } if(a[j]>=m-1){ j++; } else if(a[i]<=m-1){ h=(m-1)-a[i]; c+=h; } printf(\"%d\\n\",c); return 0; } } input: 4 5\n1 7\n6 2\n3 5\n4 4\n0 8",
+    "target": "execution: [0, 0, 1, 1, 1, 3, 2, 0, 3, 3, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(){ int price[5], i, j, sum = 4000; for(i = 0 ; i < 5 ; i++){ scanf(\"%d\",&price[i]); } for(i = 0 ; i < 3 ; i++){ for(j = 3 ; j < 5 ; j++){ if(sum > price[i]+price[j]) sum = price[i] + price[j]; } } printf(\"%d\\n\",sum-50); return 0; } input: 800\n700\n900\n198\n330",
+    "target": "execution: [0, 1, 1, 6, 5, 0, 4, 9, 6, 2, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main() { int a,b,n,s; while((scanf(\"%d%d%d\",&a,&b,&n))!=EOF){ s = 0; a %= b; while(n--){ s += a * 10 / b; a = (a * 10) % b; } printf(\"%d\\n\",s); } return 0; } input: 4 3 2",
+    "target": "execution: [0, 0, 1, 0, 2, 1, 1, 3, 2, 2, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main() { int n, a_min, v_max = -1; scanf(\"%d\", &n); while(n--) { int a, v; scanf(\"%d%d\", &a, &v); if (v_max < v || (v_max == v && a < a_min)) { a_min = a; v_max = v; } } printf(\"%d %d\\n\", a_min, v_max); } input: 6\n1 14\n2 25\n3 42\n4 11\n5 40\n6 37",
+    "target": "execution: [0, 1, 1, 1, 7, 0, 6, 6, 3, 3, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> void swap(int *x, int *y){ int temp = *x; *x = *y; *y = temp; } int main(void) { int n, i, j, h = 0; int a[128]; scanf(\"%d\", &n); n *= 3; for(i = 0; i < n; i += 3) scanf(\"%d %d %d\", &a[i], &a[i + 1], &a[i + 2]); for(i = 0; i < n; i += 3) { if(a[i] > a[i + 1]) swap(&a[i], &a[i + 1]); if(a[i] > a[i + 2]) swap(&a[i], &a[i + 2]); if(a[i + 1] > a[i + 2]) swap(&a[i + 1], &a[i + 2]); } for(i = 0; i < n; i += 3) { for(j = 0; i < n; i += 3) { if(a[i] == a[j] && a[i + 1] == a[j + 1] && a[i + 2] == a[j + 2]) h++; } } printf(\"%d\\n\", h / 2); return 0; } input: 4\n1 3 2\n1 2 4\n1 4 3\n2 3 4",
+    "target": "execution: [0, 0, 2, 2, 2, 2, 0, 1, 1, 0, 1, 1, 5, 4, 5, 4, 4, 4, 0, 2, 5, 4, 1, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: n;main(i){return 1;} input: w32nimda",
+    "target": "execution: [1]",
+    "prediction": "execution: [1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include<stdio.h> #include<string.h> main(){ char str[20]; int i; scanf(\"%s\",str); i=strlen(str)-1; for(;i>=0;i--){ printf(\"%c\",str[i]); } printf(\"\\n\"); return 0; } input: w32nimda",
+    "target": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include <stdio.h> #include <ctype.h> #define PRED(X) \\ ( (X) ? \"x\" : \"o\" ) int read ( int *d ) { int i; for ( i = 0; i < 3 * 3; ++i ) { int ch = '\\0'; while ( !isalpha ( ch ) ) { if ( ch == EOF ) return ( 0 ); ch = getchar ( ); } switch ( ch ) { case 'o': d[ i ] = 0; break ; case 'x': d[ i ] = 1; break ; default: d[ i ] = -1; break ; } } return ( 1 ); } /** Application main entry point. */ int main ( int argc, char * argv[ ] ) { int d[ 3 ][ 3 ]; int i; while ( read ( (int *)d ) ) { for ( i = 0; i < 3; ++i ) { if ( d[ i ][ 0 ] >= 0 && d[ i ][ 0 ] == d[ i ][ 1 ] && d[ i ][ 0 ] == d[ i ][ 2 ] ) { puts ( PRED( d[ i ][ 0 ] ) ); goto CONT; } if ( d[ 0 ][ i ] >= 0 && d[ 0 ][ i ] == d[ 1 ][ i ] && d[ 0 ][ i ] == d[ 2 ][ i ] ) { puts ( PRED( d[ 0 ][ i ] ) ); goto CONT; } } if ( d[ 0 ][ 0 ] >= 0 && d[ 0 ][ 0 ] == d[ 1 ][ 1 ] && d[ 0 ][ 0 ] == d[ 2 ][ 2 ] ) { puts ( PRED( d[ 0 ][ 0 ] ) ); goto CONT; } if ( d[ 0 ][ 2 ] >= 0 && d[ 0 ][ 2 ] == d[ 1 ][ 1 ] && d[ 0 ][ 2 ] == d[ 2 ][ 0 ] ) { puts ( PRED( d[ 0 ][ 2 ] ) ); goto CONT; } puts ( \"d\" ); CONT: ; } return ( 0 ); } input: ooxxxooxo",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 10, 20, 0, 11, 10, 0, 9, 0, 5, 4, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 4, 0, 3, 3, 2, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> #include<string.h> int main(){ char s[22]; int i; scanf(\"%s\",s); for(i=strlen(s)-1;i>-1;i--)printf(\"%c\",s[i]); printf(\"\\n\"); return 0; } input: w32nimda",
+    "target": "execution: [0, 0, 1, 0, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: // AOJ Volume 0 Problem 0081 #include <stdio.h> int main(void) { double x1, y1, x2, y2, xq, yq; double a1, b1; double a2, b2; double xr, yr; while (scanf(\"%lf,%lf,%lf,%lf,%lf,%lf\", &x1, &y1, &x2, &y2, &xq, &yq) != EOF){ if (x1 == x2){ xr = xq + (x1 - xq) * 2; yr = yq; } else if (y1 == y2){ xr = xq; yr = yq + (y1 - yq) * 2; } else { a1 = (y2 - y1) / (x2 - x1); b1 = y1 - a1 * x1; a2 = (x1 - x2) / (y2 - y1); b2 = yq - a2 * xq; xr = (yq + b2 - a1 * xq - 2 * b1) / (a1 - a2); yr = a2 * xr + b2; // printf(\"(%lf %lf %lf %lf)\", a1, b1, a2,b2); } printf(\"%lf %lf\\n\", xr, yr); } return (0); } input: 1.0,0.0,0.0,-1.0,3.0,0.0 ",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 0, 0, 2, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int a[10],i,inp,same; a[0]=1,a[1]=2,a[2]=4,a[3]=8,a[4]=16,a[5]=32,a[6]=64,a[7]=128,a[8]=256,a[9]=512; for(;scanf(\"%d\",&inp)!=EOF;) { int c[10]={0}; same=inp; if(inp%2!=0) { c[0]=1; inp-=1; } for(i=9;i>=0;i--) { if(same-a[i]>=0) { c[i]=1; same-=a[i]; } } for(i=0;i<10;i++) { if(c[i]==1) { printf(\"%d \",a[i]); } if(i==9) { printf(\"\\n\"); } } } return 0; } input: 127",
+    "target": "execution: [0, 0, 1, 0, 1, 2, 0, 1, 1, 1, 0, 1, 1, 0, 11, 0, 10, 0, 7, 7, 0, 0, 11, 0, 10, 0, 7, 0, 10, 0, 1, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <math.h> #define EPS 1e-9 typedef struct { long double x; long double y; long double r; } Circle; int main(void) { int n; scanf(\"%d\", &n); while (n-- > 0){ Circle a; Circle b; long double xdif, ydif, d; long double sr, dr; scanf(\"%Lf %Lf %Lf\", &a.x, &a.y, &a.r); scanf(\"%Lf %Lf %Lf\", &b.x, &b.y, &b.r); xdif = a.x - b.x; ydif = a.y - b.y; d = xdif * xdif + ydif * ydif; sr = (a.r + b.r) * (a.r + b.r); dr = (a.r - b.r) * (a.r - b.r); //printf(\"%Lf %Lf %Lf\\n\", d, sr, dr); if (d + EPS > sr){ puts(\"0\"); } else if (d + EPS < dr){ puts(a.r + EPS > b.r ? \"2\" : \"-2\"); } else { puts(\"1\"); } } return 0; } input: 2\n0.0 0.0 5.0 0.0 0.0 4.0\n0.0 0.0 2.0 4.1 0.0 2.0",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 3, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 0, 2, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void){ double x[4],y[4],ab,cd,i,n; for(i=0; i<n; i++){ scanf(\"%lf%lf%lf%lf%lf%lf%lf%lf\",&x[0],&y[0],&x[1],&y[1],&x[2],&y[2],&x[3],&y[3]); ab=(y[0]-y[1])/(x[0]-x[1]); cd=(y[2]-y[3])/(x[2]-x[3]); if(ab<0){ ab*=-1; } if(cd<0){ cd*=-1; } if(ab==cd){ printf(\"YES\\n\"); }else{ printf(\"NO\\n\"); } } return 0; } input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0",
+    "target": "execution: [0, 1, 0, 2, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void){ int in[5]={0}; while(scanf(\"%d,\",&in[0])!=EOF){ scanf(\"%d,%d,%d,%d\",&in[1],&in[2],&in[3],&in[4]); int sort[5]={0}; int i,j; int datesu=0; for(i=0;i<5;i++){ for(j=datesu-1;j>=0;j--){ if(in[i]>sort[j]) sort[j+1]=sort[j]; else{ sort[j+1]=in[i]; break; } } if(j==-1) sort[0]=in[i]; datesu++; } if(sort[0]==sort[3]||sort[1]==sort[4]){ puts(\"four card\"); }else if(sort[0]==sort[2]){ if(sort[3]==sort[4]) puts(\"full house\"); else puts(\"three card\"); }else if(sort[2]==sort[4]){ if(sort[0]==sort[1]) puts(\"full house\"); else puts(\"three house\"); }else if(sort[1]==sort[3]){ puts(\"three card\"); }else if((sort[0]==sort[1]&&sort[2]==sort[3])||(sort[0]==sort[1]&&sort[3]==sort[4])||(sort[1]==sort[2]&&sort[3]==sort[4])){ puts(\"two pair\"); }else if(sort[0]==sort[1]||sort[1]==sort[2]||sort[2]==sort[3]||sort[3]==sort[4]){ puts(\"one pair\"); }else if(sort[4]==1&&sort[3]==10){ puts(\"straight\"); }else if(sort[4]-sort[0]==-4){ puts(\"straight\"); }else puts(\"null\"); } return 0; } input: 3,3,2,3,3",
+    "target": "execution: [0, 1, 1, 2, 1, 1, 0, 1, 6, 7, 6, 2, 0, 4, 4, 0, 0, 5, 1, 5, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void){ int x,y,work,zan; scanf(\"%d %d\",&x,&y); if(x<y){ work=x; x=y; y=work; } zan=x%y; while(zan!=0){ x=y; y=zan; zan=x%y; } printf(\"%d\\n\",y); } input: 147 105",
+    "target": "execution: [0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 3, 2, 2, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int A[50]; int suretu(int a){ if(a==0 || a==1)return A[a]=1; if(A[a]!=-1)return A[a]; return A[a]=suretu(a-1)+suretu(a-2); } int main() { int kazu,i; for(i=0;i<50;i++)A[i]=-1; scanf(\"%d\",&kazu); printf(\"%d\\n\",suretu(kazu)); return 0; } input: 3",
+    "target": "execution: [0, 0, 0, 5, 2, 2, 5, 0, 1, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> //????????????. void swap(int *x, int *y); int selectionSort(int *a, int n); int main(void) { int i = 0; int n = 0; int count = 0; int a[100] = {}; scanf(\"%d\", &n); for (i = 0; i < n; i++) scanf(\"%d\", &a[i]); count = selectionSort(a, n); for (i = 0; i < n; i++) { if (i != n - 1) printf(\"%d \", a[i]); else printf(\"%d\\n%d\\n\", a[i], count); } return 0; } void swap(int *x, int *y) { int tmp = 0; tmp = *x; *x = *y; *y = tmp; } int selectionSort(int *a, int n) { int i = 0; int j = 0; int minj = 0; int count = 0; //????????????????????\u00b0. for (i = 0; i < n; i++) { minj = i; for (j = i; j < n; j++) { if (a[j] < a[minj]) minj = j; } if (minj != i) { swap(&a[i], &a[minj]); count++; } } return count; } input: 6\n5 2 4 6 1 3",
+    "target": "execution: [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 7, 6, 1, 7, 6, 5, 0, 1, 0, 1, 1, 0, 3, 3, 3, 3, 3, 0, 1, 1, 1, 1, 7, 6, 27, 21, 5, 0, 6, 3, 3, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void){ double weight; while(scanf(\"%lf\",&weight)!=EOF){ if(weight<=48.00)puts(\"light fly\"); else if(weight<=51.00)puts(\"fly\"); else if(weight<=54.00)puts(\"bantam\"); else if(weight<=57.00)puts(\"feather\"); else if(weight<=60.00)puts(\"light\"); else if(weight<=64.00)puts(\"light welter\"); else if(weight<=69.00)puts(\"welter\"); else if(weight<=75.00)puts(\"light middle\"); else if(weight<=81.00)puts(\"middle\"); else if(weight<=91.00)puts(\"light heavy\"); else puts(\"heavy\"); } return 0; } input: 60.2\n70.2\n48.0\n80.2",
+    "target": "execution: [0, 1, 0, 5, 4, 3, 3, 3, 3, 3, 2, 2, 1, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ int a,b,c,d,i,j; scanf(\"%d %d %d\",&a,&b,&c); if(a>b){ d=a; a=b; b=d; } for(i=1;i<=a;i++){ if(a%i==0 && b%i==0){ j=i; } } a=a/j; b=b/j; printf(\"%d\\n\",a*b*c); return 0; } input: 10 20 5",
+    "target": "execution: [0, 1, 0, 1, 1, 0, 0, 0, 0, 11, 10, 4, 0, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> /** Application main entry point. */ int main ( int argc, char *argv[ ] ) { int a, b; while ( scanf ( \"%d%d\", &a, &b ) == 2 ) { while ( b != 0 ) { int tmp = b; b = a % b; a = tmp; } printf ( \"%d\\n\", a ); } return ( 0 ); } input: 60 84",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 5, 0, 4, 4, 4, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #define _CRT_SECURE_NO_WARNINGS #define _USE_MATH_DEFINES #include<stdio.h> #include<math.h> #include<string.h> #include<stdlib.h> #include<stdarg.h> #include<malloc.h> int main() { int num, flag = 0; double bw, bl; while(scanf(\"%d,%lf,%lf\", &num, &bw, &bl) != EOF){ if(bw / (bl * bl) > 25){ printf(\"%d\\n\", num); flag = 1; } } if(flag == 0) printf(\"\u8a72\u5f53\u306a\u3057\\n\"); return 0; } input: 1001,50.0,1.60\n1002,60.0,1.70\n1003,70.0,1.80\n1004,80.0,1.70\n1005,90.0,1.60",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 6, 5, 2, 2, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int gcd(int a,int b) { if(b==0) return a; else return gcd(b,a%b); } int main(void) { int a,b; while(scanf(\"%d%d\",&a,&b)!=EOF){ printf(\"%d\\n\",gcd(a,b)); } return 0; } input: 60 84",
+    "target": "execution: [0, 0, 0, 5, 4, 1, 0, 1, 0, 2, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #define N 45 int fibonacci(int); int F[N]; int main(){ int n,i; for(i=0;i<N;i++){ F[i]=-1; } scanf(\"%d\",&n); printf(\"%d\\n\", fibonacci(n)); return 0; } int fibonacci(int n){ int i; if(n == 0 || n == 1) return F[n] = 1 ; if( F[n]!= -1) return F[n]; else return F[n] = fibonacci(n - 2) + fibonacci(n - 1); } input: 3",
+    "target": "execution: [0, 0, 0, 0, 1, 0, 46, 45, 0, 1, 1, 1, 1, 0, 0, 5, 3, 2, 0, 0, 2, 5]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: b[99];main(i,j){for(i=0;(j=~getchar())?b[i++]=j:i&&putchar(~b[--i]);b[i-1]=='\\n'&&i--);puts(\"\");} input: w32nimda",
+    "target": "execution: [1]",
+    "prediction": "execution: [1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include<stdio.h> int fibonacci(int); int F[45]; int main(){ int i,n; for(i=0;i<45;i++){ F[i]=-1; } scanf(\"%d\",&n); printf(\"%d\\n\",fibonacci(n)); return 0; } int fibonacci(int n){ if(n==0||n==1){ return F[n]=1; } if(F[n]!=-1){ return F[n]; } return F[n]=fibonacci(n-2)+fibonacci(n-1); } input: 3",
+    "target": "execution: [0, 0, 0, 1, 0, 46, 45, 0, 1, 1, 1, 1, 0, 5, 3, 0, 2, 0, 0, 2, 5]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main() { int m, f, b; scanf( \"%d %d %d\", &m, &f, &b ); if( m >= b ) printf( \"0 \\n\" ); else if( m + f < b ) printf( \"NA\\n\" ); else printf( \"%d\\n\", b - m ); return 0; } input: 5000 3000 4500",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int gcd(int x, int y){ return y?gcd(y,x%y):x; } int main(){ int a,b; scanf(\"%d %d\",&a,&b); printf(\"%d\\n\",gcd(a,b)); return 0; } input: 54 20",
+    "target": "execution: [0, 0, 5, 5, 1, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: // AOJ 2177: Champernowne Constant // 2017.11.5 bal4u@uu #include <stdio.h> #include <string.h> long long len[11]; int ten[10] = {1}; int main() { int n, k, i, j, num; long long nine; char buf[200], *p; for (nine = 9, i = 1; i <= 10; i++, nine *= 10) len[i] = i*nine, ten[i] = ten[i-1]*10; for (i = 1; i <= 10; i++) len[i] += len[i-1]; while (scanf(\"%d%d\", &n, &k) && n > 0) { for (i = 1; len[i] < n; i++); j = n - (int)len[i-1] - 1; num = j / i + ten[i-1]; sprintf(buf, \"%d\", num); p = buf + j % i; i = strlen(p); while (i < k) sprintf(p+i, \"%d\", ++num), i = strlen(p); *(p+k) = 0; puts(p); } return 0; } input: 4 5\n6 7\n0 0",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(){ int i,k,n,m,j; double a,q; int c,d[100]; for(i=0;i<100;i++){ d[i] = 0; } scanf(\"%d\",&n); scanf(\"%d %d\",&a,&q); scanf(\"%d\",&c); for(i=0;i<n;i++){ scanf(\"%d\",&d[i]); } for(j=0;j<n;j++){ for(k=0;k<n-1;k++){ if(d[k]<d[k+1]){ m = d[k+1]; d[k+1] =d[k]; d[k] = m; } } } for(i=0;i<n;i++){ if(c/(a+i*q)< d[i]/q){ c += d[i]; }else{ int x = c/(a+i*q); printf(\"%d\\n\",x); break; } } return 0; } input: 3\n12 2\n200\n50\n300\n100",
+    "target": "execution: [0, 1, 0, 0, 0, 101, 100, 0, 1, 1, 1, 4, 3, 0, 4, 9, 6, 2, 2, 2, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ int l,a,b,c,d,i; scanf(\"%d%d%d%d%d\",&l,&a,&b,&c,&d); while(l--,a-=c,b-=d,a>0||b>0); printf(\"%d\\n\",l); return 0; } input: 20\n25\n30\n6\n8",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(){ int S,T,i; int a[8]; i = 0; while(i<8){ scanf(\"%d\",&a[i]); i++; } S = a[0] + a[1] + a[2] + a[3]; T = a[4] + a[5] + a[6] + a[7]; if(S<T)printf(\"%d\\n\",T); else printf(\"%d\\n\",S); return 0; } input: 100 80 70 60\n80 70 80 90",
+    "target": "execution: [0, 1, 0, 0, 1, 9, 8, 8, 0, 1, 1, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <string.h> int main() { int i; char str[1000]; scanf(\"%s\",str); for(i=0;i<strlen(str);i++) { str[i]-=3; printf(\"%c\\n\",str[i]); } return 0; } input: MRL",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 1, 4, 3, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int a, b, n; long double tmp; int ans; int i; while(scanf(\"%d %d %d\", &a, &b, &n) != EOF) { tmp = (long double)a / b; for(i = 0, ans = 0; i < n; i++) { tmp *= 10; ans += (int)tmp % 10; } printf(\"%d\\n\", ans); } return 0; } input: 1 2 3\n2 3 4\n5 4 3\n4 3 2",
+    "target": "execution: [0, 1, 0, 0, 0, 0, 5, 4, 16, 12, 12, 0, 4, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int n; int i; int a; int v; int a_max = 21; int v_max = 0; scanf(\"%d\", &n); for (i = 0; i < n; i++){ scanf(\"%d %d\", &a, &v); if (v_max < v){ v_max = v; a_max = a; } else if (v_max == v && a_max > a){ a_max = a; } } printf(\"%d %d\\n\", a_max, v_max); return (0); } input: 6\n1 14\n2 25\n3 42\n4 11\n5 40\n6 37",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 7, 6, 6, 3, 3, 0, 3, 0, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> main() { int a, b, n1, n2; scanf(\"%d%d\",&a,&b); if(a < b){ n2 = a; a = b; b = n2; } while((n1 = a % b)!= 0) { a = b; b = n1; } printf( \"%d\\n\",b); } input: 147 105",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 3, 2, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <stdlib.h> #include <memory.h> int compar(int *val1,int *val2){ return *val1-*val2; } int compar1(int *val1,int *val2){ return *val2-*val1; } int main(void){ int map[5],i,line[5],t,sign; for(;t=0,sign=0,memset(map,0,sizeof(map)),memset(line,0,sizeof(line)),scanf(\"%d,%d,%d,%d,%d\",&map[0],&map[1],&map[2],&map[3],&map[4]) != EOF;){ qsort(map,5,sizeof(int),(int (*)(const void *,const void *))compar); for(i=0;i<4;i++){ if(map[i] == map[i+1]) line[t]++; else t++; } qsort(line,5,sizeof(int),(int (*)(const void *,const void *))compar1); if(line[0] == 3) printf(\"four card\\n\"); if(line[0] == 2 && line[1] == 1) printf(\"full house\\n\"); if(line[0] == 2 && line[1] != 1) printf(\"three card\\n\"); if(line[0] == 1 && line[1] == 1) printf(\"two pair\\n\"); if(line[0] == 1 && line[1] != 1) printf(\"one pair\\n\"); for(i=0;i<4;i++){ if(map[i]+1 != map[i+1]) sign=1; } if(map[0] == 1 && map[1] == 10 && map[2] == 11 && map[3] == 12 && map[4] == 13) printf(\"straight\\n\"); for(i=0;i<4;i++){ if(map[i]+1 != map[i+1]) sign=1; } if(sign != 1 && line[0] == 0) printf(\"straight\\n\"); else if(sign == 1 && line[0] == 0) printf(\"null\\n\"); } return 0; } input: 2,3,2,3,12",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 1, 5, 4, 2, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 5, 4, 3, 0, 1, 0, 5, 4, 3, 0, 1, 0, 1, 0, 0, 1, 1]",
+    "prediction": " 1 && line[0] == 0 && line[1] == 0 && line[0] == 1 && line[0] == 1 && line[0] == 1) printf(\"straight\\n\"); else if(sign == 1 && line[0] == 0 && line[1] == 0 && line[0] == 1 && line[0] == 1) printf(\"straight\\n\"); else if(sign == 1 && line[0] == 0 && line[1] == 0 && line[0] == 1 && line[0] == 1) printf(\"straight\\n",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int x,y,v; int main(void){ scanf(\"%d %d\",&x,&y); while(x>=y && x%y!=0){ v = x; x = y; y = v%y; } printf(\"%d\\n\",y); return 0; } input: 147 105",
+    "target": "execution: [0, 0, 0, 1, 3, 2, 2, 2, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(){ int A[100]; int i, j, n, m, min; int count = 0; scanf(\"%d\", &n); for(i = 0; i < n; i++){ scanf(\"%d\", &A[i]); } for(i = 0; i < n; i++){ //????\u00b0????????\u00b1??????? min = i; for(j = i; j < n; j++){ if(A[j] < A[min]){ min = j; } } //???????????? if(i != min){ m = A[i]; A[i] = A[min]; A[min] = m; count++; } } printf(\"\\n\"); for(i = 0; i < n; i++){ if(i > 0){ printf(\" \"); } printf(\"%d\", A[i]); } printf(\"\\n%d\\n\", count); } input: 6\n5 6 4 2 1 3",
+    "target": "execution: [0, 1, 0, 0, 1, 1, 7, 6, 0, 7, 0, 6, 27, 21, 8, 0, 0, 0, 6, 4, 4, 4, 4, 0, 0, 1, 7, 6, 5, 0, 6, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> main(){ int n, i; double xa, ya, xb, yb, ra, rb, ab; scanf(\"%d\", &n); for(i=0;i<n;i++){ scanf(\"%lf %lf %lf %lf %lf %lf\", &xa, &ya, &ra, &xb, &yb, &rb); ab=(xa-xb)*(xa-xb)+(ya-yb)*(ya-yb); if(ab>(ra+rb)*(ra+rb)) printf(\"0\\n\"); else if(ab==(ra+rb)*(ra+rb)) printf(\"1\\n\"); else{ if(ab<=(ra-rb)*(ra-rb)){ if(ra>rb){ printf(\"2\\n\"); } } else if(ab<=(rb-ra)*(rb-ra)){ if(ra<rb){ printf(\"-2\\n\"); } } else printf(\"1\\n\"); } } return 0; } input: 2\n0.0 0.0 5.0 0.0 0.0 4.0\n0.0 0.0 2.0 4.1 0.0 2.0",
+    "target": "execution: [0, 1, 0, 0, 1, 3, 2, 2, 2, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int gcd(int x, int y){ int v,r; if(x<y){ v=x; x=y; y=v; } while(y>0){ r=x%y; x=y; y=r; } return x; } int main(){ int a,b; scanf(\"%d%d\", &a, &b); printf(\"%d\\n\", gcd(a,b)); return 0; } input: 54 20",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 0, 0, 5, 4, 4, 4, 0, 1, 1, 1, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <string.h> int main(void) { char str1[20],str2[20]; int i,j; scanf(\"%s\",str1); for(i=strlen(str1)-1,j=0;i>=0;i--,j++){ str2[j]=str1[i]; } str2[j]='\\0'; printf(\"%s\\n\",str2); return 0; } input: w32nimda",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 1, 9, 8, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 1.2857142857142858
+  },
+  {
+    "input": "code: #include<stdio.h> #include<math.h> int main(){ int q; float x; while(scanf(\"%d\",&q),q+1){ x=q/2.; while(fabs(x*x*x-q)>=0.00001*q){ x-=(x*x*x-q)/3/x/x; } printf(\"%f\\n\",x); } return 0; } input: 15\n15\n-1",
+    "target": "execution: [0, 0, 1, 0, 0, 3, 2, 14, 12, 0, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 2.357142857142857
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int a,b,c,d,e,f,g,h,i,j,gokei; scanf(\"%d\\n%d\\n%d\\n%d\\n%d\\n%d\\n%d\\n%d\\n%d\\n%d\\n\",&a,&b,&c,&d,&e,&f,&g,&h,&i,&j); gokei=a+b+c+d+e+f+g+h+i+j ; printf(\"%d\",gokei); return 0; } input: 1\n2\n3\n4\n5\n6\n7\n8\n9\n10",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main() { int n1, n2; int temp; scanf(\"%d %d\", &n1, &n2); if(n1 < n2) { temp = n1; n1 = n2; n2 = temp; } temp = 0; while(n1%n2) { temp = n2; n2 = n1%n2; n1 = temp; } printf(\"%d\\n\", n2); } input: 54 20",
+    "target": "execution: [0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 4, 0, 3, 3, 3, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> #include<string.h> int main(){ int i,j,a[9],f[20],y; while(scanf(\"%d,%d,%d,%d,%d\",&a[0],&a[1],&a[2],&a[3],&a[4])!=EOF){ memset(f,0,sizeof(f)); for(i=0;i<5;i++)f[a[i]]++; y=1; for(i=1;i<14;i++){ if(f[i]==4)y=7; else if(f[i]==3 && y<4){ y=4; for(j=1;j<14;j++)if(f[j]==2)y=6; } else if(f[i]==2 && y<2){ y=2; for(j=1;j<14;j++)if(i!=j && f[j]==2)y=3; } } for(i=1;i<11;i++){ if(f[i]==1 && f[i+1]==1 && f[i+2]==1 && f[i+3]==1 && f[(i+4)%13]==1 && y<5)y=5; } if(y==1)printf(\"null\\n\"); else if(y==2)printf(\"one pair\\n\"); else if(y==3)printf(\"two pair\\n\"); else if(y==4)printf(\"three card\\n\"); else if(y==5)printf(\"straight\\n\"); else if(y==6)printf(\"full house\\n\"); else if(y==7)printf(\"four card\\n\"); } return 0; } input: 1,2,3,4,1\n2,3,2,3,12\n12,13,11,12,12\n7,6,7,6,7\n3,3,2,3,3\n6,7,8,9,10\n11,12,10,1,13\n11,12,13,1,2",
+    "target": "execution: [0, 0, 1, 0, 9, 8, 8, 8, 112, 104, 105, 2, 2, 0, 101, 3, 3, 0, 0, 88, 80, 0, 8, 7, 6, 5, 4, 2, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main() { int N, M, P; int X[100], sum; while (scanf(\"%d%d%d\", &N, &M, &P) && N) { sum = 0; for (int i = 0; i < N; i++) { scanf(\"%d\", &X[i]); sum += X[i]; } sum *= (100 - P); printf(\"%d\\n\", X[M - 1] ? sum / X[M - 1] : 0); } return 0; } input: 3 2 50\n1\n2\n3\n4 4 75\n1\n2\n3\n0\n3 1 10\n8\n1\n1\n0 0 0",
+    "target": "execution: [0, 0, 1, 0, 0, 4, 3, 13, 10, 10, 0, 3, 3, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: int g(x,y){return y?g(y,x%y):x;}main(x,y){for(;~scanf(\"%d%d\",&x,&y);printf(\"%d\\n\",x>y?g(x,y):g(y,x)));return 0;} input: 60 84",
+    "target": "execution: [1]",
+    "prediction": "execution: [1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include<stdio.h> #include<math.h> int main( void ) { double x1 = 0, y1 = 0, x2 = 0, y2 = 0, x3 = 0, y3 = 0; double xp = 0, yp = 0; double sum = 0, s = 0, s1 = 0, s2 = 0, s3 = 0; while(scanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\", &x1, &y1, &x2, &y2, &x3, &y3, &xp, &yp) != EOF) { s = fabs(((x1 * y2) + (x2 * y3) + (x3 * y1) - (y1 * x2) - (y2 * x3) - (y3 * x1)) / 2.0); s1 = fabs(((x1 * y2) + (x2 * yp) + (xp * y1) - (y1 * x2) - (y2 * xp) - (yp * x1)) / 2.0); s2 = fabs(((xp * y2) + (x2 * y3) + (x3 * yp) - (yp * x2) - (y2 * x3) - (y3 * xp)) / 2.0); s3 = fabs(((x1 * yp) + (xp * y3) + (x3 * y1) - (y1 * xp) - (yp * x3) - (y3 * x1)) / 2.0); sum = s1 + s2 + s3; if((0.0 <= fabs(s - sum) && fabs(s - sum) < 0.001) && ( s1 != 0 && s2 != 0 && s3 != 0)) { printf(\"YES\\n\"); } else { printf(\"NO\\n\"); } } return 0; } input: 0.0 0.0 2.0 0.0 2.0 2.0 1.5 0.5\n0.0 0.0 1.0 4.0 5.0 3.0 -1.0 3.0",
+    "target": "execution: [0, 0, 0, 1, 1, 1, 1, 3, 0, 2, 2, 2, 2, 2, 2, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int swap(int *x,int *y); int gcd(int x,int y); int main() { int x,y; scanf(\"%d%d\",&x,&y); if(x < y)swap(&x,&y); printf(\"%d\\n\",gcd(x,y)); } int swap(int *x,int *y) { int tmp; tmp = *x; *x = *y; *y = tmp; } int gcd(int x,int y) { int r; while(y>0){ r = x % y; x = y; y = r; } return x; } input: 54 20",
+    "target": "execution: [0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 4, 4, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> // printf(), scanf() #include <stdbool.h> #define MAX_V 20 int V; int G[MAX_V][MAX_V]; bool visited[MAX_V]; int out[MAX_V]; int ix; void visit(int v) { visited[v] = true; for (int u = 0; u < V; ++u) { if (G[v][u] && !visited[u]) visit(u); } out[--ix] = v + 1; } void solve() { for (int u = 0; u < V; ++u) visited[u] = false; for (int u = 0; u < V; ++u) if (!visited[u]) visit(u); } int main(int argc, char **argv) { scanf(\"%d\", &V); for (int v = 0; v < V; ++v) { for (int u = 0; u < V; ++u) G[v][u] = false; } int E; scanf(\"%d\", &E); for (int i = 0; i < E; ++i) { int s, t; scanf(\"%d%d\", &s, &t); G[s - 1][t - 1] = true; } ix = V; solve(); for (; ix < V; ++ix) printf(\"%d\\n\", out[ix]); return 0; } input: 6\n7\n5 2\n1 4\n3 5\n4 2\n1 6\n6 4\n3 4",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 42, 0, 36, 4, 0, 6, 6, 0, 0, 0, 7, 6, 7, 6, 2, 1, 0, 0, 1, 1, 7, 0, 42, 36, 0, 0, 1, 8, 0, 0, 7, 7, 0, 1, 1, 7, 6, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void){ int n,i; double a,b,x1,y1,x2,y2,x3,y3,x4,y4; scanf(\"%d\",&n); for(i=0;i<n;i++){ scanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\",&x1,&y1,&x2,&y2,&x3,&y3,&x4,&y4); a = (y2 - y1)/(x2 - x1); b = (y4 - y3)/(x4 - x3); if(a == b) printf(\"YES\\n\"); else printf(\"NO\\n\"); } return 0; } input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0",
+    "target": "execution: [0, 1, 0, 0, 1, 3, 2, 2, 2, 2, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ int n, value; int i; while(scanf(\"%d\",&n)!=EOF){ value=0; for(i=0;i<600;i+=n) value += i*i*n; printf(\"%d\\n\",value); } return 0; } input: 20\n10",
+    "target": "execution: [0, 1, 0, 0, 3, 2, 2, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(vido) { int w,sum; scanf(\"%d\",&w); sum=0; sum=w*32; printf(\"%d\\n\",sum); return 0; } input: 4",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> /* ??????????????? (0????????????) */ int selectionSort(int A[], int N) { int i, j, t, sw = 0, mini; for(i=0; i<N-1; i++) { mini = i; for(j=i; j<N; j++) { if(A[j] < A[mini]) mini = j; } t = A[i]; A[i] = A[mini]; A[mini] = t; if(i != mini) sw++; } return sw; } int main(void) { int A[100], N, i, sw; scanf(\"%d\", &N); for(i=0;i<N;i++) scanf(\"%d\",&A[i]); sw = selectionSort(A,N); for(i=0;i<N;i++) { if(i>0) printf(\" \"); printf(\"%d\",A[i]); } printf(\"\\n\"); printf(\"%d\\n\", sw); return 0; } input: 6\n5 2 4 6 1 3",
+    "target": "execution: [0, 0, 0, 1, 6, 5, 25, 20, 0, 5, 5, 0, 1, 1, 1, 0, 1, 1, 1, 7, 6, 6, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <string.h> int main(void) { int score[100]; int N, M; int A[100]; int B; int i, j; memset(score, 0, sizeof(score)); scanf(\"%d%d\", &N, &M); for (i = 0; i < M; i++){ scanf(\"%d\", &A[i]); } for (i = 0; i < M; i++){ for (j = 0; j < N; j++){ scanf(\"%d\", &B); if (B == A[i]){ score[j]++; } else { score[A[i] - 1]++; } } } for (i = 0; i < N; i++){ printf(\"%d\\n\", score[i]); } return (0); } input: 3\n4\n1 2 3 2\n1 1 2\n3 2 2\n1 1 3\n2 2 2",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 5, 4, 0, 5, 16, 12, 12, 8, 0, 0, 4, 0, 0, 0, 4, 3, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <stdlib.h> int main() { double a; while(~scanf(\"%lf\",&a)) { if(a<=48.00) printf(\"light fly\\n\"); else if(a>48.00&&a<=51.00) printf(\"fly\\n\"); else if(a>51.00&&a<=54.00) printf(\"bantam\\n\"); else if(a>54.00&&a<=57.00) printf(\"feather\\n\"); else if(a>57.00&&a<=60.00) printf(\"light\\n\"); else if(a>60.00&&a<=64.00) printf(\"light welter\\n\"); else if(a>64.00&&a<=69.00) printf(\"welter\\n\"); else if(a>69.00&&a<=75.00) printf(\"light middle\\n\"); else if(a>75.00&&a<=81.00) printf(\"middle\\n\"); else if(a>81.00&&a<=91.00) printf(\"light heavy\\n\"); else printf(\"heavy\\n\"); } return 0; } input: 48.0",
+    "target": "execution: [0, 0, 0, 1, 0, 2, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(){ double x[5],xp,y[5],yp; int i,t; while(0<=scanf(\"%lf%lf%lf%lf%lf%lf%lf%lf\",&x[0],&y[0],&x[1],&y[1],&x[2],&y[2],&xp,&yp)){ x[3]=x[0]; y[3]=y[0]; x[4]=x[1]; y[4]=y[1]; t=0; for(i=0;i<3;i++){ if(((y[i+1]-y[i])/(x[i+1]-x[i])*(xp-x[i])+y[i]-yp)*((y[i+1]-y[i])/(x[i+1]-x[i])*(x[i+2]-x[i])+y[i]-y[i+2])<=0){ t=1; break; } } if(t==1){ printf(\"NO\\n\"); }else{ printf(\"YES\\n\"); } } return 0; } input: 0.0 0.0 1.0 4.0 5.0 3.0 -1.0 3.0",
+    "target": "execution: [0, 1, 0, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> #include<math.h> #include <stdlib.h> #include<string.h> #include<limits.h> int main(){ float x[4],y[4]; int i; while(scanf(\"%f%f%f%f%f%f%f%f\",&x[0],&y[0],&x[1],&y[1],&x[2],&y[2],&x[3],&y[3])!=EOF){ if(x[0]<=x[2] && x[1]>=x[2]){ if((y[0]<=y[2] && y[1]>=y[2]) || (y[0]<=y[3] && y[1]>=y[3]))printf(\"YES\\n\"); else printf(\"NO\\n\"); } else if(x[0]<=x[3] && x[1]>=x[3]){ if((y[0]<=y[2] && y[1]>=y[2]) || (y[0]<=y[3] && y[1]>=y[3]))printf(\"YES\\n\"); else printf(\"NO\\n\"); } else printf(\"NO\\n\"); } return 0; } input: 0.0 0.0 4.0 5.0 1.0 1.0 5.0 5.0",
+    "target": "execution: [0, 0, 0, 0, 0, 1, 0, 0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ char str[11]; int A[10]; int i,j; while(scanf(\"%s\",str)!=EOF) { for(i=0;i<10;i++)A[i]=str[i]-'0'; for(i=1;i<10;i++) { for(j=0;j<10-i;j++) A[j]=(A[j]+A[j+1])%10; } printf(\"%d\\n\",A[0]); } return 0; } input: 0123456789",
+    "target": "execution: [0, 1, 0, 0, 0, 2, 0, 1, 10, 0, 54, 45, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: k;main(d){for(;k=~scanf(\"%d\",&d);printf(\"%d\\n\",100*(720000-1800*d+d*d)));} input: 20",
+    "target": "execution: [1]",
+    "prediction": "execution: [1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int sum; int query; int i; while(scanf(\"%d\",&query)==1) { sum=0; for(i=1;i<=query;i++) { sum+=1+((query-i+1>i?i:query-i+1)-1)*2; } printf(\"%d\\n\",sum); } return 0; } input: 1",
+    "target": "execution: [0, 1, 0, 0, 0, 2, 1, 2, 1, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void){ int a,b,c,d,p,x,y; scanf(\"%d %d %d %d %d\",&a,&b,&c,&d,&p); x=a*p; if(c<p) y=b+(p-c)*d; else y=b; printf(\"%d\\n\",x<y?x:y); return 0; } input: 9\n100\n20\n3\n10",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 1.5833333333333333
+  },
+  {
+    "input": "code: #include <stdio.h> int selectionSort(int X[],int N){ int i,j,k,cn=0,sm; for(i=0;i<N-1;i++){ sm = i; for(j=i;j<N;j++){ if(X[j]< X[sm]){ sm = j; } } k = X[i]; X[i] = X[sm]; X[sm] = k; if( i != sm) { cn++; } } return cn; } int main(){ int A[100],Num,i,mv; scanf(\"%d\",&Num); for(i=0;i<Num;i++){ scanf(\"%d\",&A[i]); } mv = selectionSort(A,Num); for(i=0;i<Num;i++){ if(i>0){ printf(\" \"); } printf(\"%d\",A[i]); } printf(\"\\n\"); printf(\"%d\\n\",mv); return 0; } input: 6\n5 2 4 6 1 3",
+    "target": "execution: [0, 0, 1, 6, 5, 25, 20, 5, 0, 0, 5, 5, 5, 5, 3, 0, 0, 1, 1, 1, 0, 1, 7, 6, 0, 1, 7, 6, 5, 0, 6, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> #define IA 0 #define IB 1 #define IC 2 int main(void){ int a[3]= {1,0,0},t=0,p,q; char x,y,z,e; while(scanf(\"%c%c%c%c\",&x,&y,&z,&e)!=EOF) { if(x=='A')p=IA; else if(x=='B')p=IB; else if(x=='C')p=IC; if(z=='A')q=IA; else if(z=='B')q=IB; else if(z=='C')q=IC; t=a[x]; a[x]=a[z]; a[z]=t; } if(a[0]==1)printf(\"A\\n\"); else if(a[1]==1)printf(\"B\\n\"); else if(a[2]==1)printf(\"C\\n\"); return 0; } input: B,C\nA,C\nC,B\nA,B\nC,B",
+    "target": "execution: [0, 0, 0, 0, 1, 1, 0, 6, 0, 5, 3, 2, 5, 5, 2, 5, 5, 5, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void) { int i = 0,j; int count = 0; double mou,temp; double a[100]; while(scanf(\"%lf\",&a[i]) != EOF){ i++; count++; } for(i = 0; i < count; i++){ for(j = 0; j < count; j++){ if(a[i] < a[j]){ temp = a[i]; a[i] = a[j]; a[j] = temp; } } } mou = a[count-1] - a[0]; printf(\"%.1lf\\n\",mou); return 0; } input: 3776.0\n1819.0\n645.2\n2004.1\n1208.6",
+    "target": "execution: [0, 0, 1, 1, 1, 0, 0, 6, 5, 5, 0, 6, 30, 25, 7, 7, 7, 0, 0, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> void SelectionSort(int n,int A[]); int count=0; main(){ int n,i,j,A[1000]; scanf(\"%d\",&n); for(i=0;i<n;i++){ scanf(\"%d\",&A[i]); } SelectionSort(n,&A[0]); for(i=0;i<n;i++){ if(i !=0)printf(\" \"); printf(\"%d\",A[i]); } printf(\"\\n\"); printf(\"%d\",count); printf(\"\\n\"); return 0; } void SelectionSort(int n,int A[]){ int i,j; int mini,key; for(i=0;i<n;i++){ mini = i; //mini=\u5165\u308c\u66ff\u3048\u308b\u5143 for(j=n-1;j>i;j--){ if(A[j] < A[mini]){ key = A[j]; A[j] = A[mini]; A[mini] = key; ++count; } } } } input: 6\n5 2 4 6 1 3",
+    "target": "execution: [0, 0, 0, 1, 0, 1, 7, 6, 0, 1, 7, 6, 6, 0, 1, 1, 1, 1, 1, 0, 0, 0, 7, 6, 21, 15, 5, 5, 5, 5, 0, 0, 0, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void){ int a1,a2,a3,a4,b1,b2,b3,b4,s,t; scanf(\"%d %d %d %d\",&a1,&a2,&a3,&a4); scanf(\"%d %d %d %d\",&b1,&b2,&b3,&b4); s=a1+a2+a3+a4; t=b1+b2+b3+b4; if (t>s) printf(\"%d\\n\",t); else printf(\"%d\\n\",s); return 0; } input: 100 80 70 60\n80 70 80 90",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: char a,b,c;z=65;main(){for(;read(0,&a,4);)z=z-a?z-c?z:a:c;z=!puts(&z);} input: B,C\nA,C\nC,B\nA,B\nC,B",
+    "target": "execution: [1]",
+    "prediction": "execution: [1, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void){ int t,a,v,i,max,num; scanf(\"%d\",&t); max=-1; for(i=0;i<t;i++){ scanf(\"%d%d\",&a,&v); if(max<v){ max=v; num=a; } } printf(\"%d %d\\n\",num,max); return 0; } input: 6\n1 14\n2 25\n3 42\n4 11\n5 40\n6 37",
+    "target": "execution: [0, 1, 0, 1, 1, 7, 6, 6, 3, 3, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <string.h> int main(void){ char a[1001],b[1001]; int lena,lenb,i,j,flg; scanf(\"%s\",a); scanf(\"%s\",b); lena = strlen(a); lenb = strlen(b); for(i=0;i<lena-lenb+1;i++){ flg = 0; for(j=0;j<lenb;j++){ if(a[i+j]!=b[j]){ flg = 1; break; } } if(flg==0){ printf(\"%d\\n\",i); } } } input: aabaaa\naa",
+    "target": "execution: [0, 0, 1, 0, 0, 1, 1, 1, 1, 6, 5, 12, 9, 2, 2, 0, 0, 5, 3, 0, 0, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <string.h> int main(){ int i; char s[21]; scanf(\"%s\",s); i=strlen(s); for(i=i-1;s[i] > 0;i--){ printf(\"%c\",s[i]); } printf(\"\\n\"); return (0); } input: w32nimda",
+    "target": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void){ int a[]={1,5,10,50,100,500}; int b[5],x=0,i; scanf(\"%d %d %d %d %d %d\",&b[0],&b[1],&b[2],&b[3],&b[4],&b[5]); for(i=0;i<6;i++){ x+=a[i]*b[i]; } x=x/1000; printf(\"%d\\n\",x); return 0; } input: 3 1 4 0 4 1",
+    "target": "execution: [0, 1, 1, 1, 1, 7, 6, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 1.6666666666666667
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ int i,j; int a[30]={0}; for(i=0;i<28;i++){ scanf(\"%d\",&j); a[j-1]=1; } for(i=0;i<30;i++){ if(a[i]==0){ printf(\"%d\\n\",i+1); } } return(0); } input: 3\n1\n4\n5\n7\n9\n6\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30",
+    "target": "execution: [0, 1, 0, 1, 29, 28, 28, 0, 31, 30, 2, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 1, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> void sort(int card[5]); void sort2(int count[4]); int main(void){ int card[5], count[4]; int i; while(scanf(\"%d,%d,%d,%d,%d\", &card[0], &card[1], &card[2], &card[3], &card[4]) != EOF){ for(i = 0;i < 4;i++){ count[i] = 1; } sort(card); for(i = 1;i < 5;i++){ if(card[0] == card[i]){ count[0]++; } else { break; } } for(i = count[0] + 1;i < 5;i++){ if(card[count[0]] == card[i]){ count[1]++; } else { break; } } if(count[0] + count[1] <= 4){ for(i = count[0] + count[1];i < 5;i++){ if(card[count[1]] == card[i]){ count[2]++; } else { break; } } if(count[0] + count[1] + count[2] <= 4){ for(i = count[0] + count[1] + count[2] - 1;i < 5;i++){ if(card[count[2]] == card[i]){ count[3]++; } else { break; } } } } sort2(count); if(count[0] == 4){ printf(\"four card\\n\"); } else if(count[0] == 3 && count[1] == 2){ printf(\"full house\\n\"); } else if((card[0] == card[1] - 1 && card[0] == card[2] - 2 && card[0] == card[3] - 3 && card[0] == card[4] - 4)|| (card[0] == 1 && card[1] == 10 && card[2] == 11 && card[3] == 12 && card[4] == 13)){ printf(\"straight\\n\"); } else if(count[0] == 3){ printf(\"three card\\n\"); } else if(count[0] == 2 && count[1] == 2){ printf(\"two pair\\n\"); } else if(count[0] == 2){ printf(\"one pair\\n\"); } else { printf(\"null\\n\"); } } return 0; } void sort(int card[5]){ int i, j, temp; for(i = 0;i < 5;i++){ for(j = 4;j > i;j--){ if(card[j] < card[j - 1]){ temp = card[j - 1]; card[j - 1] = card[j]; card[j] = temp; } } } } void sort2(int count[4]){ int i, j, temp; for(i = 0;i < 4;i++){ for(j = 3;j > i;j--){ if(count[j] > count[j - 1]){ temp = count[j - 1]; count[j - 1] = count[j]; count[j] = temp; } } } } input: 1,2,3,4,1",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 2, 5, 4, 0, 1, 2, 2, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 6, 15, 10, 3, 3, 3, 0, 0, 0, 1, 0, 0, 5, 10, 6, 0, 0, 0, 0, 0, 0, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int time,disit,len; scanf(\"%d %d\",&disit,&len); time = len/disit + len%disit; printf(\"%d\",time); return 0; } input: 10 5",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void){ int c1,c2,c3; while(scanf(\"%d\",&c1)!=EOF){ scanf(\" %d %d\",&c2,&c3); int a,b,i,j,k; double x; a=20-c1-c2; b=0; if(a>10)a=10; for(i=1;i<=a;i++){ if(i==c1 || i==c2 || i==c3)continue; else b++; } if(b>=4)puts(\"YES\"); else puts(\"NO\"); } return 0; } input: 5 6 9",
+    "target": "execution: [0, 1, 0, 2, 1, 0, 0, 1, 1, 1, 10, 9, 6, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ int i,j,minj,n,tmp,A[100],count = 0; scanf(\"%d\",&n); for(i = 0 ; i < n ; i++){ scanf(\"%d\",&A[i]); } for(i = 0 ; i < n ; i++){ minj = i; for(j = i ; j < n ; j++){ if(A[j] < A[minj]) { minj = j; } } tmp = A[i]; A[i] = A[minj]; A[minj] = tmp; if(i != minj)count++; } for(i = 0 ; i < n ; i++){ if(i == n - 1)printf(\"%d\",A[i]); else printf(\"%d \",A[i]); } printf(\"\\n\"); printf(\"%d\\n\",count); return 0; } input: 6\n5 2 4 6 1 3",
+    "target": "execution: [0, 1, 1, 1, 7, 6, 0, 7, 6, 27, 21, 5, 0, 0, 6, 6, 6, 6, 0, 7, 6, 5, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> #include<string.h> int n,m,p,d,c[31][10],np,i,j,g[31][11]; int main() { for(;~scanf(\"%d%d%d%d\",&n,&m,&p,&d),n;) { memset(g,0,sizeof(g)); memset(c,0,sizeof(c)); for(i=0;i<d;i++) for(j=1;j<n;j++) scanf(\"%1d\",&c[i][j]); for(g[d][p]=1,i=d,np=p;i>0;i--) { if(np>1&&c[i-1][np-1]) g[i-1][--np]=1; else if(np<n&&c[i-1][np]) g[i-1][++np]=1; else g[i-1][np]=1; } if(g[0][m]==1) { puts(\"0\");continue; } for(i=0,np=m;i<d;i++) { if(c[i][np-1]) np--; else if(c[i][np]) np++; else if(g[i+1][np-1]&&!c[i][np-2]) { printf(\"%d %d\\n\",i+1,np-1); break; } else if(g[i+1][np+1]&&!c[i][np+1]) { printf(\"%d %d\\n\",i+1,np); break; } } if(i==d) puts(\"1\"); } return 0; } input: 5\n2\n3\n9\n1010\n1001\n0100\n1001\n0010\n1000\n0100\n0101\n1010\n0",
+    "target": "execution: [0, 0, 0, 0, 0, 2, 0, 1, 1, 10, 45, 36, 10, 0, 9, 1, 8, 3, 0, 5, 0, 1, 0, 0, 0, 6, 0, 6, 1, 5, 3, 2, 0, 0, 0, 0, 2, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void) { int d = 0; int i = 0; int f = 0; int j = 1; while(scanf(\"%d\", &d) != EOF) { for( i = 0 ; i < 600; i += d) { f = f + (( (600 - (j*d)) * (600 - (j*d)) ) * d); j++; } printf(\"%d\\n\",f); f = 0; j = 1; } return 0; } input: 10",
+    "target": "execution: [0, 0, 1, 1, 1, 1, 1, 2, 0, 61, 0, 60, 60, 0, 1, 1, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void){ int N,M,i,o,max,res,line[1000]={0},ans[1000]={0},b; scanf(\"%d %d\",&N,&M); for(i=0;i<N;i++) scanf(\"%d\",&line[i]); for(i=0;i<M;i++){ scanf(\"%d\",&b); for(o=0;o<N;o++){ if(line[o] <= b){ ans[o]++; break; } } } for(max=0,i=0;i<N;i++){ if(max < ans[i]){ max=ans[i]; res=i+1; } } printf(\"%d\\n\",res); return 0; } input: 4 3\n5\n3\n1\n4\n4\n3\n2",
+    "target": "execution: [0, 1, 1, 1, 5, 4, 4, 3, 7, 7, 3, 3, 0, 0, 0, 5, 4, 1, 1, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(){ int i,j,k,N1,N2; scanf(\"%d%d\",&N1,&N2); if(N1 > N2){ j = N1; N1=N2; N2=j; } k=N1%N2; while(k!=0){ N1=N2; N2=k; k=N1%N2; } printf(\"%d\",N2); return 0; } input: 147 105",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 4, 3, 3, 3, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int fibonacci(int); int main() { int x=0,n; scanf(\"%d\",&n); x=fibonacci(n); printf(\"%d\\n\",x); return 0; } int fibonacci(int n) { if(n == 0 || n == 1) { return 1; } else return fibonacci(n-2)+fibonacci(n-1); } input: 3",
+    "target": "execution: [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 5, 0, 3, 0, 2, 5]",
+    "prediction": "execution: [0, 1, 0, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int i; for(i=0;i<7;i++) { int a,b; scanf(\"%d%d\",&a,&b); printf(\"%d\\n\",a-b); } return 0; } input: 30 19\n39 20\n19 18\n25 20\n22 21\n23 10\n10 -10",
+    "target": "execution: [0, 1, 0, 8, 0, 7, 7, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { double w; while (scanf(\"%lf\", &w) != EOF) { if (!(w > 48.0)) puts(\"light fly\"); else if (!(w > 51.0)) puts(\"fly\"); else if (!(w > 54.0)) puts(\"bantam\"); else if (!(w > 57.0)) puts(\"feather\"); else if (!(w > 60.0)) puts(\"light\"); else if (!(w > 64.0)) puts(\"light welter\"); else if (!(w > 69.0)) puts(\"welter\"); else if (!(w > 75.0)) puts(\"light middle\"); else if (!(w > 81.0)) puts(\"middle\"); else if (!(w > 91.0)) puts(\"light heavy\"); else puts(\"heavy\"); } return 0; } input: 60.2",
+    "target": "execution: [0, 0, 1, 0, 2, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <stdlib.h> #include <math.h> #include <string.h> #define REP(i,a,b) for(i=a;i<b;i++) #define rep(i,n) REP(i,0,n) #define vP vectorProduct double vectorProduct(double ax,double ay,double bx,double by){return ax*by-ay*bx;} int main(){ int f = 0; double x1,y1,x2,y2,x3,y3,xp,yp; while(scanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\",&x1,&y1,&x2,&y2,&x3,&y3,&xp,&yp) != EOF){ f = 0; if(vP(x2-x1, y2-y1, xp-x1, yp-y1) > 0 && vP(x3-x2, y3-y2, xp-x2, yp-y2) > 0 && vP(x1-x3, y1-y3, xp-x3, yp-y3) > 0) f = 1; if(vP(x2-x1, y2-y1, xp-x1, yp-y1) < 0 && vP(x3-x2, y3-y2, xp-x2, yp-y2) < 0 && vP(x1-x3, y1-y3, xp-x3, yp-y3) < 0) f = 1; if(f) printf(\"YES\\n\"); else printf(\"NO\\n\"); } return 0; } input: 0.0 0.0 1.0 4.0 5.0 3.0 -1.0 3.0",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 0, 2, 1, 2, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void) { int l,d,w,x; scanf(\"%d %d\",&d,&l); w=d/l; if(d%l!=0){ x=d-w*l; w=w+x; } printf(\"%d\\n\",w); return 0; } input: 7 4",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 1.2307692307692308
+  },
+  {
+    "input": "code: // Aizu 0358: Shopping // 2017.9.19 bal4u@uu #include <stdio.h> int main() { int m, f, b; scanf(\"%d%d%d\", &m, &f, &b); if (b > m + f) puts(\"NA\"); else if (m >= b) puts(\"0\"); else printf(\"%d\\n\", b - m); return 0; } input: 5000 3000 4500",
+    "target": "execution: [0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void) { int count = 0; int money = 0; int sum_count = 0; int sum_money = 0; int n=0; while(scanf(\"%d,%d\",&money,&count) != EOF) { sum_money = sum_money + money * count; sum_count = sum_count + count; n++; } printf(\"%d\\n\", sum_money); printf(\"%.0f\\n\", (double)sum_count/n); return 0; } input: 100,20\n50,10\n70,35",
+    "target": "execution: [0, 0, 1, 1, 1, 1, 1, 1, 4, 0, 3, 3, 3, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void){ double w; while(scanf(\"%lf\",&w)!=EOF){ if(w<=48 || w>91){ if(w<=48){ printf(\"light fly\\n\"); }else{ printf(\"heavy\\n\"); } }else if(w>48 && w<=57){ if(w<=51){ printf(\"fly\\n\"); }else if(w>54){ printf(\"feather\\n\"); }else{ printf(\"bantam\\n\"); } }else if(w>57 && w<=69){ if(w<=60){ printf(\"light\\n\"); }else if(w>64){ printf(\"welter\\n\"); }else{ printf(\"light welter\\n\"); } }else{ if(w<=75){ printf(\"light middle\\n\"); }else if(w>81){ printf(\"light heavy\\n\"); }else{ printf(\"middle\\n\"); } } } return 0; } input: 60.2\n70.2\n48.0\n80.2",
+    "target": "execution: [0, 1, 0, 5, 4, 1, 1, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 3, 2, 0, 1, 0, 0, 1, 0, 0, 2, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main() { int d; long long int total=0; long long int i; while(scanf(\"%d\",&d)!=EOF){ total=0; for(i=d;i<600;i+=d){ total+=(i*i*d); } printf(\"%lld\\n\",total); } return 0; } input: 20\n10",
+    "target": "execution: [0, 0, 1, 0, 1, 0, 3, 2, 90, 88, 0, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int w[30]; int n, i, m, a, b, t; scanf(\"%d\", &n); for (i = 1; i <= n; i++){ w[i] = i; } scanf(\"%d\", &m); for (i = 1; i <= m; i++){ scanf(\"%d,%d\", &a, &b); t = w[b]; w[b] = w[a]; w[a] = t; } for (i = 1; i <= n; i++){ printf(\"%d\\n\", w[i]); } return (0); } input: 5\n4\n2,4\n3,5\n1,2\n3,4",
+    "target": "execution: [0, 0, 1, 0, 0, 1, 6, 5, 0, 1, 5, 4, 4, 4, 4, 0, 6, 5, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main() { double a, an[10]; double sum; int k; while(scanf(\"%lf\", &a) != EOF) { an[0] = a; for(k = 1; k < 10; k++) { if((k+1) % 2 == 0) { an[k] = an[k-1] * 2.0; } else { an[k] = an[k-1] / 3.0; } } sum = 0; for(k = 0; k < 10; k++) { sum += an[k]; } printf(\"%2.8fn\", sum); } return 0; } input: 2.0",
+    "target": "execution: [0, 1, 0, 0, 0, 2, 1, 10, 9, 5, 0, 4, 0, 0, 1, 11, 10, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { float v,t,y,n1; int n; while(scanf(\" %f\",&v)!=EOF){ t=v/9.8; y=4.9*t*t; n=0; n1=(5+y)/5; while(n<n1){ n=n+1; } printf(\"%d\\n\",n); } return 0; } input: 25.4",
+    "target": "execution: [0, 0, 1, 0, 0, 2, 1, 1, 1, 1, 9, 8, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 9.8, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void) { int i,n; float a; scanf(\"%d\",&n); for(i=1;i<=n;i++) { scanf(\"%f\",&a); if(a<=48.00) { printf(\"light fly\\n\"); } else if(a<=51.00) { printf(\"fly\\n\"); } else if(a<=54.00) { printf(\"bantam\\n\"); } else if(a<=57.00) { printf(\"feather\\n\"); } else if(a<=60.00) { printf(\"light\\n\"); } else if(a<=64.00) { printf(\"light welter\\n\"); } else if(a<=69.00) { printf(\"welter\\n\"); } else if(a<=75.00) { printf(\"light middle\\n\"); } else if(a<=81.00) { printf(\"middle\\n\"); } else if(a<=91.00) { printf(\"light heavy\\n\"); } else { printf(\"heavy\\n\"); } } return 0; } input: 48.0",
+    "target": "execution: [0, 0, 1, 0, 0, 1, 49, 48, 48, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { char a[8], b[8]; while (scanf(\"%s %s\", a, b), atoi(a) + atoi(b)){ int i, j; int ab[16] = {}, bb[16] = {}; int hit, blow; hit = blow = 0; for (i = 0; i < 4; i++){ ab[a[i] - '0'] = bb[b[i] - '0'] = 1; if (a[i] == b[i]) hit++; } for (i = 0; i <= 9; i++){ ab[i] + bb[i] == 2 && blow++; } blow -= hit; printf(\"%d %d\\n\", hit, blow); } return (0); } input: 1234 5678\n1234 1354\n1234 1234\n1230 1023\n0123 1234\n0 0",
+    "target": "execution: [0, 0, 1, 0, 6, 0, 5, 0, 5, 25, 20, 20, 0, 55, 50, 0, 5, 5, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main() { int a, b, n, i, j, sum, tmp; while (scanf(\" %d %d %d \", &a, &b, &n) != EOF) { sum = 0; for (i = 1; i <= n; i++) { tmp = 1; j = i; while (j--) { tmp *= 10; } sum += ((a * tmp) / b) % 10; } printf(\"%d\\n\", sum); } return 0; } input: 1 2 3",
+    "target": "execution: [0, 1, 0, 2, 1, 4, 3, 3, 9, 6, 0, 3, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: // AOJ 1502: War // 2017.11.17 bal4u@uu #include <stdio.h> int h[126]; int main() { int n, i, k, v, s, ans; scanf(\"%d\", &n); for (ans = 1, i = 0; i < n; i++) { scanf(\"%d\", &v); if (v <= 125) h[v]++; ans += v; } for (s = 0, k = 4, i = 1; i <= 125; i++, k += 4) { s += h[i-1]; if (n > s+k) ans -= n-(s+k); } printf(\"%d\\n\", ans); return 0; } input: 10\n10\n10\n10\n10\n10\n10\n10\n10\n10\n10",
+    "target": "execution: [0, 0, 0, 0, 0, 1, 0, 1, 11, 10, 10, 10, 0, 126, 125, 125, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void) { double x1,x2,x3,x4,y1,y2,y3,y4; double dx1,dy1,dx2,dy2; int n; int i; scanf(\"%d\",&n); for(i=0;i<n;i++){ scanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\",&x1,&y1,&x2,&y2,&x3,&y3,&x4,&y4); dx1=x2-x1; dy1=y2-y1; dx2=x4-x3; dy2=y4-y3; if(dx1==0 && dx2==0) puts(\"YES\"); else if(dx1==0 || dx2==0) puts(\"NO\"); else if(dy1/dx1 == dy2/dx2) puts(\"YES\"); else puts(\"NO\"); } return 0; } input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 0, 1, 3, 2, 2, 2, 2, 2, 2, 0, 2, 0, 2, 1, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <math.h> #define N 5 int main() { double a; while(scanf(\"%lf\",&a)!=EOF){ printf(\"%f\\n\",9*a*(1-pow(2.0/3.0,N))); } return 0; } input: 1.0",
+    "target": "execution: [0, 0, 0, 0, 1, 0, 2, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 1, 0, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int y,m,d; while(scanf(\"%d%d%d\",&y,&m,&d) != EOF){ if(y <= 1867 || ((y == 1868) && ((m < 9) || (d < 8)))){ printf(\"pre-meiji\\n\"); } else if(y <= 1911 || ((y == 1912) && ((m < 7) || (d < 30)))){ printf(\"meiji %d %d %d\\n\",y - 1867,m,d); } else if(y <= 1925 || ((y == 1926) && ((m < 12) || (d < 25)))){ printf(\"taisho %d %d %d\\n\",y - 1911,m,d); } else if(y <= 1988 || ((y == 1989) && (d < 8))){ printf(\"showa %d %d %d\\n\",y - 1925,m,d); } else{ printf(\"heisei %d %d %d\\n\",y - 1988,m,d); } } return 0; } input: 1868 12 2",
+    "target": "execution: [0, 1, 0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int check(float n){ if(n>=1.1) return 0; else if(n>=0.6) return 1; else if(n>=0.2) return 2; else return 3; } int main(void){ float l , r; int cnt[40][2] = {0} , i; while(scanf(\"%f %f\" , &l , &r)!=EOF){ cnt[check(l)][0]++; cnt[check(r)][1]++; } for(i=0;i<4;i++){ printf(\"%d %d\\n\" , cnt[i][0] , cnt[i][1]); } return 0; } input: 1.0 1.2\n0.8 1.5\n1.2 0.7\n2.0 2.0",
+    "target": "execution: [0, 0, 8, 3, 0, 0, 8, 1, 0, 1, 5, 4, 4, 0, 5, 4, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { // your code goes here int r,h; int ans; scanf(\"%d%d\",&h,&r); if(h==(-1)*r) ans=0; else if(h<(-1)*r) ans=-1; else ans=1; printf(\"%d\\n\",ans); return 0; } input: 3 3",
+    "target": "execution: [0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: // Fibonacci Number #include <stdio.h> #define MAX 44 //int F[MAX]; int fibonacci(int n){ if(n == 0 || n == 1)return 1; return fibonacci(n-2) + fibonacci(n-1); } int main(){ int i, n; scanf(\"%d\", &n); printf(\"%d\\n\", fibonacci(n)); return 0; } input: 3",
+    "target": "execution: [0, 0, 0, 0, 0, 5, 2, 5, 1, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: i;main(c){c-~10&&(i=!putchar(c-1?~c:10,main(~getchar())));} input: w32nimda",
+    "target": "execution: [1]",
+    "prediction": "execution: [1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include<stdio.h> int main() { int c1, c2, c3, m4=4; while(scanf(\"%d %d %d\", &c1, &c2, &c3) != EOF) { if(c1 <= m4) m4++; if(c2 <= m4) m4++; if(c3 <= m4) m4++; if(c1 + c2 + m4 <= 20) printf(\"YES\\n\"); else printf(\"NO\\n\"); m4 = 4; } return 0; } input: 1 2 3\n5 6 9\n8 9 10",
+    "target": "execution: [0, 0, 1, 1, 4, 0, 3, 3, 3, 3, 1, 3, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void){ char s[16]; while(scanf(\"%s\",s) != EOF){ if((s[1] == s[2] && s[2] == s[3]) || (s[1] == s[5] && s[5] == s[9]) || (s[1] == s[4] && s[4] == s[7])){ if(s[1] != 's'){ printf(\"%c\\n\",s[1]); } } else if(s[2] == s[5] && s[5] == s[8]){ if(s[2] != 's'){ printf(\"%c\\n\",s[2]); } } else if((s[3] == s[6] && s[6] == s[9]) || (s[3] == s[5] && s[5] == s[8])){ if(s[3] != 's'){ printf(\"%c\\n\",s[3]); } } else if(s[4] == s[5] && s[5] == s[6]){ if(s[4] != 's'){ printf(\"%c\\n\",s[4]); } } else if(s[7] == s[8] && s[8] == s[9]){ if(s[7] != 's'){ printf(\"%c\\n\",s[7]); } } else{ printf(\"d\\n\"); } } return 0; } input: ooxxxooxo",
+    "target": "execution: [0, 1, 0, 2, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main() { int k=0, s=0,y=0; scanf(\"%d\", &y); while (y != 0){ k = 1000 - y; s += k / 500; k= k % 500; s += k / 100; k = k % 100; s += k / 50; k = k % 50; s += k / 10; k = k % 10; s += k / 5; k = k % 5; s += k; printf(\"%d\\n\", s); s = 0; scanf(\"%d\", &y); } return 0; } input: 380\n1\n0",
+    "target": "execution: [0, 0, 1, 1, 1, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void){ int d,a,b=0,c=0,i,j; while(scanf(\"%d\",&d) != EOF){ a=600/d; for(i=0;i<a;i++){ c+=d*(b*b); b+=d; } printf(\"%d\\n\",c); b=0; c=0; } return 0; } input: 20\n10",
+    "target": "execution: [0, 1, 1, 3, 2, 92, 90, 90, 0, 2, 2, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 1, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int a[2][4]; int sum[2]; int i; for (i = 0; i < 2; i++){ scanf(\"%d %d %d %d\", &a[i][0], &a[i][1], &a[i][2], &a[i][3]); sum[i] = a[i][0] + a[i][1] + a[i][2] + a[i][3]; } if (sum[0] > sum[1] || sum[0] == sum[1]){ printf(\"%d\\n\", sum[0]); } else { printf(\"%d\\n\", sum[1]); } return (0); } input: 100 80 70 60\n80 70 80 90",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 3, 2, 2, 0, 1, 0, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int n; int a[20][20]; void rot(int r, int c, int size, int angle){ int time = angle/90, i; for(i=0;i<time;i++){ int temp[20][20]; int j, k; for(j=0;j<n;j++){ for(k=0;k<n;k++) temp[j][k] = a[j][k]; } int l=r-1; for(j=size-1;j>=0;j--){ for(k=0;k<size;k++) a[c-1+k][r-1+j] = temp[l][c-1+k]; l++; } } return; } void rev(int r, int c, int size){ int i, j; for(i=r-1;i<r+size-1;i++){ for(j=c-1;j<c+size-1;j++) a[i][j] = (a[i][j]+1)%2; } return; } void shf(int r, int o){ int lr; if(o==2) lr=1; else lr=-1; int i, temp[n]; for(i=0;i<n;i++) temp[i]=a[r-1][i]; for(i=0;i<n;i++){ a[r-1][i] = temp[(i+lr+n)%n]; } return; } void irev(int r, int c, int is){ int ser[4]={0, 1, 0, -1}; int i; a[r][c] = is; for(i=0;i<4;i++){ int nr = r+ser[i], nc = c+ser[i^1]; if(a[nr][nc]!=is && nr>=0 && nc>=0 && nr<n && nc<n){ irev(nr, nc, is); } } return; } int main(){ int m; scanf(\"%d %d\", &n, &m); int i, j; for(i=0;i<n;i++){ for(j=0;j<n;j++) scanf(\"%d\", &a[i][j]); } int ope; for(ope=0;ope<m;ope++){ int o; scanf(\"%d\", &o); if(o==0){ int r, c, size, angle; scanf(\"%d %d %d %d\", &r, &c, &size, &angle); rot(r, c, size, angle); } else if(o==1){ int r, c, size; scanf(\"%d %d %d\", &r, &c, &size); rev(r, c, size); } else if(o==2 || o==3){ int r; scanf(\"%d\", &r); shf(r, o); } else if(o==4){ int r, c; scanf(\"%d %d\", &r, &c); irev(r-1, c-1, (a[r-1][c-1]+1)%2); } } for(i=0;i<n;i++){ for(j=0;j<n;j++) printf(\"%d \", a[i][j]); printf(\"\\n\"); } return 0; } input: 5 2\n1 1 1 0 1\n1 0 0 0 0\n0 0 0 1 1\n0 1 0 0 0\n0 1 1 1 0\n1 3 3 3\n0 1 1 5 90",
+    "target": "execution: [0, 0, 0, 1, 1, 2, 0, 0, 6, 5, 0, 1, 6, 5, 5, 0, 0, 1, 1, 0, 0, 4, 3, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 6, 5, 0, 0, 3, 0, 2, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 5, 5, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> float data[8]; char string[256]; int output[256]; int intersect (float *a) { int result = 0; result += a[0] < a[6]; result += a[2] > a[4]; result += a[1] < a[7]; result += a[3] > a[5]; return result == 4; } int main(int argc, const char * argv[]) { //printf(\"Start.\\n\"); string[0] = 100; int times = 0; int i = 0; while (times < 3) { gets(string); //scanf(\"%s\",string); /* if (string[0] < 46) //if (feof(stdin)) { break; } */ sscanf(string, \"%f %f %f %f %f %f %f %f\", &data[0], &data[1], &data[2], &data[3], &data[4], &data[5], &data[6], &data[7]); output[times] = intersect(data); times ++; } printf(\"%c\",0); for (i = 0; i < times; i++) { if (output[i] > 0) { printf(\"YES%c\",13); } else { printf(\"NO%c\",13); } } return 0; } input: 0.0 0.0 4.0 4.0 -3.0 -5.0 2.0 -1.0",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 0, 0, 1, 1, 1, 4, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 3, 3, 0, 1, 4, 3, 0, 0, 0, 0, 0, 3, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <string.h> int max(int x, int y) { if (x > y){ return (x); } return (y); } void swap(int *i, int *j) { *i += *j; *j = *i - *j; *i -= *j; } int main(void) { int card[13]; char str[7][11] = {{\"null\"}, {\"one pair\"}, {\"two pair\"}, {\"three card\"}, {\"staight\"}, {\"full house\"}, {\"four card\"}}; int ans; int tmp; int i, j; char c[5]; int count; while (scanf(\"%d,%d,%d,%d,%d\", &c[0], &c[1], &c[2], &c[3], &c[4]) != EOF){ ans = 0; tmp = 0; memset(card, 0, sizeof(card)); for (i = 0; i < 5; i++){ card[c[i] - 1]++; } for (i = 0; i < 13; i++){ if (card[i]){ for (j = i, count = 0; count < 5; count++, j++){ if (!card[j]){ count = 0; break; } if (j == 12 && count == 3){ j = -1; } else if (j == 12){ count = 0; break; } } } if (count){ tmp = 4; break; } } for (i = 0; i < 12 - 1; i++){ for (j = 0; j < 11 - i; j++){ if (card[j] < card[j + 1]){ swap(&card[j], &card[j + 1]); } } } if (card[0] == 4){ ans = 6; } else if (card[0] == 3 && card[1] == 2){ ans = 5; } else if (card[0] == 3){ ans = 3; } else if (card[0] == 2 && card[1] == 2){ ans = 2; } else if (card[0] == 2){ ans = 1; } printf(\"%s\\n\", str[max(ans, tmp)]); } return (0); } input: 1,2,3,4,1\n2,3,2,3,12\n12,13,11,12,12\n7,6,7,6,7\n3,3,2,3,3\n6,7,8,9,10\n11,12,10,1,13\n11,12,13,1,2",
+    "target": "execution: [0, 0, 0, 0, 8, 5, 0, 3, 8, 0, 0, 111, 111, 111, 111, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 9, 8, 8, 8, 48, 40, 0, 100, 94, 62, 60, 14, 14, 0, 46, 1, 0, 45, 6, 6, 0, 0, 0, 94, 2, 2, 0, 0, 96, 616, 528, 111, 0, 0, 0, 8, 1, 0, 7, 1, 0, 6, 1, 0, 5, 1, 0, 4, 1, 0, 8, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main() { int i, j; int m, n, target[100], name, point[100], miss; scanf(\"%d%d\", &n, &m); for(i=0;i<m;i++){ scanf(\"%d\", &target[i]); target[i]--; } for(i=0;i<n;i++)point[i]=0; for(i=0;i<m;i++){ miss = 0; for(j=0;j<n;j++){ scanf(\"%d\", &name);name--; if(name == target[i]) point[j]++; else miss++; } point[target[i]] += miss; } for(i=0;i<n;i++)printf(\"%d\\n\", point[i]); return 0; } input: 3\n4\n1 2 3 2\n1 1 2\n3 2 2\n1 1 3\n2 2 2",
+    "target": "execution: [0, 0, 1, 0, 0, 1, 5, 4, 4, 0, 1, 5, 4, 16, 12, 12, 4, 0, 4, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ int a, i, b, n, ans = 0, d, j, k = 10; double c; while(scanf(\"%d %d %d\", &a, &b, &n) != EOF){ c = a / b; for(i = 0; i < n; i++){ for(j = 0; j < i; j++){ k *= 10; } c *= k; d = c; ans += d % 10; c = a / b; k = 10; } printf(\"%d\\n\", ans); } return 0; } input: 4 3 2",
+    "target": "execution: [0, 1, 1, 0, 2, 1, 3, 3, 1, 0, 2, 2, 2, 2, 2, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int card[10]; int i, j; int c[3]; int sum; int count; while (scanf(\"%d %d %d\", &c[0], &c[1], &c[2]) != EOF) { memset(card, 0, sizeof(card)); for (i = 0; i < 3; i++) card[c[i]-1]++; sum = c[0] + c[1]; count = 0; for (i = 20 - sum - 1; i >= 0; i--) { if (!card[i]) count++; } if ((double)count / 7.0 * 100 >= 50) printf(\"YES\\n\"); else printf(\"NO\\n\"); } return 0; } input: 5 6 9",
+    "target": "execution: [0, 1, 0, 0, 0, 0, 0, 2, 1, 4, 3, 1, 1, 10, 9, 6, 0, 1, 1, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> void sort(void); int FourCard(void); int HullHouse(void); int Straight(void); int ThreeCard(void); int TwoPair(void); int OnePair(void); int x[5]; int main(){ int a,b,c,d,e; char c1,c2,c3,c4; while(scanf(\"%d %c %d %c %d %c %d %c %d\", &a, &c1, &b, &c2, &c, &c3, &d, &c4, &e) != EOF){ x[0] = a; x[1] = b; x[2] = c; x[3] = d; x[4] = e; sort(); if(FourCard() == 1) printf(\"four card\\n\"); else if(HullHouse() == 1) printf(\"full house\\n\"); else if(Straight() == 1) printf(\"straight\\n\"); else if(ThreeCard() == 1) printf(\"three card\\n\"); else if(TwoPair() == 1) printf(\"two pair\\n\"); else if(OnePair() == 1) printf(\"one pair\\n\"); else printf(\"null\\n\"); } return 0; } void sort(void){ int i, j, a, b; for(i=1; i<5; i++){ a = x[i]; for(j=i; x[j-1]>a && j>0; j--){ b = x[j-1]; x[j-1] = x[j]; x[j] = b; } } } int FourCard(void){ int i; for(i=0; i<2; ++i){ if(x[i] == x[i+1] && x[i] == x[i+2] && x[i] == x[i+3]) return 1; } return 0; } int HullHouse(void){ if((x[0] == x[1] && x[0] == x[2] && x[3] == x[4])||(x[0] == x[1] && x[2] == x[3] && x[2] == x[4])) return 1; else return 0; } int Straight(void){ if(x[0] == x[1]-1 && x[0] == x[2]-2 && x[0] == x[3]-3 && x[0] == x[4]-4) return 1; else if(x[0] == 1 && x[1] == 10 && x[2] == 11 && x[3] == 12 && x[4] == 13) return 1; else return 0; } int ThreeCard(void){ int i; for(i=0;i<3; ++i){ if(x[i] == x[i+1] && x[i] == x[i+2]) return 1; } return 0; } int TwoPair(void){ int i; if((x[0] == x[1] && x[2] == x[3])||(x[0] == x[1] && x[3] == x[4])||(x[1] == x[2] && x[3] == x[4])) return 1; else return 0; } int OnePair(void){ int i; for(i=0; i<4; ++i){ if(x[i] == x[i+1]) return 1; } return 0; } input: 7,6,7,6,7",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 5, 4, 7, 3, 3, 3, 0, 0, 1, 0, 0, 3, 2, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int cal(int a ,int b){ return b ? cal(b, a%b) : a; } int main(){ int an,bn; scanf(\"%d %d\",&an,&bn); printf(\"%d\\n\",cal(an, bn)); return 0; } input: 147 105",
+    "target": "execution: [0, 0, 4, 4, 1, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ int i,j,k,minj,a,A[100],count = 0; scanf(\"%d\",&a); for(i = 0; i < a; i++){ scanf(\"%d\",&A[i]); } for(i = 0; i < a; i++){ minj = i; for(j = i; j < a; j++){ if(A[j] < A[minj]) { minj = j; } } if(minj != i) count++; k = A[i]; A[i] = A[minj]; A[minj] = k; } for(i = 0; i < a; i++){ printf(\"%d\",A[i]); if(i == a -1) break; printf(\" \"); } printf(\"\\n\"); printf(\"%d\\n\",count); return 0; } input: 6\n5 6 4 2 1 3",
+    "target": "execution: [0, 1, 1, 1, 7, 6, 0, 7, 6, 27, 21, 8, 0, 0, 6, 6, 6, 6, 0, 6, 6, 6, 5, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main() { int a ,b ,c ; scanf( \"%d %d %d\" ,&a ,&b ,&c ) ; printf( \"%d\\n\" ,a + b + c ) ; return 0 ; } input: 1000 1000 1000",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void) { int R = 0, B = 0, W = 0, G = 0,Z; scanf(\"%d %d %d %d\", &R, &B , &W , &G); Z = R + B + W + G; printf(\"%d\\n\", Z); return 0; } input: 4 2 1 1",
+    "target": "execution: [0, 1, 1, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ double r,l; int k,i; int dr[4]={0}; int dl[4]={0}; while(scanf(\"%lf %lf\",&l,&r)!=EOF){ if (l<0.2)k=3; else if(l<0.6)k=2; else if(l<1.1)k=1; else k=0; dl[k]++; if (r<0.2)k=3; else if(r<0.6)k=2; else if(r<1.1)k=1; else k=0; dr[k]++; } for(i=0;i<4;i++){ printf(\"%d %d\\n\",dl[i],dr[i]); } return 0; } input: 1.0 1.2",
+    "target": "execution: [0, 1, 0, 0, 1, 1, 2, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 5, 4, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ int a, b; while( scanf(\"%d %d\", &a, &b) != EOF ){ printf(\"%d\\n\", a + b); } return 0; } input: 1 2",
+    "target": "execution: [0, 1, 0, 2, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void) { double left,right; int lA=0,lB=0,lC=0,lD=0; int rA=0,rB=0,rC=0,rD=0; while(scanf(\"%lf %lf\",&left,&right)!=EOF) { if(left>=1.1)lA++; else if(left>=0.6 && left<1.1)lB++; else if(left>=0.2 && left<0.6)lC++; else if(left<0.2)lD++; if(right>=1.1)rA++; else if(right>=0.6 && right<1.1)rB++; else if(right>=0.2 && right<0.6)rC++; else if(right<0.2)rD++; } printf(\"%d %d\\n\",lA,rA); printf(\"%d %d\\n\",lB,rB); printf(\"%d %d\\n\",lC,rC); printf(\"%d %d\\n\",lD,rD); return 0; } input: 1.0 1.2",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 2, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void){ double x1,y1 , x2,y2 , x3,y3 , x4,y4; int n,i; scanf(\"%d\",&n); for(i=0;i<n;i++){ scanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\",&x1,&y1 , &x2,&y2 , &x3,&y3 , &x4,&y4); if( (y2-y1)/(x2-x1) == (y4-y3)/(x4-x3) ) puts(\"YES\"); else puts(\"NO\"); } return 0; } input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0",
+    "target": "execution: [0, 1, 0, 0, 1, 3, 2, 2, 1, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void) { int sum = 0; int i = 0; int kosuu = 0; float ave; char comma; int tanka; int kazu; while (scanf(\"%d%c%d\",&tanka,&comma,&kazu) != EOF){ sum += (tanka * kazu); kosuu += kazu; i++; } ave = 1.0 * kosuu / i; if (kosuu * 10 / i % 10 > 4){ ave++; } printf(\"%d\\n\", sum); printf(\"%d\\n\",(int)ave); return (0); } input: 100,20\n50,10\n70,35",
+    "target": "execution: [0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 4, 3, 3, 3, 0, 1, 1, 1, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdlib.h> #include<stdio.h> #include<string.h> int main(){ int j,i,n,*A,count,swap,mini; scanf(\"%d\",&n); A=malloc(n*sizeof(int)); for(i=0;i<n;i++) scanf(\"%d\",&A[i]); for(i=0;i<n-1;i++){ mini=i; for(j=i+1;j<n;j++){ if(A[mini]>A[j]) mini=j; } if(mini!=i){ swap=A[mini]; A[mini]=A[i]; A[i]=swap; count+=1; } } for(i=0;i<n-1;i++) printf(\"%d \",A[i]); printf(\"%d \\n\",A[n-1]); printf(\"%d???\\n\",count); return 0; } input: 6\n5 2 4 6 1 3",
+    "target": "execution: [0, 0, 0, 1, 0, 1, 1, 1, 6, 5, 20, 15, 0, 5, 3, 3, 3, 3, 0, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int left[4]; int right[4]; int main(void) { int i; double leye; double reye; while (scanf(\"%lf %lf\", &leye, &reye) != EOF){ if (leye >= 1.1){ left[0]++; } else if (leye >= 0.6){ left[1]++; } else if (leye >= 0.2){ left[2]++; } else { left[3]++; } if (reye >= 1.1){ right[0]++; } else if (reye >= 0.6){ right[1]++; } else if (reye >= 0.2){ right[2]++; } else { right[3]++; } } for (i = 0; i < 4; i++){ printf(\"%d %d\\n\", left[i], right[i]); } return (0); } input: 0.8 1.5",
+    "target": "execution: [0, 0, 0, 0, 1, 0, 0, 0, 2, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void) { int D,L,j; scanf(\"%d%d\",&D,&L); j=(D%L)+(D/L) ; printf(\"%d\\n\",j); return 0; } input: 10 5",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <string.h> int main(void) { int N, M; char U[256][11]; char T[11]; int i, j; int flag_open; scanf(\"%d\", &N); for (i = 0; i < N; i++){ scanf(\"%s\", U[i]); } flag_open = 0; scanf(\"%d\", &M); for (i = 0; i < M; i++){ scanf(\"%s\", T); for (j = 0; j < N; j++){ if (strcmp(U[j], T) == 0){ break; } } if (j == N){ printf(\"Unknown %s\\n\", T); } else { if (flag_open == 0){ printf(\"Opened by %s\\n\", T); flag_open = 1; } else { printf(\"Closed by %s\\n\", T); flag_open = 0; } } } return (0); } input: 2\nz\nx\n2\nz\nx",
+    "target": "execution: [0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 3, 2, 0, 1, 1, 3, 2, 3, 3, 2, 0, 0, 2, 0, 0, 0, 2, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void){ int times,dist,len; scanf(\"%d,%d,\",&dist,&len); times=(dist/len)+(dist%len); printf(\"%d\\n\",times); return 0; } input: 10 5",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> main() { int x,y,d; scanf(\"%d%d\",&x,&y); while(1<x<10^9 && 1<y<10^9) { if(x>y) { if(x%y==0 ){ d = y; break; } x = x%y; } if(x<y ){ if(y%x==0 ){ d = x; break; } y = y%x; } } printf(\"%d\\n\",d); return 0; } input: 147 105",
+    "target": "execution: [0, 0, 1, 0, 1, 0, 0, 2, 0, 2, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> main(){ double weight; while(scanf(\"%lf\",&weight) != EOF){ if(weight<=48)printf(\"light fly\\n\"); else if(weight>48 && weight<=51)printf(\"fly\\n\"); else if(weight>51 && weight<=54)printf(\"bantam\\n\"); else if(weight>54 && weight<=57)printf(\"feather\\n\"); else if(weight>57 && weight<=60)printf(\"light\\n\"); else if(weight>60 && weight<=64)printf(\"light welter\\n\"); else if(weight>64 && weight<=69)printf(\"welter\\n\"); else if(weight>69 && weight<=75)printf(\"light middle\\n\"); else if(weight>75 && weight<=81)printf(\"middle\\n\"); else if(weight>81 && weight<=91)printf(\"light heavy\\n\"); else if(weight>91)printf(\"heavy\\n\"); } return 0; } input: 60.2\n70.2\n48.0\n80.2",
+    "target": "execution: [0, 1, 0, 5, 4, 3, 3, 3, 3, 3, 2, 2, 1, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main() { double x1, x2, x3, y1, y2, y3, xp, yp; double a1, a2, b1, b2, c1, c2; double X1, X2, X3, Xp, Yp; double m1, m2, m3, mp, d1, d2, d3, dp; double max_x, min_x; while(scanf(\"%lf%lf%lf%lf%lf%lf%lf%lf\",&x1,&y1,&x2,&y2,&x3,&y3,&xp,&yp) != EOF){ a1 = 2 * (x2 - x1); a2 = 2 * (x3 - x1); b1 = 2 * (y2 - y1); b2 = 2 * (y3 - y1); c1 = x1*x1 - x2*x2 + y1*y1 - y2*y2; c2 = x1*x1 - x3*x3 + y1*y1 - y3*y3; Xp = (b1*c2 - b2*c1) / (a1*b2 - a2*b1); Yp = (c1*a2 - c2*a1) / (a1*b2 - a2*b1); max_x = Xp > xp ? Xp : xp; min_x = Xp > xp ? xp : Xp; mp = (Yp - yp) / (Xp - xp); dp = Yp - Xp * mp; m1 = (y1 - y2) / (x1 - x2); d1 = y1 - x1 * m1; //m2 = (y2 - y3) / (x2 - x3); //d2 = y2 - x2 * m2; //m3 = (y3 - y1) / (x3 - x1); //d3 = y3 - x3 * m3; X1 = (dp - d1) / (m1 - mp); //X2 = (dp - d2) / (m2 - mp); //X3 = (dp - d3) / (m3 - mp); if(X1 <= min_x || max_x <= X1){printf(\"Yes\\n\"); continue;} //if(X2 <= min_x || max_x <= X2){printf(\"Yes\\n\"); continue;} //if(X3 <= min_x || max_x <= X3){printf(\"Yes\\n\"); continue;} printf(\"No\\n\"); } return 0; } input: 0.0 0.0 2.0 0.0 2.0 2.0 1.5 0.5\n0.0 0.0 1.0 4.0 5.0 3.0 -1.0 3.0",
+    "target": "execution: [0, 0, 1, 0, 0, 0, 0, 0, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void){ // Your code here! int w; scanf(\"%d\",&w); printf(\"%d\\n\",32*w); return 0; } input: 4",
+    "target": "execution: [0, 1, 0, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: long long L,c;t;main(i){for(;c=scanf(\"%lld\",&L),L;printf(\"%lld\\n\",c/2+1))for(i=2;L>1;c*=t-~t,++i)for(t=0;L%i<1;L/=i)++t;} input: 12\n9\n2\n0",
+    "target": "execution: [1]",
+    "prediction": "execution: [1]",
+    "mae": 0.0
+  },
+  {
+    "input": "code: #include<stdio.h> double a; double sequence(int); int main(void){ double sum; while((scanf(\"%lf\",&a))!=EOF){ sum=0.0; for(int i=1;i<=10;i++){ sum+=sequence(i); } printf(\"%.8f\\n\",sum); } return 0; } double sequence(int n){ if(n==1){return a;} else{ if(n%2==0) return sequence(n-1)*2; else return sequence(n-1)/3; } } input: 1.0",
+    "target": "execution: [0, 0, 0, 0, 0, 2, 1, 11, 10, 0, 1, 0, 1, 1, 0, 55, 0, 45, 20, 0, 55]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #define N 100 int main() { int array[N], n, i, j, position, swap,count; scanf(\"%d\", &n); for ( i = 0 ; i < n ; i++ ) scanf(\"%d\", &array[i]); for ( i = 0 ; i < n - 1 ; i++ ) { position = i; for ( j = i + 1 ; j < n ; j++ ) { if ( array[position] > array[j] ) position = j; } if ( position != i ) { swap = array[i]; array[i] = array[position]; array[position] = swap; count ++; } } for ( i = 0 ; i < n - 1 ; i++ ) { printf(\"%d \", array[i]); } printf(\"%d\\n\",array[i]); printf(\"%d\\n\",count); return 0; } input: 6\n5 2 4 6 1 3",
+    "target": "execution: [0, 0, 0, 1, 0, 1, 7, 6, 6, 0, 5, 20, 0, 15, 5, 0, 5, 0, 3, 3, 3, 3, 0, 0, 6, 0, 5, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int i=0; char str[80]; scanf(\"%s\", str); while (str[i] != '\\0' || i>=80) i++; i--; while (i>=0) { putchar(str[i]); i--; } putchar('\\n'); return 0; } input: w32nimda",
+    "target": "execution: [0, 1, 1, 0, 1, 1, 1, 9, 8, 8, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int Sort(int A[],int N){ int i,j,t,sw=0,mini; for(i=0;i<N;i++){ mini=i; for(j=i;j<N;j++){ if(A[j]<A[mini])mini=j; } t=A[i];A[i]=A[mini];A[mini]=t; if(i!=mini)sw++; } return sw; } int main(){ int A[100],N,i,sw; scanf(\"%d\",&N); for(i=0;i<N;i++)scanf(\"%d\",&A[i]); sw=Sort(A,N); for(i=0;i<N;i++){ if(i>0)printf(\" \"); printf(\"%d\",A[i]); } printf(\"\\n\"); printf(\"%d\\n\",sw); return 0; } input: 6\n5 6 4 2 1 3",
+    "target": "execution: [0, 0, 1, 7, 6, 27, 21, 0, 6, 6, 0, 1, 1, 1, 0, 1, 1, 1, 7, 6, 6, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <string.h> int check(int tmp,int *card){ int i,cnt; if(tmp >= 10){ return 1; } cnt = 0; for(i = 0;i < tmp;i++){ if(card[i] == 0){ cnt++; } } return (cnt >= 4) ? 1 : 0; } int main(){ int c1,c2,c3,i; int card[10]; while(scanf(\"%d %d %d\",&c1,&c2,&c3) != EOF){ memset(card,0,sizeof(card)); card[c1-1] = 1; card[c2-1] = 1; card[c3-1] = 1; if(check(20-c1-c2,card)){ printf(\"YES\\n\"); }else{ printf(\"NO\\n\"); } } return 0; } input: 1 2 3",
+    "target": "execution: [0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 2, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { float BMI[100],weight[100],height[100]; int Num[100]; int i=0,count=0; while(scanf(\"%d,%f,%f\",&Num[i],&weight[i],&height[i])!=EOF){ i++; count++; } for(i=0;i<count;i++){ BMI[i]=weight[i]/(height[i]*height[i]); } for(i=0;i<count;i++){ if(BMI[i]>25.00) printf(\"%d\\n\",Num[i]); } return 0; } input: 1001,50.0,1.60\n1002,60.0,1.70\n1003,70.0,1.80\n1004,80.0,1.70\n1005,90.0,1.60",
+    "target": "execution: [0, 0, 1, 0, 0, 1, 6, 5, 5, 0, 6, 5, 0, 6, 5, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int card[200], a[200], b[200], i, j, k, l, n, m; scanf(\"%d\", &n); scanf(\"%d\", &m); for(i = 0; i < 2*n; i++) card[i] = i+1; while(m--){ scanf(\"%d\", &k); if(k == 0){ j = 0; for(i = 0; i < n; i++) a[i] = card[i]; for(i = n; i < 2*n; i++) b[j++] = card[i]; j = l = 0; for(i = 0; i < 2*n; i++){ if(i%2 == 0) card[i] = a[j++]; else card[i] = b[l++]; } } j = 0; if(1 <= k && k <= 100){ for(i = 0; i < k; i++) a[i] = card[i]; for(i = k; i < 2*n; i++) b[j++] = card[i]; l = 0; for(i = 0; i < 2*n; i++){ if(i < j) card[i] = b[i]; else card[i] = a[l++]; } } } for(i = 0; i < 2*n; i++) printf(\"%d\\n\", card[i]); return 0; } input: 2\n2\n1\n0",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 5, 4, 3, 2, 2, 1, 3, 2, 3, 2, 1, 5, 4, 2, 0, 2, 0, 0, 2, 2, 2, 1, 4, 3, 1, 5, 4, 3, 0, 1, 0, 0, 0, 5, 4, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main() { int x,y,temp,min,d; scanf(\"%d%d\",&x,&y); if(x>=y) { min=y; temp=x%y; } else { min=x; temp=y%x; } for(d=temp;d>0;d--) { if(temp%d==0 && min%d==0) { break; } } printf(\"%d\\n\",d); return 0; } input: 54 20",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 13, 0, 13, 0, 1, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: /* * FileName: selection_sort * CreatedDate: 2020-07-08 13:45:37 +0900 * LastModified: 2020-07-08 13:51:46 +0900 */ #include <stdio.h> #include <stdlib.h> int selectionSort( int *a, int n){ int cnt = 0; for( int i=0; i<n; i++){ int minj = i; for( int j=i; j<n; j++){ if(a[j]<a[minj]){ minj = j; } } if( minj!=i ){ cnt++; } int tmp = a[minj]; a[minj] = a[i]; a[i] = tmp; } return cnt; } int main(void){ int n;scanf(\"%d\", &n); int *a = malloc(n*sizeof(int)); for(int i=0;i<n;i++) scanf(\"%d\", a+i); int ans = selectionSort( a, n); printf(\"%d\", a[0]); for(int i=1; i<n; i++){ printf(\" %d\", a[i]); } printf(\"\\n%d\\n\", ans); free(a); return 0; } input: 6\n5 6 4 2 1 3",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 1, 7, 6, 27, 21, 8, 0, 0, 6, 4, 0, 6, 6, 6, 0, 1, 1, 1, 1, 1, 1, 1, 1, 6, 5, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int a,b,c,d; scanf(\"%d %d %d %d\",&a,&b,&c,&d); if((a==b && c==d)||(a==c && b==d)||(a==d && b==c)){ printf(\"yes\\n\"); } else{ printf(\"no\\n\"); } return 0; } input: 1 1 3 4",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int i,n; float ax,ay,bx,by,cx,cy,dx,dy,ab,cd; scanf(\"%d\",&n); for(i=0;i<n;i++){ scanf(\"%f %f %f %f %f %f %f %f\",&ax,&ay,&bx,&by,&cx,&cy,&dx,&dy); ab=(by-ay)/(bx-ax); cd=(dy-cy)/(dx-dy); if(ab==cd){printf(\"YES\\n\");}else{printf(\"NO\\n\");} } return 0; } input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0",
+    "target": "execution: [0, 1, 0, 0, 1, 3, 2, 2, 2, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": 1.6923076923076923
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int a,b,c,d,e,f,g,h; scanf(\"%d%d%d%d%d\",&a,&b,&c,&d,&e); if (a<b && b<c){ f=a; } else if (a<c && c<b){ f=a; } else if (b<c && c<a){ f=b; } else if (b<a && a<c){ f=b; } else if (c<a && a<b){ f=c; } else if (c<b && b<a){ f=c; } if(d<e){ g=d; } else if(e<d){ g=e; } h=f+g-50; printf(\"%d\\n\",h); return 0; } input: 800\n700\n900\n198\n330",
+    "target": "execution: [0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> #include<math.h> int main() { float x1,y1,x2,y2,x3,y3,px,py; int abc,pab,pbc,pca; int area(int x1,int y1,int x2,int y2,int x3,int y3) { return abs((x1*(y2-y3)+x2*(y3-y1)+x3*(y1-y2))/2); } while(scanf(\"%f %f %f %f %f %f %f %f\",&x1,&y1,&x2,&y2,&x3,&y3,&px,&py)!=EOF){ x1=(int)x1*1000; x2=(int)x2*1000; y1=(int)y1*1000; y2=(int)y2*1000; x3=(int)x3*1000; y3=(int)y3*1000; px=(int)px*1000; py=(int)py*1000; abc=area(x1,y1,x2,y2,x3,y3); pab=area(x1,y1,px,py,x2,y2); pca=area(x1,y1,px,py,x3,y3); pbc=area(px,py,x2,y2,x3,y3); if(abc==(pab+pbc+pca)) printf(\"YES\\n\"); else printf(\"NO\\n\"); } return 0; } input: 0.0 0.0 1.0 4.0 5.0 3.0 -1.0 3.0",
+    "target": "execution: [0, 0, 1, 1, 0, 0, 0, 0, 4, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ int i,j,minj,n,flag,tmp,cnt=0; int A[100]; scanf(\"%d\",&n); for(i=0;i<n;i++){ scanf(\"%d\",&A[i]); } for(i=0;i<n;i++){ minj=i; for(j=i;j<n;j++){ if(A[j]<A[minj]){ minj=j; } } tmp= A[i]; A[i]=A[minj]; A[minj]=tmp; if(i!=minj) cnt++; } for(i=0;i<n-1;i++){ printf(\"%d \",A[i]); } printf(\"%d\\n%d\\n\",A[n-1],cnt); return 0; } input: 6\n5 2 4 6 1 3",
+    "target": "execution: [0, 1, 1, 0, 1, 7, 6, 0, 7, 6, 27, 21, 5, 0, 0, 6, 6, 6, 6, 0, 6, 5, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int a,b; while(scanf(\"%d%d\",&a,&b)==2) { printf(\"%d\\n\",a+b); } return 0; } input: 10 5",
+    "target": "execution: [0, 1, 0, 2, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> #define N 44 int fibonach(int ); int main() { int fn,n; scanf(\"%d\",&n); fn = fibonach(n); printf(\"%d\\n\",fn); return 0; } int fibonach(int n) { int i,a[N]; for(i=0;i<=n;i++) { if(i == 0) a[i] = 1; else if(i == 1) a[i] = 1; else a[i] = a[i-2] + a[i-1]; } return a[i-1]; } input: 3",
+    "target": "execution: [0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 5, 0, 4, 3, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <string.h> int main(void) { int i,m,n; char str[200],s; for(i=0;i<9;i++){ fgets(str,sizeof(str),stdin); sscanf(str,\"%s %d %d\",&s,&n,&m); printf(\"%s %d %d\\n\",&s,n+m,n*200+m*300); } return 0; } input: 3d 281 102",
+    "target": "execution: [0, 0, 1, 0, 0, 10, 9, 9, 9, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ int a[5],s[14],p[14],i,j,c,g,h,d; while(scanf(\"%d,%d,%d,%d,%d\",&a[0],&a[1],&a[2],&a[3],&a[4])!=EOF){ g=0; h=0; d=0; c=0; for(i=0;i<14;i++){ s[i]=i+1; p[i]=0; } s[13]=1; for(i=0;i<13;i++) for(j=0;j<5;j++) if(a[j]==s[i]){ p[i]++; if(a[j]==1) p[13]++; } for(i=0;i<10;i++) if(p[i]==1){ for(j=i+1;j<i+5;j++){ if(p[j]!=1) break; if(j==i+4){ printf(\"straight\\n\"); c++; } } } if(c>0) continue; for(i=0;i<13;i++){ if(p[i]==4)d++; if(p[i]==3)g++; if(p[i]==2)h++; } if(d>0) printf(\"four card\\n\"); else if(g>0&&h>0) printf(\"full house\\n\"); else if(g>0&&h==0) printf(\"three card\\n\"); else if(g==0&&h==1) printf(\"one pair\\n\"); else if(g==0&&h==2) printf(\"two pair\\n\"); else printf(\"null\\n\"); } return 0; } input: 6,7,8,9,10",
+    "target": "execution: [0, 1, 0, 2, 1, 1, 1, 1, 15, 14, 14, 0, 1, 14, 78, 65, 5, 5, 0, 0, 11, 10, 15, 14, 4, 10, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: /* AizuOnline A0075 Title BMI */ #include <stdio.h> #include <float.h> int gno; double height; double weight; // main() { int cnt=0; while(EOF!=scanf(\"%d,%lf,%lf\",&gno,&weight,&height)) { if(weight/height/height >= 25.0) { printf(\"%d\\n\",gno); cnt++; } } if(cnt==0) printf(\"\u8a72\u5f53\u306a\u3057\\n\"); return(0); } input: 1001,50.0,1.60\n1002,60.0,1.70\n1003,70.0,1.80\n1004,80.0,1.70\n1005,90.0,1.60",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 6, 0, 5, 0, 2, 2, 0, 0, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void){ double xa1,ya1,xa2,ya2,xb1,yb1,xb2,yb2; while(scanf(\"%lf %lf %lf %lf %lf %lf %lf %lf\",&xa1,&ya1,&xa2,&ya2,&xb1,&yb1,&xb2,&yb2)!=EOF){ if(xa2<xb1||xb2<yb1||ya2<yb1||yb2<ya1){ printf(\"NO\\n\"); }else{ printf(\"YES\\n\"); } } return 0; } input: 0.0 0.0 4.0 4.0 -3.0 -5.0 2.0 -1.0",
+    "target": "execution: [0, 1, 0, 2, 1, 1, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int fib_num(int number); int main(void) { int n = 0; int result = 0; scanf(\"%d\\n\", &n ); result = fib_num(n); printf(\"%d\\n\",result); return 0; } int fib_num(int number) { if ( number < 0 ) { printf(\"error\\n\"); return -1; } if ( number <= 1) { return 1; } return fib_num( number -1 ) + fib_num( number - 2 ); } input: 3",
+    "target": "execution: [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 5, 0, 0, 0, 5, 3, 0, 2, 5]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #define min(a,b)((a)<(b)?(a):(b)) r;main(c,a,n){for(gets(&c);r=~scanf(\"%d%d%d\",&c,&a,&n);printf(\"%d\\n\",r)){ r=min(c,min(a,n)); c-=r,a-=r,n-=r; n=min(c/2,a); r+=n; r+=(c-n*2)/3; }} input: 4\n3 0 0\n1 1 1\n9 4 1\n0 1 2",
+    "target": "execution: [0, 5, 4, 4, 4, 4, 4, 1]",
+    "prediction": "execution: [1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int f[100]; int main(){ int n, i; f[0] = f[1] = 1; scanf(\"%d\", &n); for(i = 2; i <= n; ++i) f[i] = f[i - 1] + f[i - 2]; printf(\"%d\\n\", f[n]); return 0; } input: 3",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <stdlib.h> int main(void) { double weight, height; int number, bmi; while (scanf(\"%d,%lf,%lf\", &number, &weight, &height) != EOF) { if (weight / (height * height) >= 25) { printf(\"%d\\n\", number); } } return EXIT_SUCCESS; } input: 1001,50.0,1.60\n1002,60.0,1.70\n1003,70.0,1.80\n1004,80.0,1.70\n1005,90.0,1.60",
+    "target": "execution: [0, 0, 1, 0, 0, 6, 5, 2, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void){ int i; int count[2][4]={0}; double eye[2]={0}; while(scanf(\"%lf %lf\",&eye[0],&eye[1])!=EOF){ for(i=0;i<2;i++){ if(eye[i]>=0.6){ if(eye[i]>=1.1){ count[i][0]++; } else{ count[i][1]++; } } else{ if(eye[i]<0.2){ count[i][3]++; } else{ count[i][2]++; } } } } for(i=0;i<4;i++){ printf(\"%d %d\\n\",count[0][i],count[1][i]); } return 0; } input: 0.8 1.5",
+    "target": "execution: [0, 1, 0, 1, 1, 2, 3, 2, 2, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void){ int a, b, r; int count = 1; while(scanf(\"%d %d\", &a, &b) != EOF) { if(a == 0 && b == 0) { break; } r = a % b; while(r!=0){ a = b; b = r; r = a % b; count++; } printf(\"%d %d\\n\",b,count); } return(0); } input: 1071 1029\n5 5\n0 0",
+    "target": "execution: [0, 1, 0, 1, 3, 3, 1, 0, 2, 4, 2, 2, 2, 2, 0, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: // AOJ 3040 U and U // 2019.4.2 bal4u #include <stdio.h> int main() { long long N, M; scanf(\"%lld%lld\", &N, &M); if (N >= (M << 1)) puts(\"0\"); else if (M >= (N << 1)) puts(\"1\"); else if (M <= N) puts(\"2\"); else if ((M<<1)+M+(M>>1) >= (N<<2)) puts(\"3\"); else puts(\"4\"); return 0; } input: 64783 68943",
+    "target": "execution: [0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(){ int a, b, c, work; a=b=c=work=0; scanf(\"%d%d\", &a, &b); if(a<b){ work=a; a=b; b=work; } c=a%b; while(c!=0){ a=b; b=c; c=a%b; } printf(\"%d\", b); return 0; } input: 147 105",
+    "target": "execution: [0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 3, 2, 2, 2, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> #include<stdlib.h> int f(int); int *F; int main(){ int n,i; scanf(\"%d\",&n); F = (int*)malloc(sizeof(int) * n); for(i=0; i<n; i++) F[i] = 0; printf(\"%d\",f(n)); return 0; } int f(int n){ if(n == 1 || n == 0) return F[n] = 1; if(!F[n]) return F[n]; return F[n] = f(n - 2) + f(n - 1); } input: 3",
+    "target": "execution: [0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int n,i,f[45]; scanf(\"%d\",&n); f[0]=1; f[1]=1; for (i=2;i<=n;i++){ f[i]=f[i-2]+f[i-1]; } printf(\"%d\\n\",f[n]); return 0; } input: 3",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 3, 2, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> #include<string.h> int main(){ int w[11],k[11]; int a,b; for(a=0;a<10;a++){ scanf(\"%d\",&w[a]); } for(a=0;a<10;a++){ scanf(\"%d\",&k[a]); } for(a=0;a<10;a++){ for(b=a+1;b<10;b++){ if(w[a]>=w[b])w[10]=w[a],w[a]=w[b],w[b]=w[10]; if(k[a]>=k[b])k[10]=k[a],k[a]=k[b],k[b]=k[10]; } } printf(\"%d %d\\n\",w[9]+w[8]+w[7],k[9]+k[8]+k[7]); return 0; } input: 23\n23\n20\n15\n15\n14\n13\n9\n7\n6\n25\n19\n17\n17\n16\n13\n12\n11\n9\n5",
+    "target": "execution: [0, 0, 1, 0, 0, 11, 10, 0, 11, 10, 0, 11, 55, 45, 45, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ int i,j,x,min,c,tmp; int seq[100]; c = 0; scanf(\"%d\",&x); for(i=0;i<x;i++) scanf(\"%d\",&seq[i]); for(i=0;i<x-1;i++){ min = i; for(j=i+1;j<x;j++){ if(seq[j]<seq[min]) min = j; } tmp = seq[i]; seq[i] = seq[min]; seq[min] = tmp; c++; } for(i=0;i<x;i++) printf(\"%d \",seq[i]); printf(\"\\n\"); printf(\"%d\",c); return 0; } input: 6\n5 6 4 2 1 3",
+    "target": "execution: [0, 1, 0, 0, 1, 1, 7, 6, 6, 5, 20, 15, 8, 0, 5, 5, 5, 5, 0, 7, 6, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(){ int x,y; int tmp; int r; scanf(\"%d %d\",&x,&y); if(x<y){ tmp=x; x=y; y=tmp; } r=x%y; while(r!=0){ x=y; y=r; r=x%y; if(r==0)printf(\"%d\\n\",y); } return 0; } input: 147 105",
+    "target": "execution: [0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 3, 2, 2, 2, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int count; int main(void){ int i,j,n = 0; int A[100]; scanf(\"%d\",&n); for(i = 0; i < n;i++){ scanf(\"%d\",&A[i]); } selectionSort(A,n); for(j = 0; j< n;j++){ printf(\"%d\",A[j]); if(j != n-1) printf(\" \"); } printf(\"\\n\"); printf(\"%d\\n\",count); } int selectionSort(int A[],int N){ int i,j,minj= 0,temp = 0; for(i =0; i < N;i++){ minj = i; for(j =i;j < N; j++){ if(A[j] < A[minj]) minj=j; } temp = A[i]; A[i] = A[minj]; A[minj] = temp; if(A[i]!=A[minj]){ count++; } } } input: 6\n5 6 4 2 1 3",
+    "target": "execution: [0, 0, 1, 1, 0, 1, 7, 6, 0, 1, 7, 6, 6, 0, 1, 1, 1, 0, 1, 7, 6, 27, 21, 0, 6, 6, 6, 6, 4, 0, 0, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void){ char s[16]; while(scanf(\"%s\",s) != EOF){ if((s[1] == s[2] && s[2] == s[3]) || (s[1] == s[5] && s[5] == s[9]) || (s[1] == s[4] && s[4] == s[7])){ if(s[1] != 's'){ printf(\"%c\\n\",s[1]); } } else if(s[2] == s[5] && s[5] == s[8]){ if(s[2] != 's'){ printf(\"%c\\n\",s[2]); } } else if((s[3] == s[6] && s[6] == s[9]) || (s[3] == s[5] && s[5] == s[8])){ if(s[3] != 's'){ printf(\"%c\\n\",s[3]); } } else if(s[4] == s[5] && s[5] == s[6]){ if(s[4] != 's'){ printf(\"%c\\n\",s[4]); } } else if(s[7] == s[8] && s[8] == s[9]){ if(s[7] != 's'){ printf(\"%c\\n\",s[7]); } } else{ printf(\"d\\n\"); } } return 0; } input: ooosxssxs\nxoosxsosx\nooxxxooxo",
+    "target": "execution: [0, 1, 0, 4, 3, 0, 0, 0, 0, 3, 0, 0, 0, 0, 3, 1, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> #define Max 45 int F[Max]; int fibonacci(int n){ if( n == 0 || n == 1) return F[n] = 1; if( F[n] != NULL ) return F[n]; return F[n] = fibonacci(n - 2) + fibonacci(n - 1); } int main(){ int n, i, ans; scanf(\"%d\",&n); for( i = 0 ; i <= n ; i++) ans = fibonacci(i); printf(\"%d\\n\",ans); return 0; } input: 3",
+    "target": "execution: [0, 0, 0, 0, 8, 5, 3, 1, 2, 8, 1, 0, 1, 5, 4, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(){ int n, i; double x[4], y[4]; scanf(\"%d\", &n); while(n--){ for(i = 0; i < 4; ++i) scanf(\"%lf%lf\", x + i, y + i); if((y[0] - y[1]) / (x[0] - x[1]) == (y[3] - y[2]) / (x[3] - x[2])) puts(\"YES\"); else puts(\"NO\"); } return 0; } input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0",
+    "target": "execution: [0, 1, 0, 0, 1, 3, 2, 2, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main() { int i, j, A[100], N, v, minj, count=0; scanf(\"%d\",&N); for(i=0; i<N; i++){ scanf(\"%d\",&A[i]); } for(i=0; i<=N-1; i++){ minj=i; for(j=i; j<=N-1; j++){ if(A[j]<A[minj]){ minj=j; } } v=A[i]; A[i]=A[minj]; A[minj]=v; if(A[i]<A[minj]) count++; } for(i=0; i<N; i++){ if(i>0) printf(\" \"); printf(\"%d\",A[i]); } printf(\"\\n%d\\n\",count); return 0; } input: 6\n5 6 4 2 1 3",
+    "target": "execution: [0, 0, 1, 1, 1, 7, 6, 0, 7, 6, 27, 21, 8, 0, 0, 6, 6, 6, 6, 0, 7, 6, 6, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #define BMI 25 int main(){ int num; double weight, height; while(scanf(\"%d,%lf,%lf\", &num, &weight, &height) != EOF){ if(weight / (height * height) >= BMI){ printf(\"%d\\n\", num); } } return 0; } input: 1001,50.0,1.60\n1002,60.0,1.70\n1003,70.0,1.80\n1004,80.0,1.70\n1005,90.0,1.60",
+    "target": "execution: [0, 0, 1, 0, 0, 6, 5, 2, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(void){ char f,s; int a=1,b=0,c=0; int w=0; while(scanf(\"%c %c\",&f,&s)!=EOF){ if(f=='A'&&s=='B' || s=='A'&&f=='B'){ w=a; a=b; b=w; }else if(f=='A'&&s=='C' || s=='A'&&f=='C'){ w=a; a=c; c=w; }else if(f=='C'&&s=='B' || s=='C'&&f=='B'){ w=b; b=c; c=w; } } if(a==1)printf(\"A\\n\"); else if(b==1)printf(\"B\\n\"); else if(c==1)printf(\"C\\n\"); else printf(\"error\"); return 0; } input: B,C\nA,C\nC,B\nA,B\nC,B",
+    "target": "execution: [0, 1, 0, 1, 1, 10, 9, 0, 0, 0, 9, 1, 1, 1, 8, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { char buf[16]; int a[10][10]; while (scanf(\"%s\", buf) != EOF) { int i, j; for (i=0; i<10; ++i) { a[0][i]=buf[i]-'0'; } for (i=1; i<10; ++i) for (j=0; j<10-i; ++j) a[i][j]=(a[i-1][j]+a[i-1][j+1])%10; printf(\"%d\\n\", a[9][0]); } return 0; } input: 4823108376\n1234567890\n0123456789",
+    "target": "execution: [0, 0, 1, 0, 0, 4, 0, 3, 30, 162, 135, 3, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int selectionsort(int a[],int n){ int i,j,t,sw=0,minj; for(i=0;i<n-1;i++){ minj=i; for(j=i;j<n;j++){ if(a[j]<a[minj]){ minj=j; } } t=a[i];a[i]=a[minj];a[minj]=t; if(i!=minj){ sw++; } return sw; } } int main(){ int a[100],n,i,sw; scanf(\"%d\",&n); for(i=0;i<n;i++){ scanf(\"%d\",&a[i]); } sw=selectionsort(a,n); for(i=0;i<n;i++){ if(i>0){ printf(\" \"); printf(\"%d\",a[i]); } } printf(\"\\n\"); printf(\"%d\\n\",sw); return 0; } input: 6\n5 2 4 6 1 3",
+    "target": "execution: [0, 0, 1, 1, 1, 7, 6, 2, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 7, 6, 0, 1, 7, 6, 5, 5, 0, 0, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ int x,y,a,temp; scanf(\"%d%d\",&x,&y); if(x<y){ temp=x; x=y; y=temp; } a=x%y; while(a!=0){ x=y; y=a; a=x%y; } printf(\"%d\\n\",y); return 0; } input: 54 20",
+    "target": "execution: [0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 4, 3, 3, 3, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> #include <math.h> /*147 into x, 105 into y*/ #define MAX 10000000000 int gcd(int,int); int main(){ int x,y; int d,n; int tmp,ans; scanf(\"%d %d\",&x,&y); /*if(x <= 0 || MAX < y){ return 0; }*/ ans = gcd(x,y); printf(\"%d\\n\",ans); return 0; } int gcd(int x,int y){ int tmp; int r; if(x == y){ return x; } if(x <= y){ tmp = x; x = y; y = tmp; } while(y > 0){ if(x != y){ r = x % y; } //r = x % y; x = y; y = r; /*if(x == y){ return x; } else if(x%y==0){ return r; } */ if(x%y==0){ /*Debug*/ return r; } //y = r; } } input: 147 105",
+    "target": "execution: [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 2, 2, 2, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 1]",
+    "prediction": "execution: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int a,b,n,sum,i; while (scanf(\"%d %d %d\\n\",&a,&b,&n)!=EOF) { sum=0; a=(a%b)*10; for (i=0; i<n; i++) { sum+=a/b; a=(a%b)*10; } printf(\"%d\\n\",sum); } return 0; } input: 1 2 3\n2 3 4\n5 4 3\n4 3 2",
+    "target": "execution: [0, 1, 0, 5, 4, 4, 16, 12, 12, 0, 4, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int mem[35]; int main(void) { int i, s; for (i = 0; i < 28; i++){ scanf(\"%d\", &s); mem[s - 1] = 1; } s = 1; for (i = 0; i < 30; i++){ if (mem[i] == 0){ printf(\"%d\\n\",i + 1); s++; } } return (0); } input: 3\n1\n4\n5\n7\n9\n6\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30",
+    "target": "execution: [0, 0, 0, 1, 0, 29, 28, 28, 0, 1, 31, 30, 2, 2, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ double kg; while(scanf(\"%f\", &kg) != EOF){ if(kg <= 48.00){ printf(\"light fly\\n\"); }else if(kg <= 51.00){ printf(\"fly\\n\"); }else if(kg <= 54.00){ printf(\"bantam\\n\"); }else if(kg <= 57.00){ printf(\"feather\\n\"); }else if(kg <= 60.00){ printf(\"light\\n\"); }else if(kg <= 64.00){ printf(\"light welter\\n\"); }else if(kg <= 69.00){ printf(\"welter\\n\"); }else if(kg <= 75.00){ printf(\"light middle\\n\"); }else if(kg <= 81.00){ printf(\"middle\\n\"); }else if(kg <= 91.00){ printf(\"light heavy\\n\"); }else{ printf(\"heavy\\n\"); } } return 0; } input: 48.0",
+    "target": "execution: [0, 1, 0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int Euclid(int,int); int main(){ int x,y,n; //x,y \u5165\u529b\u3055\u308c\u308b\u6570\u5b57\u7528 n \u6700\u5927\u516c\u7d04\u6570\u3092\u6c42\u3081\u308b\u7528 scanf(\"%d %d\",&x,&y); printf(\"%d\\n\",Euclid(x,y)); return 0; } int Euclid(int x,int y){ int n; if(x == y)return x;// x\u3068y\u304c\u540c\u3058\u306a\u3089\u305d\u306e\u5024\u3044\u304c\u6700\u5927\u516c\u7d04\u6570 else{ //\u305d\u3046\u3067\u306a\u3051\u308c\u3070\u3001\u30e6\u30fc\u30af\u30ea\u30c3\u30c9\u306e\u4e92\u9664\u6cd5\u3092\u8a08\u7b97 if(x > y){ //x\u306e\u65b9\u304c\u5927\u304d\u3044\u3068\u304d n = x % y; if(x%n==0 && y%n==0)return n; else return Euclid(y,n); } else{ n = y % x; //y\u306e\u65b9\u304c\u5927\u304d\u3044\u3068\u304d if(x%n==0 && y%n==0)return n; else return Euclid(x,n); } } } input: 54 20",
+    "target": "execution: [0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 3, 0, 3, 3, 3, 2, 0, 0, 0, 0, 0, 0, 0, 3]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> #include<string.h> int main(){ char be[26]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'}; char af[26]={'D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','A','B','C'}; char str[1000]; int i,j,c; scanf(\"%s\",str); c=strlen(str); //\u30c4\u9589\u30ab\u30c4\u7be0\u580b\u7642\u30a2\u30c4\u3065\u500b\u9673\u30ad\u30c4\u3064\u30a6\u30c4\u3065\u30fc\u30c4\u5815\u30a7\u30c4\u3065\u30a5 for(i=0;i<c;i++){ for(j=0;j<26;j++){ if(str[i]==af[j]){ str[i]=be[j]; } } } printf(\"%s\\n\",str); return 0; } input: MRL",
+    "target": "execution: [0, 0, 1, 1, 1, 0, 0, 1, 1, 4, 81, 78, 3, 0, 0, 0, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int fibo[45]; int main(void){ int n; int i; scanf(\"%d\",&n); fibo[0]=1; fibo[1]=1; for(i=2;i<=n;i++)fibo[i]=fibo[i-1]+fibo[i-2]; printf(\"%d\\n\",fibo[n]); return 0; } input: 3",
+    "target": "execution: [0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int N; int K; scanf(\"%d\", &N); scanf(\"%d\", &K); while (K--){ int a, b; scanf(\"%d %d\", &a, &b); if (N / 2 < a) a = N - a + 1; if (N / 2 < b) b = N - b + 1; // printf(\"%d %d\\n\", a, b); if (a < b) printf(\"%d\\n\", (a - 1) % 3 + 1); else printf(\"%d\\n\", (b - 1) % 3 + 1); } return 0; } input: 11\n4\n5 2\n9 7\n4 4\n3 9",
+    "target": "execution: [0, 0, 1, 0, 0, 1, 1, 5, 0, 4, 4, 4, 0, 4, 3, 0, 1, 1]",
+    "prediction": "execution: [0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> int main(void) { int a, b, xy, i, m; scanf(\"%d %d\", &a, &b); /* \u6574\u6570 x, y \u306b\u3064\u3044\u3066\u30011 < y < x \u306a\u3089\u3070 x \u3068 y \u306e\u6700\u5927\u516c\u7d04\u6570\u306f y \u3068 x%y \u306e \u6700\u5927\u516c\u7d04\u6570\u306b\u7b49\u3057\u3044\u3002 \u3053\u3053\u3067 a%b \u306f a \u3092 b \u3067\u5272\u3063\u305f\u4f59\u308a\u3067\u3042\u308b\u3002 */ if(1 < a && 1 < b) { if(a == b) { printf(\"%d\\n\", a); return 0; } else if(a < b) { xy = a % b; } else if(a > b) { xy = b % a; } if((a%xy)==0 && (b%xy)==0) { printf(\"%d\\n\", xy); return 0; } for(i=xy/2;i>0;i--) { m = xy % i; if(m == 0 && (a%i)==0 && (b%i)==0) { printf(\"%d\\n\", i); break; } } } return 0; } input: 54 20",
+    "target": "execution: [0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 9, 9, 9, 1, 1, 0, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include<stdio.h> int main(){ float w, h; int id; while(~scanf(\"%d,%f,%f\", &id, &w, &h)){ if(w/h/h>=25) printf(\"%d\\n\", id); } return 0; } input: 1001,50.0,1.60\n1002,60.0,1.70\n1003,70.0,1.80\n1004,80.0,1.70\n1005,90.0,1.60",
+    "target": "execution: [0, 1, 0, 0, 6, 5, 2, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  },
+  {
+    "input": "code: #include <stdio.h> typedef struct { double x; double y; }POSITION; int main( void ) { POSITION pos[4]; int n; int i; int j; scanf( \"%d\\n\", &n ); for( i = 0; i < n; i++ ) { for( j = 0; j < 4; j++ ) { scanf( \"%lf %lf\", &pos[j].x, &pos[j].y ); } if( (pos[0].y - pos[1].y) / (pos[0].x - pos[1].x) == (pos[2].y - pos[3].y) / (pos[2].x - pos[3].x) ) { printf( \"YES\\n\" ); } else { printf( \"NO\\n\" ); } } return (0); } input: 2\n0.0 0.0 1.0 1.0 1.0 0.0 2.0 1.0\n3.0 2.0 9.0 6.0 13.0 5.0 7.0 9.0",
+    "target": "execution: [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 3, 0, 10, 0, 8, 0, 2, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1]",
+    "prediction": "execution: [0, 0, 1, 0, 0, 1, 1, 9, 8, 0, 1, 1, 1]",
+    "mae": null
+  }
+]
